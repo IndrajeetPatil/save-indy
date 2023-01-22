@@ -1,0 +1,6 @@
+let WIDTH = 1000;
+let HEIGHT = WIDTH;
+let PLAYER_SIZE = 50;
+let PLAYER_X = WIDTH / 2 - PLAYER_SIZE / 2;
+let SPIKE_SIZE = WIDTH / 4;
+let SPIKE_X = WIDTH / 2 - SPIKE_SIZE / 2;
