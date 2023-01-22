@@ -1,17 +1,27 @@
 class Game {
   constructor() {
-    this.spikes = new Spikes(SPIKE_X, SPIKE_START_LENGTH, SPIKE_START_LENGTH, SPIKE_WIDTH);
-    this.backgrund;
+    this.spikesLeft = new SpikesLeft();
+    this.spikesRight = new SpikesRight();
+    this.background = new Background();
   }
 
   preload() {
-    this.spikes.preload();
-    this.backgrund = loadImage("../assets/background.png");
+    this.spikesLeft.preload();
+    this.spikesRight.preload();
+    this.background.preload();
   }
 
   draw() {
-    image(this.backgrund, 0, 0, WIDTH, HEIGHT);
+    this.background.draw();
+    this.spikesLeft.draw();
+    this.spikesRight.draw();
+  }
+}
 
-    this.spikes.draw();
+function keyPressed() {
+  "use strict";
+  if (keyCode === 32) {
+    game.spikesLeft.move();
+    game.spikesRight.move();
   }
 }
