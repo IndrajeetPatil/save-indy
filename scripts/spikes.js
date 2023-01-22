@@ -1,9 +1,17 @@
 class Spikes {
   constructor() {
-    this.x = SPIKE_X;
-    this.y = SPIKE_START_LENGTH;
-    this.width = SPIKE_START_LENGTH;
-    this.height = SPIKE_WIDTH;
+    this.x;
+    this.y;
+    this.width;
+    this.height;
+  }
+
+  getX() {
+    return this.x;
+  }
+
+  getY() {
+    return this.y;
   }
 
   draw() {
@@ -26,7 +34,15 @@ class SpikesLeft extends Spikes {
   }
 
   move() {
-    this.x += SPIKE_INCREMENT;
+    if (this.x < WIDTH / 2 - SPIKE_START_LENGTH) {
+      this.x += SPIKE_INCREMENT;
+    }
+  }
+
+  retract() {
+    if (this.x > 0) {
+      this.x -= SPIKE_INCREMENT;
+    }
   }
 }
 
@@ -45,6 +61,14 @@ class SpikesRight extends Spikes {
   }
 
   move() {
-    this.x -= SPIKE_INCREMENT;
+    if (this.x > WIDTH / 2) {
+      this.x -= SPIKE_INCREMENT;
+    }
+  }
+
+  retract() {
+    if (this.x < WIDTH - SPIKE_START_LENGTH) {
+      this.x += SPIKE_INCREMENT;
+    }
   }
 }

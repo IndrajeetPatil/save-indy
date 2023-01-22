@@ -1,20 +1,27 @@
 class Game {
   constructor() {
+    this.background = new Background();
     this.spikesLeft = new SpikesLeft();
     this.spikesRight = new SpikesRight();
-    this.background = new Background();
+    this.player = new Player();
   }
 
   preload() {
+    this.background.preload();
     this.spikesLeft.preload();
     this.spikesRight.preload();
-    this.background.preload();
+    this.player.preload();
   }
 
   draw() {
     this.background.draw();
     this.spikesLeft.draw();
     this.spikesRight.draw();
+
+    console.log(this.spikesLeft.getX(), PLAYER_X);
+    if (this.spikesLeft.getX() >= WIDTH / 4) {
+      this.player.draw();
+    }
   }
 }
 
@@ -24,4 +31,9 @@ function keyPressed() {
     game.spikesLeft.move();
     game.spikesRight.move();
   }
+
+    if (keyCode === 13) {
+      game.spikesLeft.retract();
+      game.spikesRight.retract();
+    }
 }
