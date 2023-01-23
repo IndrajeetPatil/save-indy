@@ -26,7 +26,9 @@ body {
 
 .start-btn,
 .restart-btn,
-.answer-btn {
+.answer-btn,
+.correct-btn,
+.incorrect-btn {
   text-align: center;
   display: inline-block;
   margin: 5px;
@@ -41,6 +43,16 @@ body {
   border-radius: 7px;
   box-shadow: 0 0.2em gray;
   cursor: pointer;
+}
+
+.correct-btn {
+  background-color: green;
+  color: white;
+}
+
+.incorrect-btn {
+  background-color: red;
+  color: white;
 }
 
 .all-container {

@@ -6,7 +6,12 @@ let checkAnswer = (event) => {
   const askedQuestion = document.getElementById("question-text").innerHTML;
   const correctAnswer = questions.filter((item) => item.question === askedQuestion)[0].correctAnswer;
 
-  return String(selectedAnswer) === String(correctAnswer);
+  let truthValue = String(selectedAnswer) === String(correctAnswer);
+
+  let newClass = truthValue ? "correct-btn" : "incorrect-btn";
+  event.target.classList.add(newClass);
+
+  return truthValue;
 };
 
 let answerButtons = [...document.getElementsByClassName("answer-btn")];
