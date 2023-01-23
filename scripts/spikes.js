@@ -22,10 +22,10 @@ class Spikes {
 class SpikesLeft extends Spikes {
   constructor() {
     super();
-    this.x = SPIKE_X;
-    this.y = SPIKE_START_LENGTH;
+    this.x = SPIKE_START_X;
+    this.y = SPIKE_START_Y;
     this.width = SPIKE_START_LENGTH;
-    this.height = SPIKE_WIDTH;
+    this.height = SPIKE_THICKNESS;
     this.image;
     this.sound;
   }
@@ -56,7 +56,7 @@ class SpikesRight extends Spikes {
     this.x = WIDTH - SPIKE_START_LENGTH;
     this.y = SPIKE_START_LENGTH;
     this.width = SPIKE_START_LENGTH;
-    this.height = SPIKE_WIDTH;
+    this.height = SPIKE_THICKNESS;
     this.image;
   }
 
