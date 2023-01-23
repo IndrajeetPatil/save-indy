@@ -18,7 +18,6 @@ class Game {
     this.spikesLeft.draw();
     this.spikesRight.draw();
 
-    console.log(this.spikesLeft.getX(), PLAYER_X);
     if (this.spikesLeft.getX() >= WIDTH / 4) {
       this.player.draw();
     }
@@ -30,10 +29,13 @@ function keyPressed() {
   if (keyCode === 32) {
     game.spikesLeft.move();
     game.spikesRight.move();
+    game.player.reduceHealth();
+    console.log(game.player.health);
+    game.player.checkHealth();
   }
 
-    if (keyCode === 13) {
-      game.spikesLeft.retract();
-      game.spikesRight.retract();
-    }
+  if (keyCode === 13) {
+    game.spikesLeft.retract();
+    game.spikesRight.retract();
+  }
 }

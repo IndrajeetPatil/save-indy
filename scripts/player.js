@@ -6,6 +6,17 @@ class Player {
 
   preload() {
     this.image = loadImage("../assets/blood.png");
+    this.sound = loadSound("../assets/man_scream_sound.mp3");
+  }
+
+  reduceHealth() {
+    this.health -= 10;
+  }
+
+  checkHealth() {
+    if (this.health === 0) {
+      this.sound.play();
+    }
   }
 
   draw() {

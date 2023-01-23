@@ -16,3 +16,8 @@ function draw() {
   "use strict";
   game.draw();
 }
+
+function play() {
+  "use strict";
+  game.play();
+}

@@ -27,21 +27,25 @@ class SpikesLeft extends Spikes {
     this.width = SPIKE_START_LENGTH;
     this.height = SPIKE_WIDTH;
     this.image;
+    this.sound;
   }
 
   preload() {
     this.image = loadImage("../assets/long_wood_spike_left.png");
+    this.sound = loadSound("../assets/spike_movement_sound.mp3");
   }
 
   move() {
     if (this.x < WIDTH / 2 - SPIKE_START_LENGTH) {
       this.x += SPIKE_INCREMENT;
+      this.sound.play();
     }
   }
 
   retract() {
     if (this.x > 0) {
       this.x -= SPIKE_INCREMENT;
+      this.sound.play();
     }
   }
 }
