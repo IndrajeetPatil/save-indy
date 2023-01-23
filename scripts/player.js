@@ -14,7 +14,7 @@ class Player {
   }
 
   checkHealth() {
-    if (this.health === 0) {
+    if (this.health <= 0) {
       this.sound.play();
     }
   }

@@ -1,6 +1,5 @@
 body {
   font-family: "Press Start 2P", cursive;
-  background-color: aquamarine;
 }
 
 .home-banner,
@@ -22,6 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: aquamarine;
 }
 
 .start-btn,
