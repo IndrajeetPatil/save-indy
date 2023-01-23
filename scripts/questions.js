@@ -21,15 +21,13 @@ function prepareHTML(questions) {
     throw new Error("No questions provided.");
   }
 
-  let questionsHTMLArray = [];
-
-  questionsHTMLArray = questions.map((item) => {
+  let questionsHTMLArray = questions.map((item) => {
     let answersHTML = item.answers.reduce(
       (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
       ""
     );
 
-    let questionHTML = `<h2 class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
+    let questionHTML = `<h2 id="question-text" class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
 
     return questionHTML;
   });
