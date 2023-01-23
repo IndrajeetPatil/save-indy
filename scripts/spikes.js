@@ -76,3 +76,47 @@ class SpikesRight extends Spikes {
     }
   }
 }
+
+class ShortSpikesLeft extends Spikes {
+  constructor() {
+    super();
+    this.image;
+  }
+
+  preload() {
+    this.image = loadImage("../assets/short_wood.png");
+  }
+
+  update(width) {
+    this.x = 0;
+    this.y = SPIKE_START_LENGTH;
+    this.width = width * 2;
+    this.height = SPIKE_THICKNESS;
+  }
+
+  remove() {
+    this.width -= SPIKE_INCREMENT;
+  }
+}
+
+class ShortSpikesRight extends Spikes {
+  constructor() {
+    super();
+    this.image;
+  }
+
+  preload() {
+    this.image = loadImage("../assets/short_wood.png");
+  }
+
+  update(x, width) {
+    this.x = x;
+    this.y = SPIKE_START_LENGTH;
+    this.width = width * 2 + SPIKE_INCREMENT;
+    this.height = SPIKE_THICKNESS;
+  }
+
+  remove() {
+    this.width += SPIKE_INCREMENT;
+  }
+}
