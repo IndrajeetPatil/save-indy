@@ -112,7 +112,7 @@ class ShortSpikesRight extends Spikes {
   update(x, width) {
     this.x = x;
     this.y = SPIKE_START_LENGTH;
-    this.width = width * 2 + SPIKE_INCREMENT;
+    this.width = width * 2;
     this.height = SPIKE_THICKNESS;
   }
 

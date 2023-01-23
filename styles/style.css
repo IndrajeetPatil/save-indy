@@ -2,13 +2,34 @@ body {
   font-family: "Press Start 2P", cursive;
 }
 
+.home-banner,
+.js-logo {
+  width: auto;
+  height: 10rem;
+}
+
+.intro-images-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .start-btn,
 .restart-btn {
   text-align: center;
   display: inline-block;
   margin: 5px;
   font-weight: bold;
-  padding: 10px 0 10px 10px;
+  padding: 15px;
   background-color: lightgray;
   text-shadow: -1px -1px black, 1px 1px white;
   color: gray;

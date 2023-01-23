@@ -29,7 +29,6 @@ class Game {
     }
 
     let currentRightSpikesX = this.spikesRight.getX();
-
     if (currentRightSpikesX < WIDTH - SPIKE_START_LENGTH) {
       let startingX = currentRightSpikesX + SPIKE_START_LENGTH;
       let width = WIDTH - startingX;
