@@ -9,9 +9,8 @@ function preload() {
 // Setup game
 function setup() {
   "use strict";
-  createCanvas(HEIGHT, WIDTH);
-  // let cnv = createCanvas(HEIGHT, WIDTH);
-  //cnv.parent("myContainer");
+  let cnv = createCanvas(HEIGHT, WIDTH);
+  cnv.parent("game-container");
 }
 
 function draw() {
