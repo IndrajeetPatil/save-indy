@@ -6,25 +6,30 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "What does `null == undefined` evaluate to?",
+    answers: ["true", "false", "undefined", "null"],
+    correctAnswer: "true",
+    language: "javascript",
+    level: "beginner",
+  },
 ];
 
 function prepareHTML(questions) {
   "use strict";
+  if (questions.length === 0) {
+    throw new Error("No questions provided.");
+  }
 
-  let questionsHTMLArray = questions.map((item) => {
-    let questionHTML = `
-        <h2 class="question-text">${item.question}</h2>
-        <form>
-          <button type="button" class="answer-btn">${item.answers[0]}</button>
-          <br>
-          <button type="button" class="answer-btn">${item.answers[1]}</button>
-          <br>
-          <button type="button" class="answer-btn">${item.answers[2]}</button>
-          <br>
-          <button type="button" class="answer-btn">${item.answers[3]}</button>
-          <br>
-        </form>
-    `;
+  let questionsHTMLArray = [];
+
+  questionsHTMLArray = questions.map((item) => {
+    let answersHTML = item.answers.reduce(
+      (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
+      ""
+    );
+
+    let questionHTML = `<h2 class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
 
     return questionHTML;
   });
