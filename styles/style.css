@@ -13,10 +13,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 10px;
 }
 
-.intro-container {
+.intro-container,
+.intro-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +24,10 @@ body {
   text-align: center;
   height: 100vh;
   background-color: #f7efe5;
+}
+
+.intro-text-container {
+  margin-bottom: 50px;
 }
 
 .legal-footer {
