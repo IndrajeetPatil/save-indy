@@ -14,6 +14,9 @@ class Player {
 
   reduceHealth() {
     this.health -= PLAYER_HEALTH_CHANGE;
+    if (this.health <= 0) {
+      this.soundScream.play();
+    }
   }
 
   increaseHealth() {
@@ -23,12 +26,6 @@ class Player {
 
   isDead() {
     return this.health <= 0;
-  }
-
-  scream() {
-    if (this.health <= 0) {
-      this.soundScream.play();
-    }
   }
 
   draw() {

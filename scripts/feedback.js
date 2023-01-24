@@ -20,7 +20,6 @@ let showFeedbackAndNextQuestion = (event) => {
   let feedbackText = truthValue ? "Correct!" : "Incorrect!";
   truthValue ? game.snake.retract() : game.snake.move();
   truthValue ? game.player.increaseHealth() : game.player.reduceHealth();
-  game.player.scream();
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
