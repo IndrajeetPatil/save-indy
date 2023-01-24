@@ -28,28 +28,34 @@ body {
 button {
   text-align: center;
   display: inline-block;
-  margin: 5px;
-  font-weight: bold;
-  padding: 15px;
-  background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
-  /* -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -o-border-radius: 7px; */
-  border-radius: 7px;
-  box-shadow: 0 0.2em gray;
-  cursor: pointer;
-}
-
-.correct-answer,
-.incorrect-answer {
-  background-color: black;
   font-weight: bold;
   font-size: larger;
   margin: 5px;
   padding: 15px;
   border-radius: 7px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  box-shadow: 0 0.2em gray;
+  cursor: pointer;
+}
+
+.correct-answer,
+.incorrect-answer,
+.answer-btn {
+  font-size: 1.5rem;
+  margin: 10px;
+}
+
+.answer-btn {
+  width: 200px;
+  height: 50px;
+}
+
+.correct-answer,
+.incorrect-answer {
+  padding: 15px;
+  background-color: black;
 }
 
 .correct-answer {
@@ -74,14 +80,7 @@ button {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin: 20px;
-  line-height: 2rem;
-  text-align: center;
-}
-
-.answer-btn {
-  width: 200px;
-  height: 50px;
-  font-size: 1.5rem;
   margin: 15px;
+  line-height: 1.5rem;
+  text-align: center;
 }

@@ -3,7 +3,7 @@ let gameOver = (message) => {
   let gameOverHTML = `<div class="game-over">
                 <h2>${message}</h2>
                 <p>Click the button below to restart the game.</p>
-                <span class='restart-btn'><a href="./index.html">Restart</a></span>
+                <button class='restart-btn'><a href="./index.html">Restart</a></button>
             </div>`;
   document.getElementById("question-container").innerHTML = gameOverHTML;
 };
