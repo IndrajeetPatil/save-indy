@@ -24,11 +24,7 @@ body {
   background-color: aquamarine;
 }
 
-.start-btn,
-.restart-btn,
-.answer-btn,
-.correct-btn,
-.incorrect-btn {
+button {
   text-align: center;
   display: inline-block;
   margin: 5px;
@@ -45,14 +41,22 @@ body {
   cursor: pointer;
 }
 
-.correct-btn {
-  background-color: green;
-  color: white;
+.correct-answer,
+.incorrect-answer {
+  background-color: black;
+  font-weight: bold;
+  font-size: larger;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 7px;
 }
 
-.incorrect-btn {
-  background-color: red;
-  color: white;
+.correct-answer {
+  color: rgb(53, 236, 53);
+}
+
+.incorrect-answer {
+  color: rgb(236, 62, 62);
 }
 
 .all-container {
@@ -70,7 +74,7 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 20px;
-  line-height: 2.5rem;
+  line-height: 2rem;
   text-align: center;
 }
 

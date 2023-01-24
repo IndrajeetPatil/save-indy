@@ -8,11 +8,19 @@ let checkAnswer = (event) => {
 
   let truthValue = String(selectedAnswer) === String(correctAnswer);
 
-  let newClass = truthValue ? "correct-btn" : "incorrect-btn";
-  event.target.classList.add(newClass);
-
   return truthValue;
 };
 
+let addFeedbackHTML = (event) => {
+  "use strict";
+  let truthValue = checkAnswer(event);
+  let newClass = truthValue ? "correct-answer" : "incorrect-answer";
+  let feedbackText = truthValue ? "Correct!" : "Incorrect!";
+
+  let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
+
+  event.target.parentNode.insertAdjacentHTML("afterend", feedbackElement);
+};
+
 let answerButtons = [...document.getElementsByClassName("answer-btn")];
-answerButtons.forEach((element) => element.addEventListener("click", (event) => checkAnswer(event)));
+answerButtons.forEach((element) => element.addEventListener("click", addFeedbackHTML));

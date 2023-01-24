@@ -15,7 +15,7 @@ let questions = [
   },
 ];
 
-function prepareHTML(questions) {
+function prepareQuestions(questions) {
   "use strict";
   if (questions.length === 0) {
     throw new Error("No questions provided.");
@@ -27,9 +27,9 @@ function prepareHTML(questions) {
       ""
     );
 
-    let questionHTML = `<h2 id="question-text" class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
+    let questionButtonsHTML = `<h2 id="question-text" class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
 
-    return questionHTML;
+    return questionButtonsHTML;
   });
 
   return questionsHTMLArray;
@@ -41,5 +41,5 @@ function displayQuestion(html) {
   document.getElementById("question-container").innerHTML = html;
 }
 
-let questionsHTML = prepareHTML(questions);
+let questionsHTML = prepareQuestions(questions);
 displayQuestion(questionsHTML[0]);
