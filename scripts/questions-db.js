@@ -139,6 +139,20 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following will not return `NaN`?",
+    answers: ["1 + 'x'", "1 * 'x'", "1 % 'x'", "1 - 'x'"],
+    correctAnswer: "1 + 'x'",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "What would `Boolean(() => {})` evaluate to?",
+    answers: ["undefined", "true", "false", "NaN"],
+    correctAnswer: "true",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
   //   {
