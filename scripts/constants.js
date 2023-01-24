@@ -1,4 +1,4 @@
-let HEIGHT = 1000;
+let HEIGHT = 800;
 let WIDTH = HEIGHT;
 
 let NUM_SNAKES_LEFT = 10;

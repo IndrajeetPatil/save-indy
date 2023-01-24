@@ -44,8 +44,10 @@ let showFeedbackAndNextQuestion = (event) => {
 
   if (isPlayerDead) {
     gameOver("Game Over! You didn't save Indy 🪦");
-  } else if (isPlayerSafe || noQuestionsRemaining) {
+  } else if (isPlayerSafe) {
     gameOver("You have won! You saved Indy 🙏");
+  } else if (noQuestionsRemaining) {
+    gameOver("No more questions left. You have won! You saved Indy 🙏");
   } else {
     event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
     setTimeout(displayQuestion, 1000, availableQuestions);
