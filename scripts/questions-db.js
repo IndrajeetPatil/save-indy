@@ -70,7 +70,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "What will be the output of `console.log(0 === -0)`?",
+    question: "What will `0 === -0` evaluate to?",
     answers: ["null", "true", "false", "undefined"],
     correctAnswer: "true",
     language: "javascript",
@@ -112,13 +112,35 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "Which of the following objects doesn't have a literal syntax?",
-    answers: ["string", "symbol", "BigInt", "integer"],
-    correctAnswer: "symbol",
+    question: "What does `Number(undefined)` evaluate to?",
+    answers: ["undefined", "1", "0", "NaN"],
+    correctAnswer: "NaN",
     language: "javascript",
-    level: "intermediate",
+    level: "beginner",
+  },
+  {
+    question: "What does `Number(null)` evaluate to?",
+    answers: ["undefined", "1", "0", "NaN"],
+    correctAnswer: "0",
+    language: "javascript",
+    level: "beginner",
   },
 
+  // ---------------- intermediate ----------------
+  //   {
+  //     question: "Which of the following objects doesn't have a literal syntax?",
+  //     answers: ["string", "symbol", "BigInt", "integer"],
+  //     correctAnswer: "symbol",
+  //     language: "javascript",
+  //     level: "intermediate",
+  //   },
+  //   {
+  //     question: "What's the standard way to refer to global object in any context?",
+  //     answers: ["global", "globalThis", "window", "self"],
+  //     correctAnswer: "globalThis",
+  //     language: "javascript",
+  //     level: "intermediate",
+  //   },
   //   {
   //     question: "What is the length of string literal '😋'?",
   //     answers: ["1", "2", "0", "undefined"],
