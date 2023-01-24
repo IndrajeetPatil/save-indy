@@ -30,7 +30,6 @@ class Snake {
 
   retract() {
     this.x -= SNAKE_INCREMENT;
-    this.sound.play();
   }
 
   draw() {
