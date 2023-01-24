@@ -21,15 +21,24 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   height: 100vh;
   background-color: aquamarine;
 }
 
+.legal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 70vw;
+  margin: 50px;
+  font-size: 0.7rem;
+}
+
 button {
+  font-family: "Press Start 2P", cursive;
   text-align: center;
   display: inline-block;
-  font-weight: bold;
-  font-size: larger;
   margin: 5px;
   padding: 15px;
   border-radius: 7px;
@@ -37,19 +46,18 @@ button {
   text-shadow: -1px -1px black, 1px 1px white;
   color: gray;
   box-shadow: 0 0.2em gray;
-  cursor: pointer;
 }
 
 .correct-answer,
 .incorrect-answer,
 .answer-btn {
-  font-size: 1.5rem;
   margin: 10px;
 }
 
 .answer-btn {
   width: 200px;
   height: 50px;
+  font-size: 0.7rem;
 }
 
 .correct-answer,
