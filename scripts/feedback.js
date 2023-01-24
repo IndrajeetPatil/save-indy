@@ -23,7 +23,6 @@ let checkAnswer = (event) => {
 
 let showFeedbackAndNextQuestion = (event) => {
   "use strict";
-  console.log("feedbacked");
   let isAnswerCorrect = checkAnswer(event);
 
   let newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
@@ -41,10 +40,11 @@ let showFeedbackAndNextQuestion = (event) => {
 
   let isPlayerDead = game.player.isDead();
   let isPlayerSafe = !game.snake.isThreateningPlayer();
+  let noQuestionsRemaining = availableQuestionsCopy.length === 0;
 
   if (isPlayerDead) {
     gameOver("Game Over! You didn't save Indy 🪦");
-  } else if (isPlayerSafe) {
+  } else if (isPlayerSafe || noQuestionsRemaining) {
     gameOver("You have won! You saved Indy 🙏");
   } else {
     event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);

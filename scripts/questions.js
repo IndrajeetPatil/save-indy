@@ -64,12 +64,15 @@ function prepareQuestions(questions) {
 }
 
 const availableQuestions = prepareQuestions(questions);
+let availableQuestionsCopy = [...availableQuestions];
 
 function displayQuestion() {
   "use strict";
-  let availableQuestionsCount = availableQuestions.length;
-  let randomQuestionIndex = Math.floor(Math.random() * availableQuestionsCount);
-  let html = availableQuestions[randomQuestionIndex];
+  if (availableQuestionsCopy.length === 0) {
+    throw new Error("No more questions remaining.");
+  }
+
+  let html = availableQuestionsCopy.pop();
   document.getElementById("question-container").innerHTML = html;
 
   let answerButtons = [...document.getElementsByClassName("answer-btn")];
