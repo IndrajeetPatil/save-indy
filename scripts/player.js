@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.health = 100;
+    this.health = PLAYER_HEALTH;
     this.image;
   }
 
@@ -10,10 +10,18 @@ class Player {
   }
 
   reduceHealth() {
-    this.health -= 10;
+    this.health -= PLAYER_HEALTH_CHANGE;
   }
 
-  checkHealth() {
+  increaseHealth() {
+    this.health += PLAYER_HEALTH_CHANGE;
+  }
+
+  isDead() {
+    return this.health <= 0;
+  }
+
+  scream() {
     if (this.health <= 0) {
       this.sound.play();
     }

@@ -15,12 +15,15 @@ let showFeedbackAndNextQuestion = (event) => {
   "use strict";
   console.log("feedbacked");
   let truthValue = checkAnswer(event);
+
   let newClass = truthValue ? "correct-answer" : "incorrect-answer";
   let feedbackText = truthValue ? "Correct!" : "Incorrect!";
+  truthValue ? game.snake.retract() : game.snake.move();
+  truthValue ? game.player.increaseHealth() : game.player.reduceHealth();
+  game.player.scream();
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
   event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
-
   setTimeout(displayQuestion, 1000, availableQuestions);
 };

@@ -15,21 +15,8 @@ class Game {
     this.background.draw();
     this.snake.draw();
 
-    if (this.snake.getX() >= WIDTH / 4) {
+    if (this.player.isDead()) {
       this.player.draw();
     }
-  }
-}
-
-function keyPressed() {
-  "use strict";
-  if (keyCode === 32) {
-    game.snake.move();
-    game.player.reduceHealth();
-    game.player.checkHealth();
-  }
-
-  if (keyCode === 13) {
-    game.snake.retract();
   }
 }
