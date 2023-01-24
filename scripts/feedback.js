@@ -1,3 +1,13 @@
+let gameOver = () => {
+  "use strict";
+  let gameOverHTML = `<div class="game-over">
+                <h2>Game Over!</h2>
+                <p>Click the button below to restart the game.</p>
+                <span class='restart-btn'><a href="./index.html">Restart</a></span>
+            </div>`;
+  document.getElementById("question-container").innerHTML = gameOverHTML;
+};
+
 let checkAnswer = (event) => {
   "use strict";
 
@@ -29,6 +39,11 @@ let showFeedbackAndNextQuestion = (event) => {
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
-  event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
-  setTimeout(displayQuestion, 1000, availableQuestions);
+  let isPlayerDead = game.player.isDead();
+  if (isPlayerDead) {
+    gameOver();
+  } else {
+    event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
+    setTimeout(displayQuestion, 1000, availableQuestions);
+  }
 };

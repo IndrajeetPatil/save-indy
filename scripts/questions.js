@@ -22,7 +22,7 @@ let questions = [
   },
   {
     question: "Which of the following is not a falsy value?",
-    answers: ["''", "null", "undefined", "[ ]"],
+    answers: ["' '", "null", "undefined", "[ ]"],
     correctAnswer: "[ ]",
     language: "javascript",
     level: "beginner",
