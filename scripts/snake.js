@@ -32,6 +32,10 @@ class Snake {
     this.x -= SNAKE_INCREMENT;
   }
 
+  isThreateningPlayer() {
+    return this.x + this.width > 0;
+  }
+
   draw() {
     image(this.image, this.x, this.y, this.width, this.height);
   }

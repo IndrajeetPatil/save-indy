@@ -1,7 +1,7 @@
-let gameOver = () => {
+let gameOver = (message) => {
   "use strict";
   let gameOverHTML = `<div class="game-over">
-                <h2>Game Over!</h2>
+                <h2>${message}</h2>
                 <p>Click the button below to restart the game.</p>
                 <span class='restart-btn'><a href="./index.html">Restart</a></span>
             </div>`;
@@ -40,8 +40,12 @@ let showFeedbackAndNextQuestion = (event) => {
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
   let isPlayerDead = game.player.isDead();
+  let isPlayerSafe = !game.snake.isThreateningPlayer();
+
   if (isPlayerDead) {
-    gameOver();
+    gameOver("Game Over! You didn't save Indy 🪦");
+  } else if (isPlayerSafe) {
+    gameOver("You have won! You saved Indy 🙏");
   } else {
     event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
     setTimeout(displayQuestion, 1000, availableQuestions);
