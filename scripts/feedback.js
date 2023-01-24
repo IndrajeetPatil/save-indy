@@ -11,16 +11,16 @@ let checkAnswer = (event) => {
   return truthValue;
 };
 
-let addFeedbackHTML = (event) => {
+let showFeedbackAndNextQuestion = (event) => {
   "use strict";
+  console.log("feedbacked");
   let truthValue = checkAnswer(event);
   let newClass = truthValue ? "correct-answer" : "incorrect-answer";
   let feedbackText = truthValue ? "Correct!" : "Incorrect!";
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
-  event.target.parentNode.insertAdjacentHTML("afterend", feedbackElement);
-};
+  event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
 
-let answerButtons = [...document.getElementsByClassName("answer-btn")];
-answerButtons.forEach((element) => element.addEventListener("click", addFeedbackHTML));
+  setTimeout(displayQuestion, 1000, availableQuestions);
+};

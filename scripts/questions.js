@@ -13,6 +13,20 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "xxxx",
+    answers: ["0", "1", "Syntax error", "2"],
+    correctAnswer: "1",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "yyyy",
+    answers: ["true", "false", "undefined", "null"],
+    correctAnswer: "true",
+    language: "javascript",
+    level: "beginner",
+  },
 ];
 
 function prepareQuestions(questions) {
@@ -35,11 +49,18 @@ function prepareQuestions(questions) {
   return questionsHTMLArray;
 }
 
-function displayQuestion(html) {
-  "use strict";
+const availableQuestions = prepareQuestions(questions);
 
+function displayQuestion(availableQuestions) {
+  "use strict";
+  console.log("called");
+  let availableQuestionsCount = availableQuestions.length;
+  let randomQuestionIndex = Math.floor(Math.random() * availableQuestionsCount);
+  let html = availableQuestions[randomQuestionIndex];
   document.getElementById("question-container").innerHTML = html;
+
+  let answerButtons = [...document.getElementsByClassName("answer-btn")];
+  answerButtons.forEach((element) => element.addEventListener("click", (event) => showFeedbackAndNextQuestion(event)));
 }
 
-let questionsHTML = prepareQuestions(questions);
-displayQuestion(questionsHTML[0]);
+displayQuestion(availableQuestions);
