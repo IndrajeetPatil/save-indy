@@ -28,6 +28,13 @@ let questions = [
     level: "beginner",
   },
   {
+    question: "Which of the following is not a truthy value?",
+    answers: ["'false'", "'0'", "''", "[ ]"],
+    correctAnswer: "''",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
     question: "Which of the following is not a primitive type?",
     answers: ["string", "object", "symbol", "undefined"],
     correctAnswer: "object",
@@ -96,6 +103,20 @@ let questions = [
     correctAnswer: "/^x/",
     language: "javascript",
     level: "beginner",
+  },
+  {
+    question: "If `x` is an array of length 2, what would `x[2]` return?",
+    answers: ["null", "undefined", "Error object", "NaN"],
+    correctAnswer: "undefined",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "Which of the following objects doesn't have a literal syntax?",
+    answers: ["string", "symbol", "BigInt", "integer"],
+    correctAnswer: "symbol",
+    language: "javascript",
+    level: "intermediate",
   },
 
   //   {
