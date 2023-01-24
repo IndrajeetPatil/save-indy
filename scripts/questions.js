@@ -14,16 +14,16 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "xxxx",
-    answers: ["0", "1", "Syntax error", "2"],
-    correctAnswer: "1",
+    question: "Which of the following is not a literal?",
+    answers: ["null", "true", "myVar", "-3.14"],
+    correctAnswer: "myVar",
     language: "javascript",
     level: "beginner",
   },
   {
-    question: "yyyy",
-    answers: ["true", "false", "undefined", "null"],
-    correctAnswer: "true",
+    question: "Which of the following is not a falsy value?",
+    answers: ["''", "null", "undefined", "[]"],
+    correctAnswer: "[]",
     language: "javascript",
     level: "beginner",
   },
@@ -51,9 +51,8 @@ function prepareQuestions(questions) {
 
 const availableQuestions = prepareQuestions(questions);
 
-function displayQuestion(availableQuestions) {
+function displayQuestion() {
   "use strict";
-  console.log("called");
   let availableQuestionsCount = availableQuestions.length;
   let randomQuestionIndex = Math.floor(Math.random() * availableQuestionsCount);
   let html = availableQuestions[randomQuestionIndex];
@@ -63,4 +62,4 @@ function displayQuestion(availableQuestions) {
   answerButtons.forEach((element) => element.addEventListener("click", (event) => showFeedbackAndNextQuestion(event)));
 }
 
-displayQuestion(availableQuestions);
+displayQuestion();
