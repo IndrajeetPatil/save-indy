@@ -23,7 +23,7 @@ body {
   justify-content: center;
   text-align: center;
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #f7efe5;
 }
 
 .legal-footer {
@@ -44,7 +44,6 @@ button {
   border-radius: 7px;
   background-color: lightgray;
   text-shadow: -1px -1px black, 1px 1px white;
-  color: gray;
   box-shadow: 0 0.2em gray;
 }
 
@@ -58,6 +57,7 @@ button {
   width: 200px;
   height: 50px;
   font-size: 0.7rem;
+  text-shadow: none;
 }
 
 .correct-answer,

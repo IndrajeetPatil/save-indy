@@ -69,4 +69,42 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following is not a valid string delimiter?",
+    answers: ["'", '"', "`", "{"],
+    correctAnswer: "{",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "Currently, which is not a meaningful escape sequence?",
+    answers: ["\\b", "\\q", "\\n", "\\t"],
+    correctAnswer: "\\q",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "Which of these string methods doesn't return a Boolean?",
+    answers: ["startsWith", "endsWith", "includes", "indexOf"],
+    correctAnswer: "indexOf",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "Which of this is a valid RegExp datatype?",
+    answers: ["/^x/", "\\^x\\", "/^x\\", "\\^x/"],
+    correctAnswer: "/^x/",
+    language: "javascript",
+    level: "beginner",
+  },
+
+  //   {
+  //     question: "What is the length of string literal '😋'?",
+  //     answers: ["1", "2", "0", "undefined"],
+  //     correctAnswer: "2",
+  //     language: "javascript",
+  //     level: "intermediate",
+  //   },
 ];
+
+console.log(questions.length);
