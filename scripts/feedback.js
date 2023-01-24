@@ -14,12 +14,18 @@ let checkAnswer = (event) => {
 let showFeedbackAndNextQuestion = (event) => {
   "use strict";
   console.log("feedbacked");
-  let truthValue = checkAnswer(event);
+  let isAnswerCorrect = checkAnswer(event);
 
-  let newClass = truthValue ? "correct-answer" : "incorrect-answer";
-  let feedbackText = truthValue ? "Correct!" : "Incorrect!";
-  truthValue ? game.snake.retract() : game.snake.move();
-  truthValue ? game.player.increaseHealth() : game.player.reduceHealth();
+  let newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
+  let feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
+
+  if (isAnswerCorrect) {
+    game.snake.retract();
+    game.player.increaseHealth();
+  } else {
+    game.snake.move();
+    game.player.reduceHealth();
+  }
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
 
