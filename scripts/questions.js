@@ -1,3 +1,15 @@
+function shuffleArray(array) {
+  "use strict";
+  if (array.length === 0) {
+    throw new Error("Array is empty.");
+  }
+
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
 function prepareQuestions(questions) {
   "use strict";
   if (questions.length === 0) {
@@ -5,13 +17,10 @@ function prepareQuestions(questions) {
   }
 
   // Show questions in random order to each user
-  let questionsShuffled = questions
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
+  let questionsShuffled = shuffleArray(questions);
 
   let questionsHTMLArray = questionsShuffled.map((item) => {
-    let answersHTML = item.answers.reduce(
+    let answersHTML = shuffleArray(item.answers).reduce(
       (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
       ""
     );

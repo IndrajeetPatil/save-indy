@@ -41,4 +41,11 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following statements is true for Javascript?",
+    answers: ["Objects are immutable.", "Variables are untyped.", "Primitives are mutable.", "Constants are typed."],
+    correctAnswer: "object",
+    language: "javascript",
+    level: "beginner",
+  },
 ];
