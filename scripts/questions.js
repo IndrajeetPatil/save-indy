@@ -4,7 +4,13 @@ function prepareQuestions(questions) {
     throw new Error("No questions provided.");
   }
 
-  let questionsHTMLArray = questions.map((item) => {
+  // Show questions in random order to each user
+  let questionsShuffled = questions
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+  let questionsHTMLArray = questionsShuffled.map((item) => {
     let answersHTML = item.answers.reduce(
       (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
       ""
