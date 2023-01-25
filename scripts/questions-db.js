@@ -169,6 +169,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following will not return `ll`?",
+    answers: ["x.slice(2, 4);", "x.substring(2, 4);", "x[2] + x[3];", "x[2, 3];"],
+    correctAnswer: "x[2, 3];",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
