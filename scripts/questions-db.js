@@ -1,4 +1,6 @@
 let questions = [
+  // ---------------- beginner ----------------
+
   {
     question: "What output will `console.log(+true)` produce?",
     answers: ["0", "1", "Syntax error", "2"],
@@ -133,7 +135,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "If `let a = []; let b = [];`, what would a === b evaluate to?",
+    question: "If `let a = [], b = [];`, what would a == b evaluate to?",
     answers: ["undefined", "true", "false", "NaN"],
     correctAnswer: "false",
     language: "javascript",
@@ -153,8 +155,16 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "What would `0 == '0' && 0 === '0'`, evaluate to?",
+    answers: ["undefined", "true", "false", "null"],
+    correctAnswer: "false",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
+
   //   {
   //     question: "Which of the following objects doesn't have a literal syntax?",
   //     answers: ["string", "symbol", "BigInt", "integer"],
@@ -176,6 +186,16 @@ let questions = [
   //     language: "javascript",
   //     level: "intermediate",
   //   },
+
+  // ---------------- advanced ----------------
+
+  // {
+  //   question: "Which is not a valid algorithm for object-to-primitive conversions?",
+  //   answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
+  //   correctAnswer: "prefer-boolean",
+  //   language: "javascript",
+  //   level: "advanced",
+  // },
 ];
 
 console.log(questions.length);
