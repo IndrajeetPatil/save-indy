@@ -77,8 +77,10 @@ select {
 
 .correct-answer,
 .incorrect-answer {
-  padding: 15px;
+  padding: 10px;
   background-color: black;
+  font-size: 1.2rem;
+  border-radius: 7px;
 }
 
 .correct-answer {
