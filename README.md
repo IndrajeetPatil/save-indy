@@ -1,9 +1,14 @@
-# Save Indiana Jones using JavaScript <img src="./assets/home_background.jpeg" align="right" width="240" />
+# Save Indiana Jones using JavaScript
 
+<img src="./assets/home_background.jpeg" align="right" width="240" />
 A fun game built using JavaScript to check your knowledge of JavaScript itself!
 
-You will win the game when the threat level drops to 0.
-You will lose the game if Indy's health drops to 0.
+## Rules
+
+<img src="./assets/js-logo.png" align="left" width="240" />
+
+- You will win the game when the threat level drops to 0.
+- You will lose the game if Indy's health drops to 0.
 
 Three different levels correspond to proficiency levels. That said, at least
 currently, there are far more questions available for the beginner level. There
