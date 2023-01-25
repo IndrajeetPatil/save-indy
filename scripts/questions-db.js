@@ -176,9 +176,30 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "If `let x = [5, , 1];`, then what is `x[1]`?",
+    answers: ["NaN", "null", "5", "undefined"],
+    correctAnswer: "undefined",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "If `let x = [5, 1, ];`, then what is `x.length`?",
+    answers: ["2", "3", "0", "undefined"],
+    correctAnswer: "2",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
+  {
+    question: "Which primary expression is not a constant?",
+    answers: ["true", "false", "null", "this"],
+    correctAnswer: "this",
+    language: "javascript",
+    level: "intermediate",
+  },
   {
     question: "Which of the following objects doesn't have a literal syntax?",
     answers: ["string", "symbol", "BigInt", "integer"],
@@ -202,7 +223,7 @@ let questions = [
   },
   {
     question: "Which option produces variable `x` without block scope?",
-    answers: ["let x", "const x", "var x", "none of the above"],
+    answers: ["let x", "const x", "var x", "no way exists"],
     correctAnswer: "var x",
     language: "javascript",
     level: "intermediate",
@@ -240,7 +261,7 @@ let questions = [
   },
   {
     question: "Which variable declaration method hoists it to the top of enclosing function?",
-    answers: ["let x", "const x", "var x", "none of the above"],
+    answers: ["let x", "const x", "var x", "no method exists"],
     correctAnswer: "var x",
     language: "javascript",
     level: "advanced",
@@ -248,7 +269,7 @@ let questions = [
 
   {
     question: "What would be the value of `tan` after `let {sin, cos, ...tan} = Math;`?",
-    answers: ["function tan() { [native code] }", "{ }", "TypeError", "none of the above"],
+    answers: ["function tan() { [native code] }", "{ }", "TypeError", "udefined"],
     correctAnswer: "{ }",
     language: "javascript",
     level: "advanced",
