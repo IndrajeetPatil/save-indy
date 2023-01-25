@@ -9,7 +9,7 @@ class Player {
   preload() {
     this.image = loadImage("../assets/blood.png");
     this.soundScream = loadSound("../assets/man_scream_sound.mp3");
-    this.soundThanks = loadSound("../assets/man_thanks_sound.mp3");
+    this.soundWhip = loadSound("../assets/whip_sound.mp3");
   }
 
   reduceHealth() {
@@ -22,8 +22,8 @@ class Player {
   increaseHealth() {
     if (this.health < 100) {
       this.health += PLAYER_HEALTH_CHANGE;
-      this.soundThanks.play();
     }
+    this.soundWhip.play();
   }
 
   isDead() {

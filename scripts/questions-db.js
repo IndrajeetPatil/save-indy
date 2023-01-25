@@ -197,6 +197,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "If `let x; y = 0;`, what would `x.[y++]` evaluate to?",
+    answers: ["TypeError", "null", "undefined", "NaN"],
+    correctAnswer: "TypeError",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- intermediate ----------------
 
