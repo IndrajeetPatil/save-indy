@@ -16,8 +16,11 @@ function prepareQuestions(questions) {
     throw new Error("No questions provided.");
   }
 
+  // Retain only questions with the specified level of difficulty
+  let questionsFiltered = questions.filter((item) => item.level === config.level);
+
   // Show questions in random order each time
-  let questionsShuffled = shuffleArray(questions);
+  let questionsShuffled = shuffleArray(questionsFiltered);
 
   let questionsHTMLArray = questionsShuffled.map((item) => {
     // Show options in random order each time

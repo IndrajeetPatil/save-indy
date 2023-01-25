@@ -172,27 +172,27 @@ let questions = [
 
   // ---------------- intermediate ----------------
 
-  // {
-  //   question: "Which of the following objects doesn't have a literal syntax?",
-  //   answers: ["string", "symbol", "BigInt", "integer"],
-  //   correctAnswer: "symbol",
-  //   language: "javascript",
-  //   level: "intermediate",
-  // },
-  // {
-  //   question: "What is the length of string literal '😋'?",
-  //   answers: ["1", "2", "0", "undefined"],
-  //   correctAnswer: "2",
-  //   language: "javascript",
-  //   level: "intermediate",
-  // },
-  // {
-  //   question: "In `let [x, y, z] = [1, [2, 3]];`, what value is assigned to `z`?",
-  //   answers: ["[2, 3]", "2", "3", "undefined"],
-  //   correctAnswer: "undefined",
-  //   language: "javascript",
-  //   level: "intermediate",
-  // },
+  {
+    question: "Which of the following objects doesn't have a literal syntax?",
+    answers: ["string", "symbol", "BigInt", "integer"],
+    correctAnswer: "symbol",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "What is the length of string literal '😋'?",
+    answers: ["1", "2", "0", "undefined"],
+    correctAnswer: "2",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "In `let [x, y, z] = [1, [2, 3]];`, what value is assigned to `z`?",
+    answers: ["[2, 3]", "2", "3", "undefined"],
+    correctAnswer: "undefined",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
@@ -218,5 +218,3 @@ let questions = [
   //   level: "advanced",
   // },
 ];
-
-console.log(questions.length);
