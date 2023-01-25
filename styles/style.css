@@ -3,6 +3,23 @@ body {
   margin: 0%;
 }
 
+button,
+select {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 7px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  box-shadow: 0 0.2em gray;
+}
+
+select {
+  padding: 5px;
+}
+
 .home-banner,
 .js-logo {
   width: auto;
@@ -27,7 +44,7 @@ body {
 }
 
 .intro-text-container {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .legal-footer {
@@ -39,16 +56,10 @@ body {
   font-size: 0.7rem;
 }
 
-button {
-  font-family: "Press Start 2P", cursive;
-  text-align: center;
-  display: inline-block;
-  margin: 5px;
-  padding: 15px;
-  border-radius: 7px;
-  background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  box-shadow: 0 0.2em gray;
+.difficulty-level {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
 }
 
 .correct-answer,

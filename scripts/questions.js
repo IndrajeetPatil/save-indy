@@ -10,14 +10,22 @@ function shuffleArray(array) {
     .map(({ value }) => value);
 }
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  return parts.pop();
+}
+
 function prepareQuestions(questions) {
   "use strict";
   if (questions.length === 0) {
     throw new Error("No questions provided.");
   }
 
+  let selectedLevel = getCookie("level");
+
   // Retain only questions with the specified level of difficulty
-  let questionsFiltered = questions.filter((item) => item.level === config.level);
+  let questionsFiltered = questions.filter((item) => item.level === (selectedLevel ?? "beginner"));
 
   // Show questions in random order each time
   let questionsShuffled = shuffleArray(questionsFiltered);
