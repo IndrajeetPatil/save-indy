@@ -1,7 +1,6 @@
 function setDifficultyLevel(event) {
   let options = [...event.target.options];
   let selectedOption = options.filter((option) => option.selected)[0].value;
-
   document.cookie = `level=${selectedOption}`;
 }
 

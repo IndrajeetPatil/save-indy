@@ -69,7 +69,7 @@ select {
 }
 
 .answer-btn {
-  width: 200px;
+  width: 250px;
   height: 50px;
   font-size: 0.7rem;
   text-shadow: none;
@@ -111,7 +111,8 @@ select {
   align-items: center;
   justify-content: center;
   height: 70vh;
-  line-height: 1.5rem;
+  line-height: 2.5rem;
+  font-size: 0.6rem;
   text-align: center;
 }
 

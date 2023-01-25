@@ -1,21 +1,3 @@
-function shuffleArray(array) {
-  "use strict";
-  if (array.length === 0) {
-    throw new Error("Array is empty.");
-  }
-
-  return array
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-}
-
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  return parts.pop();
-}
-
 function prepareQuestions(questions) {
   "use strict";
   if (questions.length === 0) {
