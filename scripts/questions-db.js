@@ -2,7 +2,7 @@ let questions = [
   // ---------------- beginner ----------------
 
   {
-    question: "What output will `console.log(+true)` produce?",
+    question: "What will `+true` evaluate to?",
     answers: ["0", "1", "Syntax error", "2"],
     correctAnswer: "1",
     language: "javascript",
@@ -193,28 +193,57 @@ let questions = [
     language: "javascript",
     level: "intermediate",
   },
+  {
+    question: "Which option produces variable `x` without block scope?",
+    answers: ["let x", "const x", "var x", "none of the above"],
+    correctAnswer: "var x",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "What would [a, b, x] after `let x = 1; let [a, b] = [++x, x++];` is run?",
+    answers: ["[2, 2, 3]", "[1, 2, 3]", "[2, 2, 2]", "[2, 3, 3]"],
+    correctAnswer: "[2, 2, 3]",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
-  // {
-  //   question: "Which is not a valid algorithm for object-to-primitive conversions?",
-  //   answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
-  //   correctAnswer: "prefer-boolean",
-  //   language: "javascript",
-  //   level: "advanced",
-  // },
-  // {
-  //   question: "What's the standard way to refer to global object in any context?",
-  //   answers: ["global", "globalThis", "window", "self"],
-  //   correctAnswer: "globalThis",
-  //   language: "javascript",
-  //   level: "advanced",
-  // },
-  // {
-  //   question: "In `let [x, y, ...z] = [1, [2, 3]];`, what value is assigned to `z`?",
-  //   answers: ["[ ]", "null", "3", "undefined"],
-  //   correctAnswer: "[ ]",
-  //   language: "javascript",
-  //   level: "advanced",
-  // },
+  {
+    question: "Which is not a valid algorithm for object-to-primitive conversions?",
+    answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
+    correctAnswer: "prefer-boolean",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "What's the standard way to refer to global object in any context?",
+    answers: ["global", "globalThis", "window", "self"],
+    correctAnswer: "globalThis",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "In `let [x, y, ...z] = [1, [2, 3]];`, what value is assigned to `z`?",
+    answers: ["[ ]", "null", "3", "undefined"],
+    correctAnswer: "[ ]",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "Which variable declaration method hoists it to the top of enclosing function?",
+    answers: ["let x", "const x", "var x", "none of the above"],
+    correctAnswer: "var x",
+    language: "javascript",
+    level: "advanced",
+  },
+
+  {
+    question: "What would be the value of `tan` after `let {sin, cos, ...tan} = Math;`?",
+    answers: ["function tan() { [native code] }", "{ }", "TypeError", "none of the above"],
+    correctAnswer: "{ }",
+    language: "javascript",
+    level: "advanced",
+  },
 ];
