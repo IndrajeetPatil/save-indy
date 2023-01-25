@@ -2,7 +2,6 @@ let gameOver = (message) => {
   "use strict";
   let gameOverHTML = `<div class="game-over">
                 <h2>${message}</h2>
-                <p>Click the button below to restart the game.</p>
                 <button class='restart-btn'><a href="./index.html">Restart</a></button>
             </div>`;
   document.getElementById("question-container").innerHTML = gameOverHTML;
@@ -43,11 +42,11 @@ let showFeedbackAndNextQuestion = (event) => {
   let noQuestionsRemaining = availableQuestionsCopy.length === 0;
 
   if (isPlayerDead) {
-    gameOver("Game Over! You didn't save Indy 🪦");
+    gameOver("Game Over! <br>You didn't save Indy 🪦");
   } else if (isPlayerSafe) {
-    gameOver("You have won! You saved Indy 🙏");
+    gameOver("You have won! <br>You saved Indy 🙏");
   } else if (noQuestionsRemaining) {
-    gameOver("No more questions left. You have won! You saved Indy 🙏");
+    gameOver("No more questions left. You have won! <br>You saved Indy 🙏");
   } else {
     event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
     setTimeout(displayQuestion, 1000, availableQuestions);

@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.health = PLAYER_HEALTH;
+    this.health = PLAYER_START_HEALTH;
     this.image;
     this.soundScream;
     this.soundThanks;
