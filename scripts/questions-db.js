@@ -162,30 +162,37 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which is not a valid syntax for a `for` loop?",
+    answers: ["for(i; i < x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
+    correctAnswer: "for(i; i < x.length; i++)",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
-  //   {
-  //     question: "Which of the following objects doesn't have a literal syntax?",
-  //     answers: ["string", "symbol", "BigInt", "integer"],
-  //     correctAnswer: "symbol",
-  //     language: "javascript",
-  //     level: "intermediate",
-  //   },
-  //   {
-  //     question: "What's the standard way to refer to global object in any context?",
-  //     answers: ["global", "globalThis", "window", "self"],
-  //     correctAnswer: "globalThis",
-  //     language: "javascript",
-  //     level: "intermediate",
-  //   },
-  //   {
-  //     question: "What is the length of string literal '😋'?",
-  //     answers: ["1", "2", "0", "undefined"],
-  //     correctAnswer: "2",
-  //     language: "javascript",
-  //     level: "intermediate",
-  //   },
+  // {
+  //   question: "Which of the following objects doesn't have a literal syntax?",
+  //   answers: ["string", "symbol", "BigInt", "integer"],
+  //   correctAnswer: "symbol",
+  //   language: "javascript",
+  //   level: "intermediate",
+  // },
+  // {
+  //   question: "What is the length of string literal '😋'?",
+  //   answers: ["1", "2", "0", "undefined"],
+  //   correctAnswer: "2",
+  //   language: "javascript",
+  //   level: "intermediate",
+  // },
+  // {
+  //   question: "In `let [x, y, z] = [1, [2, 3]];`, what value is assigned to `z`?",
+  //   answers: ["[2, 3]", "2", "3", "undefined"],
+  //   correctAnswer: "undefined",
+  //   language: "javascript",
+  //   level: "intermediate",
+  // },
 
   // ---------------- advanced ----------------
 
@@ -193,6 +200,20 @@ let questions = [
   //   question: "Which is not a valid algorithm for object-to-primitive conversions?",
   //   answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
   //   correctAnswer: "prefer-boolean",
+  //   language: "javascript",
+  //   level: "advanced",
+  // },
+  // {
+  //   question: "What's the standard way to refer to global object in any context?",
+  //   answers: ["global", "globalThis", "window", "self"],
+  //   correctAnswer: "globalThis",
+  //   language: "javascript",
+  //   level: "advanced",
+  // },
+  // {
+  //   question: "In `let [x, y, ...z] = [1, [2, 3]];`, what value is assigned to `z`?",
+  //   answers: ["[ ]", "null", "3", "undefined"],
+  //   correctAnswer: "[ ]",
   //   language: "javascript",
   //   level: "advanced",
   // },
