@@ -16,10 +16,11 @@ function prepareQuestions(questions) {
     throw new Error("No questions provided.");
   }
 
-  // Show questions in random order to each user
+  // Show questions in random order each time
   let questionsShuffled = shuffleArray(questions);
 
   let questionsHTMLArray = questionsShuffled.map((item) => {
+    // Show options in random order each time
     let answersHTML = shuffleArray(item.answers).reduce(
       (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
       ""

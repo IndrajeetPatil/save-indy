@@ -1,3 +1,46 @@
+let decideHealthLevelClass = (health) => {
+  "use strict";
+  if (health <= 40) {
+    return healthLevelClasses.low;
+  } else if (health <= 70) {
+    return healthLevelClasses.medium;
+  } else {
+    return healthLevelClasses.high;
+  }
+};
+
+let decideThreatLevelClass = (threat) => {
+  "use strict";
+  if (threat <= 40) {
+    return threatLevelClasses.low;
+  } else if (threat <= 70) {
+    return threatLevelClasses.medium;
+  } else {
+    return threatLevelClasses.high;
+  }
+};
+
+let showStatus = () => {
+  "use strict";
+  let health = game.player.health;
+  let threat = game.snake.threat;
+
+  let healthLevelClass = decideHealthLevelClass(health);
+  let threatLevelClass = decideThreatLevelClass(threat);
+
+  let statusHTML = `<div id="threat-container" class="threat-container">
+                    <p><b>Threat level</b></p>
+                    <p class="${threatLevelClass}">${threat}</p>
+                </div>
+
+                <div id="health-container" class="health-container">
+                    <p><b>Indy's health</b></p>
+                    <p class="${healthLevelClass}">${health}</p>
+                </div>`;
+
+  document.getElementById("status-container").innerHTML = statusHTML;
+};
+
 let gameOver = (message) => {
   "use strict";
   let gameOverHTML = `<div class="game-over">
@@ -36,6 +79,7 @@ let showFeedbackAndNextQuestion = (event) => {
   }
 
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
+  showStatus(event);
 
   let isPlayerDead = game.player.isDead();
   let isPlayerSafe = !game.snake.isThreateningPlayer();

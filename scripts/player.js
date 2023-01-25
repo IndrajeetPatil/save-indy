@@ -20,8 +20,10 @@ class Player {
   }
 
   increaseHealth() {
-    this.health += PLAYER_HEALTH_CHANGE;
-    this.soundThanks.play();
+    if (this.health < 100) {
+      this.health += PLAYER_HEALTH_CHANGE;
+      this.soundThanks.play();
+    }
   }
 
   isDead() {

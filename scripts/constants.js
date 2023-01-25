@@ -18,3 +18,15 @@ let SNAKE_START_THREAT = PLAYER_START_HEALTH / 2;
 
 let PLAYER_HEALTH_CHANGE = PLAYER_START_HEALTH / SNAKE_STEPS;
 let SNAKE_THREAT_CHANGE = PLAYER_HEALTH_CHANGE / 2;
+
+let threatLevelClasses = {
+  low: "low-threat",
+  medium: "medium-threat",
+  high: "high-threat",
+};
+
+let healthLevelClasses = {
+  low: "low-health",
+  medium: "medium-health",
+  high: "high-health",
+};

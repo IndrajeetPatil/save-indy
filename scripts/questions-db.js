@@ -147,7 +147,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "What would `Boolean(() ==&gt; {})` evaluate to?",
+    question: "What would `Boolean(() =&gt; {})` evaluate to?",
     answers: ["undefined", "true", "false", "NaN"],
     correctAnswer: "true",
     language: "javascript",
