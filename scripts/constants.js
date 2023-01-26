@@ -7,7 +7,8 @@ const messages = {
 const HEIGHT = 800;
 const WIDTH = HEIGHT;
 
-const MIN_STEPS_TO_WIN = 10;
+// TODO: change to 10 when enough questions are added
+const MIN_STEPS_TO_WIN = 5;
 
 const PLAYER_SIZE = 50;
 const PLAYER_X = WIDTH / 2 - PLAYER_SIZE / 2;
