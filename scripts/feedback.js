@@ -53,9 +53,8 @@ let gameOver = (message) => {
 let checkAnswer = (event) => {
   "use strict";
 
-  const selectedAnswer = event.target.innerHTML;
-
   const askedQuestion = document.getElementById("question-text").innerHTML;
+  const selectedAnswer = event.target.innerHTML;
   const correctAnswer = questions.filter((item) => item.question === askedQuestion)[0].correctAnswer;
 
   let truthValue = String(selectedAnswer) === String(correctAnswer);
@@ -70,6 +69,9 @@ let showFeedbackAndNextQuestion = (event) => {
   let newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
   let feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
 
+  let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
+  event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
+
   if (isAnswerCorrect) {
     game.snake.retract();
     game.player.increaseHealth();
@@ -78,7 +80,6 @@ let showFeedbackAndNextQuestion = (event) => {
     game.player.reduceHealth();
   }
 
-  let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
   showStatus(event);
 
   let isPlayerDead = game.player.isDead();
@@ -92,7 +93,6 @@ let showFeedbackAndNextQuestion = (event) => {
   } else if (noQuestionsRemaining) {
     gameOver(messages.loseNoQuestions);
   } else {
-    event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
     setTimeout(displayQuestion, 1000, availableQuestions);
   }
 };
