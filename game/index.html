@@ -17,18 +17,36 @@
 
     <!-- link JS libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.play.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.collide2d.js"></script>
+
+    <!-- link local JS scripts -->
+    <script src="../scripts/constants.js"></script>
+    <script src="../scripts/utilities-status.js"></script>
+
+    <script>
+        window.onload = function ()
+        {
+            "use strict";
+
+            let statusHTML = `<div id="threat-container" class="threat-container">
+                    <p><b>Threat level</b></p>
+                    <p class="${SNAKE_START_THREAT_LEVEL_CLASS}">${PLAYER_START_HEALTH}</p>
+                </div>
+
+                <div id="health-container" class="health-container">
+                    <p><b>Indy's health</b></p>
+                    <p class="${PLAYER_START_HEALTH_LEVEL_CLASS}">${SNAKE_START_THREAT}</p>
+                </div>`;
+
+            document.getElementById("status-container").innerHTML = statusHTML;
+        };
+    </script>
 
     <title>Save Indy!</title>
 
 </head>
 
 <body>
-
-
 
     <div id="all-container" class="all-container">
 
@@ -39,16 +57,6 @@
         <div id="feedback-container" class="feedback-container">
 
             <div id="status-container" class="status-container">
-
-                <div id="threat-container" class="threat-container">
-                    <p><b>Threat level</b></p>
-                    <p class="medium-threat">50</p>
-                </div>
-
-                <div id="health-container" class="health-container">
-                    <p><b>Indy's health</b></p>
-                    <p class="medium-health">50</p>
-                </div>
 
             </div>
 
@@ -62,14 +70,12 @@
 
 
     <!-- link local JS scripts -->
-    <script src="../scripts/utilities.js"></script>
+    <script src="../scripts/utilities-general.js"></script>
     <script src="../scripts/questions-db.js"></script>
     <script src="../scripts/questions.js"></script>
     <script src="../scripts/feedback.js"></script>
-    <script src="../scripts/constants.js"></script>
     <script src="../scripts/background.js"></script>
     <script src="../scripts/snake.js"></script>
-    <script src="../scripts/spikes.js"></script>
     <script src="../scripts/player.js"></script>
     <script src="../scripts/game.js"></script>
     <script src="../scripts/main.js"></script>

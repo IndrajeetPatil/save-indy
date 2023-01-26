@@ -1,28 +1,8 @@
-let SELECTED_LEVEL = getCookie("level");
-
-const threatLevelClasses = {
-  low: "low-threat",
-  medium: "medium-threat",
-  high: "high-threat",
-};
-
-const healthLevelClasses = {
-  low: "low-health",
-  medium: "medium-health",
-  high: "high-health",
-};
-
 const messages = {
   loseNoQuestions: "No more questions left. Game Over! <br>You didn't save Indy 🪦",
   losePlayerDead: "Game Over! <br>You didn't save Indy 🪦",
   winPlayerSafe: "You have won! <br>You saved Indy 🙏",
 };
-
-// const numberOfSnakeSteps = {
-//   beginner: 10,
-//   intermediate: 5,
-//   advanced: 2,
-// };
 
 const HEIGHT = 800;
 const WIDTH = HEIGHT;

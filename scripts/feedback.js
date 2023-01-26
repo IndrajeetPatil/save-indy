@@ -1,25 +1,3 @@
-let decideHealthLevelClass = (health) => {
-  "use strict";
-  if (health > 0 && health <= 40) {
-    return healthLevelClasses.low;
-  } else if (health > 40 && health <= 70) {
-    return healthLevelClasses.medium;
-  } else {
-    return healthLevelClasses.high;
-  }
-};
-
-let decideThreatLevelClass = (threat) => {
-  "use strict";
-  if (threat > 0 && threat <= 40) {
-    return threatLevelClasses.low;
-  } else if (threat > 40 && threat <= 70) {
-    return threatLevelClasses.medium;
-  } else {
-    return threatLevelClasses.high;
-  }
-};
-
 let showStatus = () => {
   "use strict";
   let health = game.player.health;

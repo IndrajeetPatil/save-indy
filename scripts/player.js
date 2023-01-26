@@ -3,7 +3,7 @@ class Player {
     this.health = PLAYER_START_HEALTH;
     this.image;
     this.soundScream;
-    this.soundThanks;
+    this.soundWhip;
   }
 
   preload() {
