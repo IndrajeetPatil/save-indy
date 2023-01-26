@@ -218,6 +218,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "What will `let x = -2; ++x; console.log(x--);` print to console?",
+    answers: ["-2", "-1", "-3", "0"],
+    correctAnswer: "-1",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
@@ -277,6 +284,13 @@ let questions = [
     language: "javascript",
     level: "intermediate",
   },
+  {
+    question: "None of the operators have the following arity:",
+    answers: ["unary", "binary", "ternary", "quaternary"],
+    correctAnswer: "quaternary",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
@@ -320,6 +334,13 @@ let questions = [
     question: "What is the length of string literal '😋'?",
     answers: ["1", "2", "0", "undefined"],
     correctAnswer: "2",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "Which of the following is not an lvalue?",
+    answers: ["variable", "literal", "object property", "array element"],
+    correctAnswer: "literal",
     language: "javascript",
     level: "advanced",
   },
