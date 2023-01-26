@@ -164,8 +164,8 @@ let questions = [
   },
   {
     question: "Which is not a valid syntax for a `for` loop?",
-    answers: ["for(i; i < x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
-    correctAnswer: "for(i; i < x.length; i++)",
+    answers: ["for(i; i &lt; x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
+    correctAnswer: "for(i; i &lt; x.length; i++)",
     language: "javascript",
     level: "beginner",
   },

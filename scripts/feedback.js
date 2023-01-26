@@ -69,6 +69,7 @@ let showFeedbackAndNextQuestion = (event) => {
   let newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
   let feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
 
+  // TODO: Why no feedback is shown for the final round?
   let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
   event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
 
