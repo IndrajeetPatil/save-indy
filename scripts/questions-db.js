@@ -246,6 +246,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following operators is used for assignment?",
+    answers: ["=", "==", "===", "<-"],
+    correctAnswer: "=",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
@@ -323,6 +330,13 @@ let questions = [
     question: "What does `-3**2` evaluate to?",
     answers: ["-9", "9", "SyntaxError", "NaN"],
     correctAnswer: "SyntaxError",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "For which primitive type are `++x` and `x + 1` not equivalent?",
+    answers: ["null", "boolean", "string", "number"],
+    correctAnswer: "string",
     language: "javascript",
     level: "intermediate",
   },
