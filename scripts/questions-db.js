@@ -3,7 +3,7 @@ let questions = [
 
   {
     question: "What will `+true` evaluate to?",
-    answers: ["0", "1", "Syntax error", "2"],
+    answers: ["0", "1", "SyntaxError", "2"],
     correctAnswer: "1",
     language: "javascript",
     level: "beginner",
@@ -234,7 +234,14 @@ let questions = [
   },
   {
     question: "What will `3 > 2 > 1` evaluate to?",
-    answers: ["true", "false", "Syntax error", "TypeError"],
+    answers: ["true", "false", "SyntaxError", "TypeError"],
+    correctAnswer: "false",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "Do `1 + (2 + '3')` and `(1 + 2) + '3'` return same strings?",
+    answers: ["true", "false", "SyntaxError", "TypeError"],
     correctAnswer: "false",
     language: "javascript",
     level: "beginner",
@@ -309,6 +316,13 @@ let questions = [
     question: "What does `'x' + + 'y'` evaluate to?",
     answers: ["xNaN", "x y", "TypeError", "xNaNy"],
     correctAnswer: "xNaN",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "What does `-3**2` evaluate to?",
+    answers: ["-9", "9", "SyntaxError", "NaN"],
+    correctAnswer: "SyntaxError",
     language: "javascript",
     level: "intermediate",
   },

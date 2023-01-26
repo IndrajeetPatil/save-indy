@@ -24,6 +24,10 @@ Most of the questions are inspired by the following material:
 - Padolsey, J. (2020). *Clean Code in JavaScript*. Packt Publishing.
 - Brian Leroux's [WAT talk](https://www.youtube.com/watch?v=et8xNAc2ic8&t=1s)
 
+Needless to say, any inaccuracies reflect my poor judgment, and I would appreciate
+[feedback](https://github.com/IndrajeetPatil/save-indy/issues) with
+corrections/suggestions.
+
 ## Acknowledgments
 
 The game was my submission for the third-week project for the IronHack boot camp
