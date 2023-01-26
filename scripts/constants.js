@@ -12,6 +12,12 @@ const healthLevelClasses = {
   high: "high-health",
 };
 
+const messages = {
+  loseNoQuestions: "No more questions left. Game Over! <br>You didn't save Indy 🪦",
+  losePlayerDead: "Game Over! <br>You didn't save Indy 🪦",
+  winPlayerSafe: "You have won! <br>You saved Indy 🙏",
+};
+
 // const numberOfSnakeSteps = {
 //   beginner: 10,
 //   intermediate: 5,

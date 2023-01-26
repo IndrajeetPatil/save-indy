@@ -85,12 +85,12 @@ let showFeedbackAndNextQuestion = (event) => {
   let isPlayerSafe = !game.snake.isThreateningPlayer();
   let noQuestionsRemaining = availableQuestionsCopy.length === 0;
 
-  if (isPlayerDead) {
-    gameOver("Game Over! <br>You didn't save Indy 🪦");
-  } else if (isPlayerSafe) {
-    gameOver("You have won! <br>You saved Indy 🙏");
+  if (isPlayerSafe) {
+    gameOver(messages.winPlayerSafe);
+  } else if (isPlayerDead) {
+    gameOver(messages.losePlayerDead);
   } else if (noQuestionsRemaining) {
-    gameOver("No more questions left. You have won! <br>You saved Indy 🙏");
+    gameOver(messages.loseNoQuestions);
   } else {
     event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
     setTimeout(displayQuestion, 1000, availableQuestions);
