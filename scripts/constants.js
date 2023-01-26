@@ -12,11 +12,11 @@ const healthLevelClasses = {
   high: "high-health",
 };
 
-const numberOfSnakeSteps = {
-  beginner: 10,
-  intermediate: 5,
-  advanced: 2,
-};
+// const numberOfSnakeSteps = {
+//   beginner: 10,
+//   intermediate: 5,
+//   advanced: 2,
+// };
 
 const HEIGHT = 800;
 const WIDTH = HEIGHT;
@@ -32,7 +32,7 @@ const SNAKE_START_LENGTH = WIDTH / 4;
 const SNAKE_THICKNESS = HEIGHT / 10;
 const SNAKE_START_X = 0;
 const SNAKE_START_Y = 0.65 * HEIGHT;
-const SNAKE_STEPS = numberOfSnakeSteps[SELECTED_LEVEL];
+const SNAKE_STEPS = 5;
 const SNAKE_INCREMENT = (WIDTH / 2 - SNAKE_START_LENGTH) / SNAKE_STEPS;
 const SNAKE_START_THREAT = PLAYER_START_HEALTH / 2;
 

@@ -211,6 +211,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which keyword calls the parent constructor?",
+    answers: ["new", "this", "super", "here"],
+    correctAnswer: "super",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 

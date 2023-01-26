@@ -45,7 +45,7 @@ let gameOver = (message) => {
   "use strict";
   let gameOverHTML = `<div class="game-over">
                 <h2>${message}</h2>
-                <button class='restart-btn'><a href="./index.html">Restart</a></button>
+                <button class='restart-btn'><a href="../index.html">Restart</a></button>
             </div>`;
   document.getElementById("question-container").innerHTML = gameOverHTML;
 };
