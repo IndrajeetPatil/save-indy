@@ -9,6 +9,13 @@ let questions = [
     level: "beginner",
   },
   {
+    question: "What does `typeof NaN` evaluate to?",
+    answers: ["number", "undefined", "null", "NaN"],
+    correctAnswer: "number",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
     question: "What does `null == undefined` evaluate to?",
     answers: ["true", "false", "undefined", "null"],
     correctAnswer: "true",
@@ -225,6 +232,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "What will `3 > 2 > 1` evaluate to?",
+    answers: ["true", "false", "Syntax error", "TypeError"],
+    correctAnswer: "false",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
@@ -288,6 +302,13 @@ let questions = [
     question: "None of the operators have the following arity:",
     answers: ["unary", "binary", "ternary", "quaternary"],
     correctAnswer: "quaternary",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "What does `'x' + + 'y'` evaluate to?",
+    answers: ["xNaN", "x y", "TypeError", "xNaNy"],
+    correctAnswer: "xNaN",
     language: "javascript",
     level: "intermediate",
   },
