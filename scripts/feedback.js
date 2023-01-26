@@ -1,8 +1,8 @@
 let decideHealthLevelClass = (health) => {
   "use strict";
-  if (health <= 40) {
+  if (health > 0 && health <= 40) {
     return healthLevelClasses.low;
-  } else if (health <= 70) {
+  } else if (health > 40 && health <= 70) {
     return healthLevelClasses.medium;
   } else {
     return healthLevelClasses.high;
@@ -11,9 +11,9 @@ let decideHealthLevelClass = (health) => {
 
 let decideThreatLevelClass = (threat) => {
   "use strict";
-  if (threat <= 40) {
+  if (threat > 0 && threat <= 40) {
     return threatLevelClasses.low;
-  } else if (threat <= 70) {
+  } else if (threat > 40 && threat <= 70) {
     return threatLevelClasses.medium;
   } else {
     return threatLevelClasses.high;

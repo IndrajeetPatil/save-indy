@@ -135,7 +135,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "If `let a = [], b = [];`, what would a == b evaluate to?",
+    question: "If `let a = [], b = [];`, what would `a == b` evaluate to?",
     answers: ["undefined", "true", "false", "NaN"],
     correctAnswer: "false",
     language: "javascript",
