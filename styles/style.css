@@ -124,6 +124,10 @@ select {
   text-align: center;
 }
 
+.question-text {
+  width: 80%;
+}
+
 .status-container {
   margin: 20px;
   display: flex;
