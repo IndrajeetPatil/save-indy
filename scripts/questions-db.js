@@ -253,6 +253,25 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which of the following is false?",
+    answers: [
+      "typeof null === 'null'",
+      "typeof undefined === 'undefined'",
+      "typeof Math.max === 'function'",
+      "typeof [] === 'object'",
+    ],
+    correctAnswer: "typeof null === 'null'",
+    language: "javascript",
+    level: "beginner",
+  },
+  {
+    question: "After `let x = [1, 2]; delete x[0];`, what is length of `x`?",
+    answers: ["0", "1", "2", "undefined"],
+    correctAnswer: "2",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
@@ -344,6 +363,13 @@ let questions = [
     question: "If `let p = { a: 'x', b: 'y' };`, which of the following is not true?",
     answers: ["'a' in p", "'b' in p", "'x' in p", "'constructor' in p"],
     correctAnswer: "'x' in p",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "After `let x = 5; var y = 6;` and `eval('let x = 1; var y = 2;')`, what will `x` and `y` be?",
+    answers: ["5 and 2", "5 and 6", "1 and 6", "1 and 2"],
+    correctAnswer: "5 and 2",
     language: "javascript",
     level: "intermediate",
   },
