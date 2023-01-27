@@ -7,7 +7,7 @@ function preload() {
 
 function setup() {
   "use strict";
-  let cnv = createCanvas(HEIGHT, WIDTH);
+  let cnv = createCanvas(WIDTH, HEIGHT);
   cnv.parent("game-container");
 }
 

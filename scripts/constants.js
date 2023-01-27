@@ -4,8 +4,8 @@ const messages = {
   winPlayerSafe: "You have won! <br>You saved Indy 🙏",
 };
 
-const HEIGHT = 800;
-const WIDTH = HEIGHT;
+const HEIGHT = window.innerWidth > 800 ? 800 : window.innerWidth;
+const WIDTH = window.innerWidth > 800 ? 800 : window.innerWidth;
 
 // TODO: change to 10 when enough questions are added
 const MIN_STEPS_TO_WIN = 5;

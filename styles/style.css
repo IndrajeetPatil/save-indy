@@ -1,6 +1,8 @@
 body {
   font-family: "Press Start 2P", cursive;
   margin: 0%;
+  background-color: #f7efe5;
+  text-align: center;
 }
 
 button,
@@ -29,31 +31,35 @@ select {
 .intro-images-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
 }
 
-.intro-container,
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+}
+
 .intro-text-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   height: 100vh;
-  background-color: #f7efe5;
-}
-
-.intro-text-container {
-  margin-bottom: 25px;
+  width: 100vw;
 }
 
 .legal-footer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   width: 70vw;
   margin: 50px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .difficulty-level {
@@ -112,7 +118,7 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 100vh;
   line-height: 2.5rem;
   font-size: 0.6rem;
   text-align: center;
@@ -142,4 +148,38 @@ select {
 .high-threat,
 .low-health {
   color: red;
+}
+
+@media (max-width: 480px) {
+  .intro-images-container {
+    flex-direction: column;
+  }
+
+  .intro-container {
+    height: 100%;
+  }
+
+  .intro-text-container {
+    height: 100%;
+  }
+
+  .legal-footer {
+    width: 100%;
+  }
+
+  .all-container {
+    flex-direction: column;
+  }
+
+  .feedback-container {
+    height: 100%;
+  }
+
+  .question-container {
+    height: 100%;
+  }
+
+  .status-container {
+    flex-direction: column;
+  }
 }

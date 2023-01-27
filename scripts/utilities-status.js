@@ -12,7 +12,7 @@ const healthLevelClasses = {
 
 let decideHealthLevelClass = (health) => {
   "use strict";
-  if (health > 0 && health <= 40) {
+  if (health >= 0 && health <= 40) {
     return healthLevelClasses.low;
   } else if (health > 40 && health <= 70) {
     return healthLevelClasses.medium;
@@ -23,7 +23,7 @@ let decideHealthLevelClass = (health) => {
 
 let decideThreatLevelClass = (threat) => {
   "use strict";
-  if (threat > 0 && threat <= 40) {
+  if (threat >= 0 && threat <= 40) {
     return threatLevelClasses.low;
   } else if (threat > 40 && threat <= 70) {
     return threatLevelClasses.medium;
