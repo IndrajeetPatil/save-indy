@@ -266,7 +266,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "After `let x = [1, 2]; delete x[0];`, what is length of `x`?",
+    question: "After `let x = [1, 2]; delete x[0];`, what is `x.length`?",
     answers: ["0", "1", "2", "undefined"],
     correctAnswer: "2",
     language: "javascript",
