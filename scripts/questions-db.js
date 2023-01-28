@@ -454,4 +454,23 @@ let questions = [
     language: "javascript",
     level: "advanced",
   },
+  {
+    question: "Which is not a valid way to iterate over object (`o`) properties?",
+    answers: [
+      "for(let p in o)",
+      "for(let p of o)",
+      "for(let k of Object.keys(o))",
+      "for(let [k, v] of Object.entries(o))",
+    ],
+    correctAnswer: "for(let p of o)",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "How many times will `for/of` loop iterate over '❤️❌🤖' string?",
+    answers: ["3", "5", "0", "2"],
+    correctAnswer: "3",
+    language: "javascript",
+    level: "advanced",
+  },
 ];
