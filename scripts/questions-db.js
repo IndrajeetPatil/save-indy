@@ -272,6 +272,13 @@ let questions = [
     language: "javascript",
     level: "beginner",
   },
+  {
+    question: "Which statement won't make interpreter jump to a different part of program?",
+    answers: ["return;", "break;", "debugger;", "continue;"],
+    correctAnswer: "debugger;",
+    language: "javascript",
+    level: "beginner",
+  },
 
   // ---------------- intermediate ----------------
 
@@ -370,6 +377,27 @@ let questions = [
     question: "After `let x = 5; var y = 6;` and `eval('let x = 1; var y = 2;')`, what will `x` and `y` be?",
     answers: ["5 and 2", "5 and 6", "1 and 6", "1 and 2"],
     correctAnswer: "5 and 2",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "If a `switch` in a function doesn't have a `default` case, what will it return for default case?",
+    answers: ["undefined", "SyntaxError", "null", "last case value"],
+    correctAnswer: "undefined",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "Which of the following is not an iterable object?",
+    answers: ["string", "map", "generator", "set"],
+    correctAnswer: "generator",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "Which of these is not a valid `for` loop?",
+    answers: ["for(;;)", "for(i in x)", "for (let i = 0;;)", "all of them are valid"],
+    correctAnswer: "all of them are valid",
     language: "javascript",
     level: "intermediate",
   },
