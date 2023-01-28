@@ -1,23 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
 body {
-  font-family: "Press Start 2P", cursive;
-  margin: 0%;
-  background-color: #f7efe5;
+  font-family: "Roboto Mono", cursive;
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  background: url("../assets/stacked-steps-haikei\ \(1\).svg");
   text-align: center;
+  position: relative;
+  z-index: 10;
+  color: white !important;
 }
-
+body::before {
+  content: "";
+  background-color: #426817e5;
+  opacity: 0.6;
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  z-index: -1;
+}
+a{
+  text-decoration: none;
+}
 button,
 select {
-  font-family: "Press Start 2P", cursive;
+  font-family: "Roboto Mono", cursive;
   text-align: center;
   display: inline-block;
   margin: 5px;
   padding: 15px;
   border-radius: 7px;
   background-color: lightgray;
-  text-shadow: -1px -1px black, 1px 1px white;
-  box-shadow: 0 0.2em gray;
+  border:none;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 800;
 }
-
+.the_select , .start-btn   , .start-btn a{
+  background-color: #fff;
+  color:#426817e5;
+  padding:5px 10px;
+}
+.start-btn{
+  transition: all .4s ease;
+  font-size: 1.5rem;
+  padding: 8px 15px;
+}
+.start-btn:hover{
+  opacity: .5;
+}
+option{
+  padding: 10px;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
 select {
   padding: 5px;
 }
@@ -33,7 +71,9 @@ select {
   flex-direction: row;
   align-items: center;
 }
-
+.intro-images-container:nth-child(1){
+  border-top-left-radius: 5px;
+}
 .intro-container {
   display: flex;
   flex-direction: column;
@@ -50,16 +90,24 @@ select {
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
-
+.intro-text-container  h1{
+  font-weight:700;
+  text-transform: uppercase;
+}
 .legal-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   width: 70vw;
-  margin: 50px;
-  font-size: 0.6rem;
+  margin: 20px;
+  font-size:1.3rem;
+  font-weight: 600;
+  font-family: "Roboto Mono", cursive;
 }
 
 .difficulty-level {
