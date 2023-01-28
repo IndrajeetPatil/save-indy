@@ -2,7 +2,7 @@ let questions = [
   // ---------------- beginner ----------------
 
   {
-    question: "What will `+true` evaluate to?",
+    question: "Hello word ?",
     answers: ["0", "1", "SyntaxError", "2"],
     correctAnswer: "1",
     language: "javascript",
@@ -383,6 +383,15 @@ let questions = [
     language: "javascript",
     level: "advanced",
   },
+
+  {
+    question: "Which is not a valid algorithm for object-to-primitive conversions?",
+    answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
+    correctAnswer: "prefer-boolean",
+    language: "javascript",
+    level: "advanced",
+  },
+
   {
     question: "What's the standard way to refer to global object in any context?",
     answers: ["global", "globalThis", "window", "self"],
@@ -426,4 +435,183 @@ let questions = [
     language: "javascript",
     level: "advanced",
   },
+  {
+    question: "Which of the following is not an lvalue?",
+    answers: ["variable", "literal", "object property", "array element"],
+    correctAnswer: "literal",
+    language: "javascript",
+    level: "advanced",
+  },
+  
+{
+  question: "What is the correct way to declare a constant variable in javascript?",
+  answers: ["const variable = value", "let variable = value", "var variable = value", "final variable = value"],
+  correctAnswer: "const variable = value",
+  language: "javascript",
+  level: "advanced",
+  },
+  
+{
+  question: "What is the correct way to declare a constant variable in javascript?",
+  answers: ["const variable = value", "let variable = value", "var variable = value", "final variable = value"],
+  correctAnswer: "const variable = value",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which method can be used to concatenate two arrays in javascript?",
+  answers: ["append()", "concat()", "join()", "merge()"],
+  correctAnswer: "concat()",
+  language: "javascript",
+  level: "advanced",
+  },
+  {
+    question: "Which of the following is not a valid operator in javascript?",
+    answers: ["instanceof", "typeof", "classof", "instanceof()"],
+    correctAnswer: "classof",
+    language: "javascript",
+    level: "advanced",
+    },
+
+    
+{
+  question: "What is the correct way to declare a constant variable in javascript?",
+  answers: ["const variable = value", "let variable = value", "var variable = value", "final variable = value"],
+  correctAnswer: "const variable = value",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which method can be used to concatenate two arrays in javascript?",
+  answers: ["append()", "concat()", "join()", "merge()"],
+  correctAnswer: "concat()",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid operator in javascript?",
+  answers: ["instanceof", "typeof", "classof", "instanceof()"],
+  correctAnswer: "classof",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid type of function in javascript?",
+  answers: ["function declaration", "function expression", "function constructor", "class declaration"],
+  correctAnswer: "class declaration",
+  language: "javascript",
+  level: "advanced",
+  },
+
+  {
+    question: "Which method can be used to remove the last element of an array in javascript?",
+    answers: ["pop()", "shift()", "remove()", "delete()"],
+    correctAnswer: "pop()",
+    language: "javascript",
+    level: "advanced",
+    },
+
+    {
+      question: "Which of the following is not a valid looping construct in javascript?",
+      answers: ["for", "while", "do-while", "foreach"],
+      correctAnswer: "foreach",
+      language: "javascript",
+      level: "advanced",
+      },
+
+      {
+        question: "Which of the following is not a valid method for creating an object in javascript?",
+        answers: ["Object.create()", "new Object()", "Object.defineProperties()", "object literal"],
+        correctAnswer: "new Object()",
+        language: "javascript",
+        level: "advanced",
+        },
+
+        
+{
+  question: "What is the correct way to declare a constant variable in javascript?",
+  answers: ["const variable = value", "let variable = value", "var variable = value", "final variable = value"],
+  correctAnswer: "const variable = value",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which method can be used to concatenate two arrays in javascript?",
+  answers: ["append()", "concat()", "join()", "merge()"],
+  correctAnswer: "concat()",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid operator in javascript?",
+  answers: ["instanceof", "typeof", "classof", "instanceof()"],
+  correctAnswer: "classof",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid type of function in javascript?",
+  answers: ["function declaration", "function expression", "function constructor", "class declaration"],
+  correctAnswer: "class declaration",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which method can be used to remove the last element of an array in javascript?",
+  answers: ["pop()", "shift()", "remove()", "delete()"],
+  correctAnswer: "pop()",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid looping construct in javascript?",
+  answers: ["for", "while", "do-while", "foreach"],
+  correctAnswer: "foreach",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid method for creating an object in javascript?",
+  answers: ["Object.create()", "new Object()", "Object.defineProperties()", "object literal"],
+  correctAnswer: "new Object()",
+  language: "javascript",
+  level: "advanced",
+  }
+  
+  {
+  question: "Which of the following is not a valid method for working with regular expressions in javascript?",
+  answers: ["test()", "exec()", "match()", "split()"],
+  correctAnswer: "match()",
+  language: "javascript",
+  level: "advanced",
+  },
+  {
+    question: "Which of the following is not a valid method for working with dates in javascript?",
+    answers: ["getDate()", "getFullYear()", "getMinutes()", "getMilliseconds()"],
+    correctAnswer: "getMilliseconds()",
+    language: "javascript",
+    level: "advanced",
+    },
+
+    {
+      question: "Which of the following is not a valid statement for working with errors in javascript?",
+      answers: ["try-catch", "throw", "assert()", "finally"],
+      correctAnswer: "assert()",
+      language: "javascript",
+      level: "advanced",
+      },
+
+
+  
+  
 ];
