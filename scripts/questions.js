@@ -10,7 +10,14 @@ function prepareQuestions(questions) {
   let questionsFiltered = questions.filter((item) => item.level === (selectedLevel ?? "beginner"));
 
   // Show questions in random order each time
-  let questionsShuffled = shuffleArray(questionsFiltered);
+  let questionsShuffled = [];
+  try {
+    questionsShuffled = shuffleArray(questionsFiltered);
+  } catch {
+    // If the user didn't select a level, show only beginner questions
+    // This can happen if the user somehow directly lands on the game or if the user manually deletes the cookie
+    questionsShuffled = shuffleArray(questions.filter((item) => item.level === "beginner"));
+  }
 
   let questionsHTMLArray = questionsShuffled.map((item) => {
     // Show options in random order each time

@@ -401,6 +401,13 @@ let questions = [
     language: "javascript",
     level: "intermediate",
   },
+  {
+    question: "Which statement can be used with a statement label?",
+    answers: ["break", "return", "throw", "with"],
+    correctAnswer: "break",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
