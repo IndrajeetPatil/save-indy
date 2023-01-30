@@ -408,6 +408,13 @@ let questions = [
     language: "javascript",
     level: "intermediate",
   },
+  {
+    question: "If `function f() { return this; }`, what will `typeof f()` be in strict mode?",
+    answers: ["SyntaxError", "TypeError", "undefined", "object"],
+    correctAnswer: "undefined",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
@@ -477,6 +484,18 @@ let questions = [
     question: "How many times will `for/of` loop iterate over '❤️❌🤖' string?",
     answers: ["3", "5", "0", "2"],
     correctAnswer: "3",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "Which of these is false for strict mode?",
+    answers: [
+      "Variable declaration isn't optional.",
+      "Function parameters can't have duplicate names.",
+      "The `with` statement isn't allowed.",
+      "BigInt literals aren't allowed.",
+    ],
+    correctAnswer: "BigInt literals aren't allowed.",
     language: "javascript",
     level: "advanced",
   },
