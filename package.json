@@ -1,0 +1,23 @@
+{
+  "name": "save-indy",
+  "version": "1.0.0",
+  "description": "<img src=\"./assets/home_background.jpeg\" align=\"right\" width=\"240\" />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IndrajeetPatil/save-indy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IndrajeetPatil/save-indy/issues"
+  },
+  "homepage": "https://github.com/IndrajeetPatil/save-indy#readme",
+  "dependencies": {
+    "p5": "^1.5.0"
+  }
+}
