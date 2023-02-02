@@ -499,4 +499,18 @@ let questions = [
     language: "javascript",
     level: "advanced",
   },
+  {
+    question: "Which of the following operations creates a deep copy?",
+    answers: ["`Array.from()`", "`Object.assign()`", "Spread syntax", "`structuredClone()`"],
+    correctAnswer: "`structuredClone()`",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "Which method won't create an array from array-like object `x` (e.g. `arguments`)?",
+    answers: ["`[...x] `", "`Array.from(x)`", "`Array.prototype.slice(x)`", "`Object.create(Array)`"],
+    correctAnswer: "`Object.create(Array)`",
+    language: "javascript",
+    level: "advanced",
+  },
 ];
