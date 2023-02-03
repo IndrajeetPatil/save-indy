@@ -415,6 +415,27 @@ let questions = [
     language: "javascript",
     level: "intermediate",
   },
+  {
+    question: "Which is not a valid state for a Promise object?",
+    answers: ["pending", "fulfilled", "rejected", "accepted"],
+    correctAnswer: "accepted",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "If `let f = function() {};`, what is `f.length`?",
+    answers: ["null", "undefined", "0", "SyntaxError"],
+    correctAnswer: "0",
+    language: "javascript",
+    level: "intermediate",
+  },
+  {
+    question: "Which of these values won't be serialized to `null`?",
+    answers: ["true", "-Infinity", "NaN", "Infinity"],
+    correctAnswer: "true",
+    language: "javascript",
+    level: "intermediate",
+  },
 
   // ---------------- advanced ----------------
 
@@ -422,6 +443,13 @@ let questions = [
     question: "Which is not a valid algorithm for object-to-primitive conversions?",
     answers: ["prefer-string", "prefer-number", "prefer-boolean", "no-preference"],
     correctAnswer: "prefer-boolean",
+    language: "javascript",
+    level: "advanced",
+  },
+  {
+    question: "Which of these objects can be serialized?",
+    answers: ["function", "Date", "RegExp", "undefined"],
+    correctAnswer: "Date",
     language: "javascript",
     level: "advanced",
   },
