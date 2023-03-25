@@ -1,12 +1,12 @@
-let showStatus = () => {
+const showStatus = () => {
   "use strict";
-  let health = game.player.health;
-  let threat = game.snake.threat;
+  const health = game.player.health;
+  const threat = game.snake.threat;
 
-  let healthLevelClass = decideHealthLevelClass(health);
-  let threatLevelClass = decideThreatLevelClass(threat);
+  const healthLevelClass = decideHealthLevelClass(health);
+  const threatLevelClass = decideThreatLevelClass(threat);
 
-  let statusHTML = `<div id="threat-container" class="threat-container">
+  const statusHTML = `<div id="threat-container" class="threat-container">
                     <p><b>Threat level</b></p>
                     <p class="${threatLevelClass}">${threat}</p>
                 </div>
@@ -19,36 +19,36 @@ let showStatus = () => {
   document.getElementById("status-container").innerHTML = statusHTML;
 };
 
-let gameOver = (message) => {
+const gameOver = (message) => {
   "use strict";
-  let gameOverHTML = `<div class="game-over">
+  const gameOverHTML = `<div class="game-over">
                 <h2>${message}</h2>
                 <button class='restart-btn'><a href="../index.html">Restart</a></button>
             </div>`;
   document.getElementById("question-container").innerHTML = gameOverHTML;
 };
 
-let checkAnswer = (event) => {
+const checkAnswer = (event) => {
   "use strict";
 
   const askedQuestion = document.getElementById("question-text").innerHTML;
   const selectedAnswer = event.target.innerHTML;
   const correctAnswer = questions.filter((item) => item.question === askedQuestion)[0].correctAnswer;
 
-  let truthValue = String(selectedAnswer) === String(correctAnswer);
+  const truthValue = String(selectedAnswer) === String(correctAnswer);
 
   return truthValue;
 };
 
-let showFeedbackAndNextQuestion = (event) => {
+const showFeedbackAndNextQuestion = (event) => {
   "use strict";
-  let isAnswerCorrect = checkAnswer(event);
+  const isAnswerCorrect = checkAnswer(event);
 
-  let newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
-  let feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
+  const newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
+  const feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
 
   // TODO: Why no feedback is shown for the final round?
-  let feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
+  const feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
   event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
 
   if (isAnswerCorrect) {
@@ -59,11 +59,11 @@ let showFeedbackAndNextQuestion = (event) => {
     game.player.reduceHealth();
   }
 
-  showStatus(event);
+  showStatus();
 
-  let isPlayerDead = game.player.isDead();
-  let isPlayerSafe = !game.snake.isThreateningPlayer();
-  let noQuestionsRemaining = availableQuestionsCopy.length === 0;
+  const isPlayerDead = game.player.isDead();
+  const isPlayerSafe = !game.snake.isThreateningPlayer();
+  const noQuestionsRemaining = availableQuestionsCopy.length === 0;
 
   if (isPlayerSafe) {
     gameOver(messages.winPlayerSafe);

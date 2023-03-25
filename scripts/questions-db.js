@@ -93,7 +93,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "Currently, which is not a meaningful escape sequence?",
+    question: "Which of these is not a meaningful escape sequence?",
     answers: ["\\b", "\\q", "\\n", "\\t"],
     correctAnswer: "\\q",
     language: "javascript",
@@ -115,7 +115,7 @@ let questions = [
   },
   {
     question: "If `x` is an array of length 2, what would `x[2]` return?",
-    answers: ["null", "undefined", "Error object", "NaN"],
+    answers: ["null", "undefined", "TypeError", "NaN"],
     correctAnswer: "undefined",
     language: "javascript",
     level: "beginner",
@@ -240,7 +240,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "Do `1 + (2 + '3')` and `(1 + 2) + '3'` return same strings?",
+    question: "Do `1 + (2 + '3')` and `(1 + 2) + '3'` return the same string?",
     answers: ["true", "false", "SyntaxError", "TypeError"],
     correctAnswer: "false",
     language: "javascript",

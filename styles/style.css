@@ -18,6 +18,10 @@ select {
   box-shadow: 0 0.2em gray;
 }
 
+button:hover {
+  transform: scale(1.05);
+}
+
 select {
   padding: 5px;
 }
