@@ -305,7 +305,7 @@ let questions = [
   },
   {
     question: "Which option produces variable `x` without block scope?",
-    answers: ["let x", "const x", "var x", "no way exists"],
+    answers: ["let x", "const x", "var x", "define x"],
     correctAnswer: "var x",
     language: "javascript",
     level: "intermediate",

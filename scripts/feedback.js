@@ -43,13 +43,10 @@ const checkAnswer = (event) => {
 const showFeedbackAndNextQuestion = (event) => {
   "use strict";
   const isAnswerCorrect = checkAnswer(event);
-
-  const newClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
-  const feedbackText = isAnswerCorrect ? "Correct!" : "Incorrect!";
+  const answerClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
 
   // TODO: Why no feedback is shown for the final round?
-  const feedbackElement = `<br><p class=${newClass}>${feedbackText}</p>`;
-  event.target.parentNode.insertAdjacentHTML("beforeend", feedbackElement);
+  event.target.classList.add(answerClass);
 
   if (isAnswerCorrect) {
     game.snake.retract();
