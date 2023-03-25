@@ -1,9 +1,9 @@
 class Player {
   constructor() {
     this.health = PLAYER_START_HEALTH;
-    this.image;
-    this.soundScream;
-    this.soundWhip;
+    this.image = "";
+    this.soundScream = "";
+    this.soundWhip = "";
   }
 
   preload() {

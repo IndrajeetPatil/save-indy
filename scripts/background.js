@@ -11,7 +11,7 @@ class Background {
   constructor() {
     this.width = WIDTH;
     this.heght = HEIGHT;
-    this.background;
+    this.background = "";
   }
 
   preload() {

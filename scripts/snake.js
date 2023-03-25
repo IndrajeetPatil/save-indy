@@ -5,8 +5,8 @@ class Snake {
     this.width = SNAKE_START_LENGTH;
     this.height = SNAKE_THICKNESS;
     this.threat = SNAKE_START_THREAT;
-    this.image;
-    this.sound;
+    this.image = "";
+    this.sound = "";
   }
 
   preload() {

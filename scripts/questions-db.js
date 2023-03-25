@@ -311,7 +311,7 @@ let questions = [
     level: "intermediate",
   },
   {
-    question: "What would [a, b, x] after `let x = 1; let [a, b] = [++x, x++];` is run?",
+    question: "If `let x = 1; let [a, b] = [++x, x++];`, what is [a, b, x]?",
     answers: ["[2, 2, 3]", "[1, 2, 3]", "[2, 2, 2]", "[2, 3, 3]"],
     correctAnswer: "[2, 2, 3]",
     language: "javascript",
@@ -535,7 +535,7 @@ let questions = [
     level: "advanced",
   },
   {
-    question: "Which method won't create an array from array-like object `x` (e.g. `arguments`)?",
+    question: "Which method won't create an array from an array-like object `x` (e.g. `arguments`)?",
     answers: ["`[...x] `", "`Array.from(x)`", "`Array.prototype.slice(x)`", "`Object.create(Array)`"],
     correctAnswer: "`Object.create(Array)`",
     language: "javascript",
