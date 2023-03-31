@@ -542,3 +542,5 @@ let questions = [
     level: "advanced",
   },
 ];
+
+export default questions;
