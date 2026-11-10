@@ -671,7 +671,7 @@ export const QUESTIONS: readonly Question[] = [
   {
     level: "advanced",
     prompt:
-      "Which method won't create an array from an array-like object `x` (e.g. `arguments`)?",
+      "Which method won't create an array from an iterable, array-like object `x` (e.g. `arguments`)?",
     answers: [
       "`[...x]`",
       "`Array.from(x)`",
