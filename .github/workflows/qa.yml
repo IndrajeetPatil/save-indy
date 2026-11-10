@@ -43,7 +43,7 @@ jobs:
       - name: Install dependencies
         run: |
           vp install --frozen-lockfile -- --loglevel=warn
-          vp exec playwright install --with-deps chromium
+          vp exec playwright install --with-deps chromium webkit
 
       # The same gates as `vp run qa`, as separate steps with readable logs.
       - name: Format, lint, and types

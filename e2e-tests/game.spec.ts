@@ -1,6 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-import { answerQuestion, playToEnd, startGame } from "./game-fixture.ts";
+import {
+  answerQuestion,
+  audioStates,
+  fetchAsset,
+  fileName,
+  playToEnd,
+  press,
+  startGame,
+  trackAudioContexts,
+} from "./game-fixture.ts";
 
 test("a perfect round saves Indy, played with the keyboard alone", async ({
   page,
@@ -85,4 +94,35 @@ test("the old game URL redirects to the home page", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Start the adventure" }),
   ).toBeVisible();
+});
+
+test("sound starts on the first tap or click, as mobile browsers require", async ({
+  page,
+  hasTouch,
+}) => {
+  await trackAudioContexts(page);
+  await startGame(page);
+  const firstAnswer = page.locator("#answers button").first();
+
+  await press(firstAnswer, hasTouch);
+
+  await expect.poll(async () => audioStates(page)).toStrictEqual(["running"]);
+});
+
+test("the social card image exists at the advertised address", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const image = await page
+    .locator("meta[property='og:image']")
+    .getAttribute("content");
+  const twitterImage = await page
+    .locator("meta[name='twitter:image']")
+    .getAttribute("content");
+
+  // The page is served from the site root locally, so request the file name.
+  const asset = await fetchAsset(page, `/${fileName(image)}`);
+
+  expect(twitterImage).toBe(image);
+  expect(asset).toStrictEqual({ status: 200, contentType: "image/png" });
 });

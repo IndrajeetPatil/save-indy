@@ -1,4 +1,4 @@
-import { defineConfig } from "@playwright/test";
+import { defineConfig, devices } from "@playwright/test";
 
 // Playwright's web server needs a known URL to poll, so it cannot take an
 // ephemeral port; callers can move it off the default.
@@ -25,7 +25,13 @@ export default defineConfig({
     timezoneId: "UTC",
     trace: "retain-on-failure",
   },
-  projects: [{ name: "chromium", use: { browserName: "chromium" } }],
+  // Safari is the browser most likely to differ, so every test also runs in
+  // desktop and iPhone WebKit.
+  projects: [
+    { name: "chromium", use: { browserName: "chromium" } },
+    { name: "webkit", use: { browserName: "webkit" } },
+    { name: "mobile-safari", use: { ...devices["iPhone 15"] } },
+  ],
   // Exercise the production build, including its Content Security Policy.
   webServer: {
     command: `vp preview --host 127.0.0.1 --port ${PORT} --strictPort`,
