@@ -8,6 +8,10 @@ drive the snake back and save Indy.
 
 **[Play it in your browser →](https://www.indrapatil.com/save-indy/)**
 
+> [!IMPORTANT]
+> This is an unofficial, non-commercial fan project made purely for
+> educational purposes. See the [disclaimer](#disclaimer).
+
 ![A question with feedback: the right answer is highlighted and explained](docs/images/feedback.png)
 
 ## How to play
@@ -116,8 +120,25 @@ Interface icons are from GitHub's [Octicons](https://github.com/primer/octicons)
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) font is by
 CodeMan38, under the SIL Open Font License.
 
+## Disclaimer
+
+- _Save Indy!_ is an unofficial fan project, made purely to help people
+  learn JavaScript.
+- It is free, has no ads or payments, and makes no money.
+- Indiana Jones is a trademark of Lucasfilm Ltd. This project is not
+  affiliated with, endorsed by, or sponsored by Lucasfilm Ltd. or The Walt
+  Disney Company.
+- All artwork and sounds are original; no material from the films or games is
+  used.
+- If you are a rights holder with a concern, please
+  [open an issue](https://github.com/IndrajeetPatil/save-indy/issues) and it
+  will be addressed promptly.
+
 ## License
 
-[CC0 1.0](LICENSE). Please note that this project is released with a
+The code and original assets are released under [CC0 1.0](LICENSE); the
+license does not extend to third-party trademarks.
+
+Please note that this project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in
 this project you agree to abide by its terms.
