@@ -7,6 +7,30 @@ const FANFARE_DELAY_SECONDS = 0.22;
 /** The dirge follows the hiss of the snake that won. */
 const DIRGE_DELAY_SECONDS = 0.45;
 
+// Safari's Audio Session API, which TypeScript's DOM types do not cover yet.
+declare global {
+  interface AudioSession {
+    type: string;
+  }
+
+  interface Navigator {
+    readonly audioSession?: AudioSession;
+  }
+}
+
+/**
+ * IOS treats Web Audio as ambient sound by default, so the Ring/Silent switch
+ * mutes it while video and music still play. Declaring the page a playback
+ * session makes the in-game mute button the one control over the sound.
+ * Browsers without the Audio Session API ignore this.
+ */
+function playThroughSilentSwitch(): void {
+  const { audioSession } = navigator;
+  if (audioSession !== undefined) {
+    audioSession.type = "playback";
+  }
+}
+
 /**
  * Sound effects synthesised with the Web Audio API, so the game ships no
  * audio files. The audio context is created on the first effect, which always
@@ -68,8 +92,12 @@ export class SoundEffects {
     if (this.#muted) {
       return null;
     }
-    this.#mixer ??= createMixer(new AudioContext());
-    if (this.#mixer.context.state === "suspended") {
+    if (this.#mixer === null) {
+      playThroughSilentSwitch();
+      this.#mixer = createMixer(new AudioContext());
+    }
+    // IOS also reports "interrupted" after a call or a trip to another app.
+    if (this.#mixer.context.state !== "running") {
       void this.#mixer.context.resume();
     }
     return this.#mixer;

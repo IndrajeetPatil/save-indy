@@ -12,6 +12,13 @@ const playAll = (sound: SoundEffects) => {
   sound.lose();
 };
 
+// Give the browser Safari's Audio Session API for the length of one test.
+const stubAudioSession = () => {
+  const audioSession = { type: "auto" };
+  vi.stubGlobal("navigator", { audioSession });
+  return audioSession;
+};
+
 describe(SoundEffects, () => {
   test("stays silent and creates no audio context while muted", () => {
     const created = trackContexts();
@@ -42,6 +49,25 @@ describe(SoundEffects, () => {
     playAll(sound);
 
     expect(reverbs).toHaveBeenCalledOnce();
+  });
+
+  test("plays through the iPhone silent switch once sound starts", () => {
+    const audioSession = stubAudioSession();
+    const sound = new SoundEffects(false);
+
+    expect(audioSession.type).toBe("auto");
+
+    sound.whip();
+
+    expect(audioSession.type).toBe("playback");
+  });
+
+  test("leaves the audio session alone while muted", () => {
+    const audioSession = stubAudioSession();
+
+    playAll(new SoundEffects(true));
+
+    expect(audioSession.type).toBe("auto");
   });
 
   test("can be muted after playing", () => {

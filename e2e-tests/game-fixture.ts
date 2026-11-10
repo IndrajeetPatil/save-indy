@@ -104,6 +104,14 @@ async function audioStates(page: Page): Promise<string[]> {
 }
 
 /**
+ * @param page Playwright page.
+ * @returns Safari's audio session type, or `null` where the API is missing.
+ */
+async function audioSessionType(page: Page): Promise<string | null> {
+  return page.evaluate(() => navigator.audioSession?.type ?? null);
+}
+
+/**
  * @param url An absolute URL, or `null`.
  * @returns The last path segment of the URL.
  */
@@ -139,6 +147,7 @@ async function press(target: Locator, hasTouch: boolean): Promise<void> {
 
 export {
   answerQuestion,
+  audioSessionType,
   audioStates,
   fetchAsset,
   fileName,

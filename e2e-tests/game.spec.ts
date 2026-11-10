@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 import {
   answerQuestion,
+  audioSessionType,
   audioStates,
   fetchAsset,
   fileName,
@@ -105,6 +106,19 @@ test("sound starts on the first tap or click, as mobile browsers require", async
   await press(firstAnswer, hasTouch);
 
   await expect.poll(async () => audioStates(page)).toStrictEqual(["running"]);
+});
+
+test("sound plays even when the iPhone's silent switch is on", async ({
+  page,
+  hasTouch,
+  browserName,
+}) => {
+  test.skip(browserName !== "webkit", "Only Safari has an audio session");
+  await startGame(page);
+
+  await press(page.locator("#answers button").first(), hasTouch);
+
+  expect(await audioSessionType(page)).toBe("playback");
 });
 
 test("the social card image exists at the advertised address", async ({

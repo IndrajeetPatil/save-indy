@@ -38,7 +38,7 @@ every missed question with its answer and explanation.
   whip cracks, and strikes
 - Sound effects synthesised with the Web Audio API (a whip crack, a snake
   hiss, and brass for the ending) in a reverberant temple, with a mute toggle
-  that is remembered
+  that is remembered; on iPhone the sound plays even with the silent switch on
 - An explanation for every answer, and a review of missed questions
 - Icon-first controls (sound, source, issue reports) with accessible names
 - Keyboard play, screen-reader announcements, visible focus, and reduced
