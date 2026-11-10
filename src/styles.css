@@ -240,6 +240,8 @@ code {
 }
 
 .stat-value {
+  grid-row: 1;
+  grid-column: 2;
   text-align: right;
 }
 
@@ -355,9 +357,6 @@ code {
   color: var(--text);
   cursor: pointer;
   box-shadow: var(--shadow);
-}
-
-.button {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -607,19 +606,6 @@ kbd {
 .verdict .icon {
   width: 1rem;
   height: 1rem;
-}
-
-.answer.is-correct .answer-key {
-  color: var(--good);
-}
-
-.answer.is-wrong .answer-key {
-  color: var(--bad);
-}
-
-.stat-value {
-  grid-row: 1;
-  grid-column: 2;
 }
 
 /* Wide screens, and phones held sideways, put the scene and the quiz side
