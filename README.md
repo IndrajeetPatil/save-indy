@@ -4,6 +4,8 @@
 
 A fun game built using JavaScript to check your knowledge of JavaScript itself! 🔄
 
+**[Play it in your browser →](https://www.indrapatil.com/save-indy/)**
+
 ## Rules
 
 <img src="./assets/js-logo.png" align="left" width="180" />
@@ -27,6 +29,17 @@ Most of the questions are inspired by the following material:
 Needless to say, any inaccuracies reflect my poor judgment, and I would appreciate
 [feedback](https://github.com/IndrajeetPatil/save-indy/issues) with
 corrections/suggestions.
+
+## Development
+
+The game is plain HTML, CSS and JavaScript with [p5.js](https://p5js.org/) loaded from a CDN, so there is no build step. Serve the repository root with any static file server (e.g. `python3 -m http.server`) and open `index.html`.
+
+To lint and check formatting:
+
+```sh
+npm ci
+npm run lint
+```
 
 ## Acknowledgments
 
