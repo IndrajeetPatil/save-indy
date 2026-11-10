@@ -1,6 +1,7 @@
 import { describe, expect, test, vi } from "vite-plus/test";
 
 import { SCENE_HEIGHT, SCENE_WIDTH, paintBackground } from "./background.ts";
+import { context2d } from "./pixels.ts";
 import { Scene } from "./scene.ts";
 import type { Cue } from "./scene.ts";
 
@@ -19,6 +20,15 @@ const THREAT_FOR: Record<Cue, number> = {
   wrong: 70,
   won: 0,
   lost: 70,
+};
+
+// The top of the left and right two-pixel columns, clear of any actor.
+const edgePixels = (canvas: HTMLCanvasElement) => {
+  const context = context2d(canvas);
+  return [
+    ...context.getImageData(0, 0, 2, 8).data,
+    ...context.getImageData(canvas.width - 2, 0, 2, 8).data,
+  ];
 };
 
 const pixels = (canvas: HTMLCanvasElement) =>
@@ -70,6 +80,18 @@ describe(Scene, () => {
     }
 
     expect(reduced.snakeX).toBeGreaterThan(animated.snakeX);
+  });
+
+  test("repaints every edge while the scene shakes", () => {
+    const { canvas, scene } = makeScene();
+    scene.render(0);
+    scene.update(60, "wrong");
+    // Paint over everything, so any edge the next frame misses stays black.
+    context2d(canvas).fillRect(0, 0, canvas.width, canvas.height);
+
+    scene.render(0.02);
+
+    expect(edgePixels(canvas)).toStrictEqual(edgePixels(paintBackground()));
   });
 
   test("chases the snake off-screen when Indy wins", () => {

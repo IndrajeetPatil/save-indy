@@ -198,6 +198,9 @@ class Scene {
       x: tweenValue(this.#tween, seconds),
       y: SNAKE_Y - rearHeight(this.#cue, elapsed),
     };
+    // Repaint the whole canvas before any shake offset, so the strip a shifted
+    // frame leaves uncovered never shows an earlier frame.
+    context.drawImage(this.#background, 0, 0);
     context.save();
     this.#shake(elapsed);
     context.drawImage(this.#background, 0, 0);
