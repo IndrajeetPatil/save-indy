@@ -111,10 +111,14 @@ test("sound starts on the first tap or click, as mobile browsers require", async
 test("sound plays even when the iPhone's silent switch is on", async ({
   page,
   hasTouch,
-  browserName,
 }) => {
-  test.skip(browserName !== "webkit", "Only Safari has an audio session");
   await startGame(page);
+  // Only Apple's WebKit builds ship the Audio Session API; Linux WebKit and
+  // Chromium do not.
+  test.skip(
+    (await audioSessionType(page)) === null,
+    "This browser has no Audio Session API",
+  );
 
   await press(page.locator("#answers button").first(), hasTouch);
 
