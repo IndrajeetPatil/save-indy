@@ -99,15 +99,6 @@ export const QUESTIONS: readonly Question[] = [
   },
   {
     level: "beginner",
-    prompt:
-      "Which special value is returned if underflow occurs from a negative number?",
-    answers: ["-Infinity", "-0", "0", "NaN"],
-    correct: "-0",
-    explanation:
-      "A negative result too small to represent rounds to negative zero, which keeps its sign.",
-  },
-  {
-    level: "beginner",
     prompt: "What will `0 === -0` evaluate to?",
     answers: ["null", "true", "false", "undefined"],
     correct: "true",
@@ -222,20 +213,6 @@ export const QUESTIONS: readonly Question[] = [
   },
   {
     level: "beginner",
-    prompt:
-      "If `let x = 'hello';`, which of the following will not return `'ll'`?",
-    answers: [
-      "x.slice(2, 4);",
-      "x.substring(2, 4);",
-      "x[2] + x[3];",
-      "x[2, 3];",
-    ],
-    correct: "x[2, 3];",
-    explanation:
-      "Inside the brackets, the comma operator evaluates to its last operand, so `x[2, 3]` is just `x[3]`, which is `'l'`.",
-  },
-  {
-    level: "beginner",
     prompt: "If `let x = [5, , 1];`, then what is `x[1]`?",
     answers: ["NaN", "null", "5", "undefined"],
     correct: "undefined",
@@ -298,7 +275,7 @@ export const QUESTIONS: readonly Question[] = [
   },
   {
     level: "beginner",
-    prompt: "Do `1 + (2 + '3')` and `(1 + 2) + '3'` return the same string?",
+    prompt: "What does `1 + (2 + '3') === (1 + 2) + '3'` evaluate to?",
     answers: ["true", "false", "SyntaxError", "TypeError"],
     correct: "false",
     explanation:
@@ -341,6 +318,14 @@ export const QUESTIONS: readonly Question[] = [
     explanation:
       "`debugger` only pauses execution when developer tools are open; it doesn't change where the program goes next.",
   },
+  {
+    level: "beginner",
+    prompt: "Which option produces variable `x` without block scope?",
+    answers: ["let x", "const x", "var x", "define x"],
+    correct: "var x",
+    explanation:
+      "`var` is scoped to the enclosing function; `let` and `const` are scoped to the block.",
+  },
 
   // ---------------- intermediate ----------------
   {
@@ -366,14 +351,6 @@ export const QUESTIONS: readonly Question[] = [
     correct: "undefined",
     explanation:
       "The array has two elements, so `y` gets `[2, 3]` and `z` has nothing left to take.",
-  },
-  {
-    level: "intermediate",
-    prompt: "Which option produces variable `x` without block scope?",
-    answers: ["let x", "const x", "var x", "define x"],
-    correct: "var x",
-    explanation:
-      "`var` is scoped to the enclosing function; `let` and `const` are scoped to the block.",
   },
   {
     level: "intermediate",
@@ -539,6 +516,38 @@ export const QUESTIONS: readonly Question[] = [
     explanation:
       "JSON has no representation for `NaN` or infinities, so `JSON.stringify` writes `null`; `true` stays `true`.",
   },
+  {
+    level: "intermediate",
+    prompt:
+      "Which special value is returned if underflow occurs from a negative number?",
+    answers: ["-Infinity", "-0", "0", "NaN"],
+    correct: "-0",
+    explanation:
+      "A negative result too small to represent rounds to negative zero, which keeps its sign.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "If `let x = 'hello';`, which of the following will not return `'ll'`?",
+    answers: [
+      "x.slice(2, 4);",
+      "x.substring(2, 4);",
+      "x[2] + x[3];",
+      "x[2, 3];",
+    ],
+    correct: "x[2, 3];",
+    explanation:
+      "Inside the brackets, the comma operator evaluates to its last operand, so `x[2, 3]` is just `x[3]`, which is `'l'`.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "What's the standard way to refer to the global object in any context?",
+    answers: ["global", "globalThis", "window", "self"],
+    correct: "globalThis",
+    explanation:
+      "`window`, `self`, and `global` exist only in some environments; `globalThis` works everywhere.",
+  },
 
   // ---------------- advanced ----------------
   {
@@ -561,16 +570,7 @@ export const QUESTIONS: readonly Question[] = [
     answers: ["a function", "a Date", "a RegExp", "undefined"],
     correct: "a Date",
     explanation:
-      "Dates have a `toJSON` method that returns an ISO string; a RegExp becomes `{}`, and functions and `undefined` are dropped.",
-  },
-  {
-    level: "advanced",
-    prompt:
-      "What's the standard way to refer to the global object in any context?",
-    answers: ["global", "globalThis", "window", "self"],
-    correct: "globalThis",
-    explanation:
-      "`window`, `self`, and `global` exist only in some environments; `globalThis` works everywhere.",
+      "Dates have a `toJSON` method that returns an ISO string; a RegExp becomes `'{}'`, and a function or `undefined` gives `undefined` instead of a string.",
   },
   {
     level: "advanced",
@@ -584,11 +584,11 @@ export const QUESTIONS: readonly Question[] = [
   {
     level: "advanced",
     prompt:
-      "Which declaration is hoisted to the top of the enclosing function?",
-    answers: ["let x", "const x", "var x", "no declaration is"],
+      "Which declaration can be read, as `undefined`, before the line that declares it?",
+    answers: ["let x", "const x", "var x", "none of them"],
     correct: "var x",
     explanation:
-      "`var` is function-scoped and usable (as `undefined`) before its line; `let` and `const` are block-scoped and unusable until declared.",
+      "All three are hoisted, but only `var` starts as `undefined`; reading a `let` or `const` before its declaration throws a `ReferenceError` (the temporal dead zone).",
   },
   {
     level: "advanced",
