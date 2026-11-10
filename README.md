@@ -35,6 +35,7 @@ every missed question with its answer and explanation.
 - Sound effects synthesised with the Web Audio API, with a mute toggle that is
   remembered
 - An explanation for every answer, and a review of missed questions
+- Icon-first controls (sound, source, issue reports) with accessible names
 - Keyboard play, screen-reader announcements, visible focus, and reduced
   motion support
 - A static site with no runtime dependencies beyond a self-hosted font, served
@@ -110,7 +111,8 @@ Most questions are inspired by:
 Any inaccuracies are mine; please
 [report them](https://github.com/IndrajeetPatil/save-indy/issues).
 
-The artwork and sounds are original to this game. The
+Interface icons are from GitHub's [Octicons](https://github.com/primer/octicons)
+(MIT License). The artwork and sounds are original to this game. The
 [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) font is by
 CodeMan38, under the SIL Open Font License.
 
