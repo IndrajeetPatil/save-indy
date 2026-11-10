@@ -71,6 +71,49 @@ code {
   border: 0;
 }
 
+/* Icons */
+
+.icon {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  vertical-align: -0.15em;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 3px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.icon-button .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-button:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.icon-button[aria-pressed="true"] {
+  color: var(--muted);
+  background: var(--surface-raised);
+}
+
 /* Header and footer */
 
 .site-header {
@@ -83,6 +126,7 @@ code {
 
 .title {
   margin: 0;
+  white-space: nowrap;
   font-family: var(--pixel-font);
   font-size: clamp(1.25rem, 3vw, 1.9rem);
   font-weight: 400;
@@ -93,29 +137,11 @@ code {
   letter-spacing: 0.02em;
 }
 
-.mute-toggle {
-  font: inherit;
-  font-family: var(--pixel-font);
-  font-size: 0.7rem;
-  padding: 0.7rem 0.9rem;
-  border: 3px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  cursor: pointer;
-  box-shadow: var(--shadow);
-}
-
-.mute-toggle[aria-pressed="true"] {
-  background: var(--surface-raised);
-  color: var(--muted);
-  text-decoration: line-through;
-}
-
 .site-footer {
   margin-top: auto;
-  padding: 1.5rem clamp(1rem, 4vw, 2.5rem);
+  padding: 1.25rem clamp(1rem, 4vw, 2.5rem);
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -182,6 +208,12 @@ code {
   box-shadow: var(--shadow);
 }
 
+.stat-label {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
 .stat-label,
 .stat-value {
   font-family: var(--pixel-font);
@@ -191,6 +223,14 @@ code {
 
 .stat-value {
   text-align: right;
+}
+
+.stat:first-child .stat-label {
+  color: var(--warn);
+}
+
+.stat:last-child .stat-label {
+  color: var(--bad);
 }
 
 .meter {
@@ -228,15 +268,6 @@ code {
 .lead {
   margin-top: 0;
   font-size: 1.125rem;
-}
-
-.rules {
-  padding-left: 1.25rem;
-  color: var(--muted);
-}
-
-.rules li + li {
-  margin-top: 0.35rem;
 }
 
 .levels {
@@ -289,7 +320,7 @@ code {
   font-size: 0.75rem;
 }
 
-.level-topics {
+.level-count {
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -304,6 +335,12 @@ code {
   color: var(--text);
   cursor: pointer;
   box-shadow: var(--shadow);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .button.primary {
@@ -398,14 +435,6 @@ code {
   background: var(--bad-surface);
 }
 
-/* The pixel font has no check or cross glyphs. */
-.answer.is-correct .answer-key,
-.answer.is-wrong .answer-key {
-  font-family: var(--body-font);
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
 .answer.is-correct .answer-key {
   color: var(--good);
 }
@@ -419,6 +448,15 @@ code {
   padding: 1rem;
   border-left: 4px solid var(--border);
   background: rgb(0 0 0 / 0.25);
+}
+
+.verdict,
+.right-answer,
+.review-answer,
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .verdict {
@@ -450,6 +488,19 @@ code {
   margin: 1.25rem 0 0;
   color: var(--muted);
   font-size: 0.875rem;
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0.1em 0.4em;
+  border: 2px solid var(--border);
+  border-bottom-width: 3px;
+  background: var(--surface-raised);
+  color: var(--text);
+  font-family: var(--code-font);
+  font-size: 0.85em;
+  text-align: center;
 }
 
 /* End screen */
@@ -527,5 +578,35 @@ code {
 @media (hover: none) and (pointer: coarse) {
   .hint {
     display: none;
+  }
+}
+
+/* Icons inside small pixel-font labels stay legible. */
+.answer-key .icon,
+.stat-label .icon,
+.verdict .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.answer.is-correct .answer-key {
+  color: var(--good);
+}
+
+.answer.is-wrong .answer-key {
+  color: var(--bad);
+}
+
+.stat-value {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+/* Narrow screens stack the title above the toolbar, so the header's height
+   never depends on how wide the web font renders. */
+@media (max-width: 34rem) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }

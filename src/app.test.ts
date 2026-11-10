@@ -136,8 +136,8 @@ describe("answering", () => {
     }).toStrictEqual({
       reveal: "Right answer: right",
       revealShown: false,
-      right: "✓right (right answer)",
-      wrong: "✗wrong 2 (your answer)",
+      right: "right (right answer)",
+      wrong: "wrong 2 (your answer)",
       announced: true,
     });
   });
@@ -158,13 +158,25 @@ describe("answering", () => {
 
     continueGame();
 
-    expect(byId("progress").textContent).toContain("Question 2 · 1 correct");
+    expect(byId("progress").textContent).toBe("Beginner · Q2 · correct: 1");
     expect(byId("feedback").hidden).toBe(true);
     expect(answers().some((button) => button.disabled)).toBe(false);
   });
 });
 
 describe("sound toggle", () => {
+  test("shows the speaker icon that matches the setting", () => {
+    setup();
+    const mute = byId("mute-toggle");
+    const iconPath = () => mute.querySelector("path")?.getAttribute("d");
+    const soundOn = iconPath();
+
+    mute.click();
+
+    expect(iconPath()).not.toBe(soundOn);
+    expect(document.querySelector("[data-icon]")).toBeNull();
+  });
+
   test("mutes and unmutes, remembering the choice", () => {
     const { sound, onMuteChange } = setup();
     const mute = byId("mute-toggle");

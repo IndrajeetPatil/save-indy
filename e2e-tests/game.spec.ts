@@ -22,11 +22,9 @@ test("a perfect round saves Indy, played with the keyboard alone", async ({
     page.getByRole("heading", { name: "You saved Indy!" }),
   ).toBeFocused();
   await expect(page.locator("#summary")).toHaveText(
-    "You answered 5 of 5 beginner questions correctly (100%).",
+    "Beginner: 5/5 correct (100%)",
   );
-  await expect(
-    page.getByRole("heading", { name: "Questions to revisit" }),
-  ).toBeHidden();
+  await expect(page.getByRole("heading", { name: "Revisit" })).toBeHidden();
   expect(errors).toStrictEqual([]);
 });
 
@@ -66,7 +64,7 @@ test("a wrong answer reveals the right one and explains it", async ({
 
 test("the mute setting survives a reload", async ({ page }) => {
   await page.goto("/");
-  const mute = page.getByRole("button", { name: "Mute" });
+  const mute = page.getByRole("button", { name: "Mute sound" });
 
   await mute.click();
   await page.reload();
@@ -92,7 +90,7 @@ test("the old game URL redirects to the home page", async ({ page }) => {
 
   await expect(page).toHaveURL(/\/$/u);
   await expect(
-    page.getByRole("button", { name: "Start the adventure" }),
+    page.getByRole("button", { name: "Start", exact: true }),
   ).toBeVisible();
 });
 

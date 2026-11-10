@@ -40,7 +40,7 @@ describe("end screen", () => {
     }).toStrictEqual({
       shown: true,
       result: "You saved Indy!",
-      summary: "You answered 5 of 5 beginner questions correctly (100%).",
+      summary: "Beginner: 5/5 correct (100%)",
       review: false,
     });
   });
@@ -81,7 +81,7 @@ describe("end screen", () => {
     byId("play-again").click();
 
     expect(byId("question-screen").hidden).toBe(false);
-    expect(byId("progress").textContent).toContain("Question 1 · 0 correct");
+    expect(byId("progress").textContent).toBe("Beginner · Q1 · correct: 0");
     expect(stage.update).toHaveBeenLastCalledWith(50, "reset");
   });
 

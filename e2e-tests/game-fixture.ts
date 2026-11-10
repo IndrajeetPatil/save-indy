@@ -34,7 +34,7 @@ async function startGame(
   });
   await page.goto("/");
   await page.getByRole("radio", { name: new RegExp(level, "u") }).check();
-  await page.getByRole("button", { name: "Start the adventure" }).click();
+  await page.getByRole("button", { name: "Start", exact: true }).click();
   await expect(page.getByRole("heading", { level: 2 })).toBeFocused();
   return errors;
 }
@@ -66,7 +66,7 @@ async function playToEnd(page: Page, right: boolean): Promise<void> {
   while (!(await endScreen.isVisible())) {
     await answerQuestion(page, right);
     await page
-      .getByRole("button", { name: /Next question|See the result/u })
+      .getByRole("button", { name: /^(?:Next|Results)$/u })
       .press("Enter");
   }
 }
