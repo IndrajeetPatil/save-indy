@@ -34,78 +34,22 @@ every missed question with its answer and explanation.
 
 ## Features
 
-- Pixel-art temple, explorer, and snake drawn in code, with animated torches,
-  whip cracks, and strikes
-- Sound effects synthesised with the Web Audio API (a whip crack, a snake
-  hiss, and brass for the ending) in a reverberant temple, with a mute toggle
-  that is remembered; on iPhone the sound plays even with the silent switch on
-- An explanation for every answer, and a review of missed questions
-- Icon-first controls (sound, source, issue reports) with accessible names
-- A phone layout that pins the scene and meters above the quiz, so every
-  answer's effect stays in view; external links wait in the footer
+- Three levels of JavaScript questions, from type coercion to Unicode strings
+- An explanation for every answer, and a review of missed questions at the end
+- A pixel-art temple with flickering torches, whip cracks, and snake strikes
+- Synthesised sound effects (a whip crack, a snake hiss, and brass for the
+  ending), with a mute toggle that is remembered; on iPhone the sound plays
+  even with the silent switch on
+- Works on phones: the scene and meters stay pinned above the quiz
 - Keyboard play, screen-reader announcements, visible focus, and reduced
   motion support
-- A static site with no runtime dependencies beyond a self-hosted font, served
-  under a strict Content Security Policy
 
-## Development
+## Contributing
 
-The game is a TypeScript single-page app built with [Vite+](https://viteplus.dev/)
-(`vp`), which also manages Node.js (from `.node-version`) and pnpm (from
-`packageManager` in `package.json`).
-
-| Task                                 | Command                            |
-| ------------------------------------ | ---------------------------------- |
-| Install dependencies                 | `vp install`                       |
-| Start the dev server with hot reload | `vp dev`                           |
-| Run every check, as CI does          | `vp run qa`                        |
-| Format, lint, and type-check         | `vp check`                         |
-| Unit tests in Chromium               | `vp test`                          |
-| Build and run end-to-end tests       | `vp run test:e2e`                  |
-| Build and preview production assets  | `vp run preview`                   |
-| Lighthouse audit of the build        | `vp run lighthouse`                |
-| Re-render PNG icons and social image | `vp build && vp run render-assets` |
-
-### Project structure
-
-| Path                                    | Contents                                                    |
-| --------------------------------------- | ----------------------------------------------------------- |
-| `index.html`                            | Page markup: scene, stats, and the three screens            |
-| `src/questions.ts`                      | The question bank, with an explanation for every answer     |
-| `src/game.ts`                           | Pure game rules: scoring, outcomes, and question order      |
-| `src/app.ts`, `view.ts`                 | The controller and the DOM rendering it drives              |
-| `src/scene/`                            | Pixel art, sprites, and the animated canvas scene           |
-| `src/audio.ts`, `sounds.ts`, `mixer.ts` | Synthesised sound effects, their voices, and the reverb mix |
-| `e2e-tests/`                            | Playwright gameplay tests and axe accessibility audits      |
-| `public/`                               | Icons, web manifest, social image, and the old-URL redirect |
-| `scripts/render-assets.ts`              | Renders the PNG icons and social image from the game        |
-
-### Quality gates
-
-`vp run qa` runs the same gates as the [QA workflow](.github/workflows/qa.yml):
-
-| Gate                       | Tool                                                                                           |
-| -------------------------- | ---------------------------------------------------------------------------------------------- |
-| Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                        |
-| CSS lint                   | Biome                                                                                          |
-| Unit tests                 | Vitest in real Chromium, with coverage thresholds                                              |
-| Dead code and complexity   | Fallow                                                                                         |
-| Type coverage              | `type-coverage` at 100%                                                                        |
-| Dependency audit           | `pnpm audit` at moderate severity                                                              |
-| Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) in Chromium, desktop Safari (WebKit), and iPhone Safari |
-| Web quality                | Lighthouse CI                                                                                  |
-
-### Adding a question
-
-Add an entry to `src/questions.ts` with a level, a prompt, four distinct
-answers, the correct one, and a one-sentence explanation. Wrap code in
-backticks to show it as inline code. The unit tests check that every question
-is well-formed and that each level has enough questions to finish a round.
-
-## Deployment
-
-Every push to `main` builds the site and publishes `dist/` to GitHub Pages via
-the [Deploy workflow](.github/workflows/deploy.yml).
+Found a wrong answer or have a question to add? Please
+[open an issue](https://github.com/IndrajeetPatil/save-indy/issues) or a pull
+request. The [development guide](docs/development.md) covers running the game
+locally, the checks, and how to add a question.
 
 ## Credits
 
