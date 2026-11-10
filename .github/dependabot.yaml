@@ -16,3 +16,8 @@ updates:
       dependencies:
         patterns:
           - "*"
+    ignore:
+      # type-coverage reads the TypeScript 6 compiler API, which the native
+      # TypeScript 7 compiler no longer provides.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
