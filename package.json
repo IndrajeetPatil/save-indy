@@ -1,23 +1,26 @@
 {
   "name": "save-indy",
   "version": "1.0.0",
+  "private": true,
   "description": "A simple game where you can save Indiana Jones using your JavaScript skills.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IndrajeetPatil/save-indy.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Indrajeet Patil",
   "license": "CC0-1.0",
   "bugs": {
     "url": "https://github.com/IndrajeetPatil/save-indy/issues"
   },
-  "homepage": "https://github.com/IndrajeetPatil/save-indy#readme",
-  "dependencies": {
-    "p5": "^1.5.0"
+  "homepage": "https://www.indrapatil.com/save-indy/",
+  "scripts": {
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10"
   }
 }
