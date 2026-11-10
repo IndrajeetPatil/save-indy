@@ -46,6 +46,6 @@ function setTextWithCode(element, text) {
       const code = document.createElement("code");
       code.textContent = part;
       return code;
-    })
+    }),
   );
 }

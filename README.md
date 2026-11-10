@@ -9,7 +9,7 @@ A fun game built using JavaScript to check your knowledge of JavaScript itself! 
 <img src="./assets/js-logo.png" align="left" width="180" />
 
 Three different levels correspond to proficiency levels
-(*beginner*, *intermediate*, and *advanced*). That said, there are
+(_beginner_, _intermediate_, and _advanced_). That said, there are
 far more questions available for the beginner level. There
 are plans to add more questions for the other levels as well.
 
@@ -20,8 +20,8 @@ are plans to add more questions for the other levels as well.
 
 Most of the questions are inspired by the following material:
 
-- Flanagan, D. (2020). *JavaScript: The Definitive Guide* (7th Edition). O'Reilly.
-- Padolsey, J. (2020). *Clean Code in JavaScript*. Packt Publishing.
+- Flanagan, D. (2020). _JavaScript: The Definitive Guide_ (7th Edition). O'Reilly.
+- Padolsey, J. (2020). _Clean Code in JavaScript_. Packt Publishing.
 - Brian Leroux's [WAT talk](https://www.youtube.com/watch?v=et8xNAc2ic8&t=1s)
 
 Needless to say, any inaccuracies reflect my poor judgment, and I would appreciate
