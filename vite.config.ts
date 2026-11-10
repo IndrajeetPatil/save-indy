@@ -1,6 +1,8 @@
 import { defineConfig, lazyPlugins } from "vite-plus";
 import { playwright } from "vite-plus/test/browser-playwright";
 
+import { iconMarkup } from "./src/icons.ts";
+
 const isCI = Boolean(process.env["CI"]);
 
 // Generated output never gets formatted or linted.
@@ -59,11 +61,55 @@ const contentSecurityPolicy = () => ({
   ],
 });
 
+// Icons are written into the HTML when it is served or built, so the page
+// renders complete without waiting for scripts and nothing shifts on load.
+const ICON_PLACEHOLDER = /<span data-icon="(?<name>\w+)"><\/span\s*>/gu;
+
+const inlineIcons = () => ({
+  name: "inline-icons",
+  transformIndexHtml: (html: string) =>
+    html.replaceAll(
+      ICON_PLACEHOLDER,
+      (placeholder: string, name: string) => iconMarkup(name) ?? placeholder,
+    ),
+});
+
+// The heading font affects layout, so fetch it with the HTML instead of after
+// the stylesheet is parsed.
+const FONT_FILE = /press-start-2p-latin-400-normal-[\w-]+\.woff2$/u;
+
+const preloadFont = () => ({
+  name: "preload-font",
+  apply: "build" as const,
+  transformIndexHtml: (
+    _html: string,
+    context: { bundle?: Record<string, { fileName: string }> },
+  ) =>
+    Object.values(context.bundle ?? {})
+      .filter((asset) => FONT_FILE.test(asset.fileName))
+      .map((asset) => ({
+        tag: "link",
+        attrs: {
+          rel: "preload",
+          href: `./${asset.fileName}`,
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "",
+        },
+        injectTo: "head" as const,
+      })),
+});
+
 export default defineConfig({
   // GitHub Pages serves the game from a sub-path; relative URLs keep the build
   // portable to any host and path.
   base: "./",
-  plugins: lazyPlugins(() => [contentSecurityPolicy()]) ?? [],
+  plugins:
+    lazyPlugins(() => [
+      inlineIcons(),
+      preloadFont(),
+      contentSecurityPolicy(),
+    ]) ?? [],
   build: {
     // The font ships as WOFF2 only; inlining it would defeat caching.
     assetsInlineLimit: 0,
