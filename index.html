@@ -1,89 +1,325 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Save Indy! A JavaScript quiz adventure</title>
+    <meta
+      name="description"
+      content="A retro browser game that tests your JavaScript knowledge: answer correctly to drive the snake back and save Indy."
+    />
+    <meta
+      name="author"
+      content="Indrajeet Patil"
+    />
+    <meta
+      name="theme-color"
+      content="#17110d"
+    />
+    <meta
+      name="color-scheme"
+      content="dark"
+    />
+    <link
+      rel="canonical"
+      href="https://www.indrapatil.com/save-indy/"
+    />
 
-<head>
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:title"
+      content="Save Indy! A JavaScript quiz adventure"
+    />
+    <meta
+      property="og:description"
+      content="Answer JavaScript questions to drive the snake back and save Indy."
+    />
+    <meta
+      property="og:url"
+      content="https://www.indrapatil.com/save-indy/"
+    />
+    <meta
+      property="og:image"
+      content="https://www.indrapatil.com/save-indy/og-image.png"
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+    <meta
+      property="og:image:alt"
+      content="Pixel-art explorer in a torch-lit temple facing a green snake."
+    />
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+      rel="icon"
+      href="./favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="icon"
+      href="./favicon-32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="manifest"
+      href="./site.webmanifest"
+    />
+    <script
+      type="module"
+      src="./src/main.ts"
+    ></script>
+  </head>
 
-    <!-- meta: general -->
-    <meta name="description" content="A fun game built using JavaScript to check your knowledge of JavaScript itself!">
-    <meta name="keywords" content="javascript, learning-game, knowledge-game, web-development">
-    <meta name="author" content="Indrajeet Patil">
+  <body>
+    <header class="site-header">
+      <h1 class="title">Save Indy!</h1>
+      <button
+        type="button"
+        class="mute-toggle"
+        id="mute-toggle"
+        aria-pressed="false"
+      >
+        Mute
+      </button>
+    </header>
 
-    <!-- meta: social media -->
-    <meta property="og:image" content="https://en.wikipedia.org/wiki/Indiana_Jones#/media/File:Indiana_Jones_logo.svg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@patilindrajeets">
-    <meta name="twitter:site" content="@patilindrajeets">
-
-    <!-- link fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-    <!-- link favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/favicon_io/favicon.ico">
-
-    <!-- link local stylesheets -->
-    <link rel="stylesheet" href="./styles/style.css">
-
-    <title>Save Indy using JavaScript!</title>
-
-</head>
-
-<body>
-
-    <div class="intro-container">
-
-        <div class="intro-text-container">
-            <div class="intro-images-container">
-                <img class="home-banner" src="./assets/home_background.jpeg" alt="Indiana Jones banner">
-                <img class="js-logo" src="./assets/js-logo.png" alt="JavaScript logo">
+    <main class="layout">
+      <section
+        class="stage"
+        aria-label="Temple"
+      >
+        <canvas
+          id="scene"
+          class="scene"
+          width="160"
+          height="120"
+          role="img"
+          aria-label="Indy stands in a torch-lit temple while a snake slithers towards him."
+        ></canvas>
+        <div class="hud">
+          <div class="stat">
+            <span
+              class="stat-label"
+              id="threat-label"
+              >Threat</span
+            >
+            <div
+              class="meter"
+              id="threat-meter"
+              role="meter"
+              aria-labelledby="threat-label"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+            >
+              <div class="meter-fill threat-fill"></div>
             </div>
-
-            <h1>Save Indy!</h1>
-
-            <p>Save Indiana Jones with your JavaScript knowledge.</p>
-            <p>The more questions you answer correctly, the more he gets out of trouble.</p>
-
-            <div class="difficulty-level">
-
-                <p>Choose your proficiency level:</p>
-
-                <select class="difficulty-level-options" id="difficulty-level-options">
-                    <option value="undefined"></option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select>
-
+            <span
+              class="stat-value"
+              id="threat-value"
+              aria-hidden="true"
+              >50</span
+            >
+          </div>
+          <div class="stat">
+            <span
+              class="stat-label"
+              id="health-label"
+              >Indy's health</span
+            >
+            <div
+              class="meter"
+              id="health-meter"
+              role="meter"
+              aria-labelledby="health-label"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="50"
+            >
+              <div class="meter-fill health-fill"></div>
             </div>
+            <span
+              class="stat-value"
+              id="health-value"
+              aria-hidden="true"
+              >50</span
+            >
+          </div>
+        </div>
+      </section>
 
-            <button class='start-btn'><a href="./game/index.html">Start</a></button>
-
+      <section
+        class="panel"
+        aria-label="Quiz"
+      >
+        <p
+          class="visually-hidden"
+          id="announcer"
+          aria-live="polite"
+        ></p>
+        <div
+          class="screen"
+          id="start-screen"
+        >
+          <p class="lead">
+            A snake is closing in on Indy. Answer JavaScript questions to drive
+            it back before it strikes.
+          </p>
+          <ul class="rules">
+            <li>Each right answer cracks the whip: threat down, health up.</li>
+            <li>
+              Each wrong answer lets the snake lunge: threat up, health down.
+            </li>
+            <li>Win when the threat reaches 0; lose if Indy's health does.</li>
+          </ul>
+          <form
+            class="start-form"
+            id="start-form"
+          >
+            <fieldset class="levels">
+              <legend>Choose your level</legend>
+              <div
+                class="level-options"
+                id="level-options"
+              ></div>
+            </fieldset>
+            <button
+              type="submit"
+              class="button primary"
+            >
+              Start the adventure
+            </button>
+          </form>
         </div>
 
-        <div class="legal-footer">
-            <p>
-                This game is a fun way to test your JavaScript knowledge.
-                I make no money from it.
-            </p>
-            <p>
-                Please don't sue me, George Lucas!
-            </p>
-            <p>
-                Created by <a href="https://github.com/IndrajeetPatil">Indrajeet Patil</a>
-            </p>
+        <div
+          class="screen"
+          id="question-screen"
+          hidden
+        >
+          <p
+            class="progress"
+            id="progress"
+          ></p>
+          <h2
+            class="question"
+            id="question"
+            tabindex="-1"
+          ></h2>
+          <ol
+            class="answers"
+            id="answers"
+          ></ol>
+          <div
+            class="feedback"
+            id="feedback"
+            hidden
+          >
+            <p
+              class="verdict"
+              id="verdict"
+            ></p>
+            <p
+              class="right-answer"
+              id="right-answer"
+            ></p>
+            <p
+              class="explanation"
+              id="explanation"
+            ></p>
+            <button
+              type="button"
+              class="button primary"
+              id="next-button"
+            >
+              Next question
+            </button>
+          </div>
+          <p class="hint">
+            Tip: while the question has focus, press 1–4 to answer, then Enter
+            to continue.
+          </p>
         </div>
 
-    </div>
+        <div
+          class="screen"
+          id="end-screen"
+          hidden
+        >
+          <h2
+            class="result"
+            id="result"
+            tabindex="-1"
+          ></h2>
+          <p
+            class="summary"
+            id="summary"
+          ></p>
+          <div class="end-actions">
+            <button
+              type="button"
+              class="button primary"
+              id="play-again"
+            >
+              Play again
+            </button>
+            <button
+              type="button"
+              class="button"
+              id="change-level"
+            >
+              Change level
+            </button>
+          </div>
+          <section
+            class="review"
+            id="review"
+            aria-labelledby="review-heading"
+            hidden
+          >
+            <h3 id="review-heading">Questions to revisit</h3>
+            <ol
+              class="review-list"
+              id="review-list"
+            ></ol>
+          </section>
+        </div>
+      </section>
+    </main>
 
-    <!-- link local JS scripts -->
-    <script src="./scripts/config.js"></script>
-    <script src="./scripts/difficulty.js"></script>
-
-</body>
-
+    <footer class="site-footer">
+      <p>
+        A fan-made game to test your JavaScript knowledge. I make no money from
+        it. Please don't sue me, George Lucas!
+      </p>
+      <p>
+        Created by
+        <a href="https://www.indrapatil.com/">Indrajeet Patil</a> ·
+        <a href="https://github.com/IndrajeetPatil/save-indy">Source code</a> ·
+        <a href="https://github.com/IndrajeetPatil/save-indy/issues"
+          >Report a wrong answer</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>

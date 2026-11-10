@@ -6,3 +6,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+
+  # Keep pnpm dependencies up-to-date
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
