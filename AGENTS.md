@@ -1,7 +1,8 @@
 # Save Indy!
 
 A TypeScript quiz game with a canvas pixel-art scene, built with Vite+ and
-deployed to GitHub Pages. Start with the [README](README.md).
+deployed to GitHub Pages. Start with the [README](README.md) and the
+[development guide](docs/development.md).
 
 ## Gotchas
 
