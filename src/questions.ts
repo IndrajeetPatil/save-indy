@@ -326,6 +326,170 @@ export const QUESTIONS: readonly Question[] = [
     explanation:
       "`var` is scoped to the enclosing function; `let` and `const` are scoped to the block.",
   },
+  {
+    level: "beginner",
+    prompt: "Which expression reliably tells you whether `x` is an array?",
+    answers: [
+      "Array.isArray(x)",
+      "typeof x === 'array'",
+      "x instanceof Object",
+      "x.length >= 0",
+    ],
+    correct: "Array.isArray(x)",
+    explanation:
+      "`typeof` reports `'object'` for arrays, every object is an `instanceof Object`, and strings have a `length` too.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `'5' - 2` evaluate to?",
+    answers: ["3", "'52'", "'3'", "NaN"],
+    correct: "3",
+    explanation:
+      "Only `+` concatenates strings; `-` converts both operands to numbers, so this is `5 - 2`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `NaN === NaN` evaluate to?",
+    answers: ["true", "false", "NaN", "TypeError"],
+    correct: "false",
+    explanation:
+      "`NaN` is the only value not equal to itself; test for it with `Number.isNaN`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `0.1 + 0.2 === 0.3` evaluate to?",
+    answers: ["true", "false", "NaN", "SyntaxError"],
+    correct: "false",
+    explanation:
+      "Numbers are binary floating point, so `0.1 + 0.2` is `0.30000000000000004`.",
+  },
+  {
+    level: "beginner",
+    prompt: "After `let a = [1, 2, 3]; a.length = 1;`, what is `a`?",
+    answers: ["[1]", "[1, 2, 3]", "[3]", "TypeError"],
+    correct: "[1]",
+    explanation:
+      "`length` is writable, and setting it lower deletes the elements past the new end.",
+  },
+  {
+    level: "beginner",
+    prompt: "After `const a = [1]; a.push(2);`, what is `a`?",
+    answers: ["[1, 2]", "[1]", "TypeError", "SyntaxError"],
+    correct: "[1, 2]",
+    explanation:
+      "`const` stops the variable from being reassigned, not the array it holds from changing.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `[10, 1, 3].sort()` return?",
+    answers: ["[1, 3, 10]", "[1, 10, 3]", "[10, 3, 1]", "[3, 1, 10]"],
+    correct: "[1, 10, 3]",
+    explanation:
+      "Without a compare function, `sort` compares elements as strings, and `'10'` comes before `'3'`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `parseInt('42px')` return?",
+    answers: ["42", "NaN", "'42'", "4"],
+    correct: "42",
+    explanation:
+      "`parseInt` reads digits until the first character that isn't one; `Number('42px')` is `NaN`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `Number('')` evaluate to?",
+    answers: ["0", "NaN", "undefined", "null"],
+    correct: "0",
+    explanation:
+      "An empty (or all-whitespace) string converts to `0`, not to `NaN`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `[] + []` evaluate to?",
+    answers: ["''", "[ ]", "0", "undefined"],
+    correct: "''",
+    explanation:
+      "`+` converts both arrays to strings, and an empty array becomes `''`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `'3' > '12'` evaluate to?",
+    answers: ["true", "false", "NaN", "TypeError"],
+    correct: "true",
+    explanation:
+      "Two strings compare character by character, and `'3'` comes after `'1'`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `[1, 2, 3, 4].filter(n => n % 2)` return?",
+    answers: ["[1, 3]", "[2, 4]", "[1, 0, 1, 0]", "[ ]"],
+    correct: "[1, 3]",
+    explanation:
+      "`filter` keeps elements whose callback result is truthy, and `n % 2` is `1` only for odd numbers.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `[1, 2, 3].join()` return?",
+    answers: ["'1,2,3'", "'123'", "'1 2 3'", "[1, 2, 3]"],
+    correct: "'1,2,3'",
+    explanation:
+      "Without an argument, `join` separates the elements with commas.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `typeof typeof 1` evaluate to?",
+    answers: ["'number'", "'string'", "'undefined'", "'object'"],
+    correct: "'string'",
+    explanation:
+      "`typeof 1` is the string `'number'`, and the type of any string is `'string'`.",
+  },
+  {
+    level: "beginner",
+    prompt: "After `let a = { n: 1 }; let b = a; b.n = 2;`, what is `a.n`?",
+    answers: ["1", "2", "undefined", "TypeError"],
+    correct: "2",
+    explanation:
+      "Assigning an object copies the reference, so `a` and `b` name the same object.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `-7 % 3` evaluate to?",
+    answers: ["-1", "2", "1", "-2"],
+    correct: "-1",
+    explanation:
+      "`%` is a remainder, not a modulo: the result takes the sign of the left operand.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `'Hello'.at(-1)` return?",
+    answers: ["'o'", "'H'", "undefined", "'l'"],
+    correct: "'o'",
+    explanation:
+      "`at` counts negative indexes back from the end; `'Hello'[-1]` would be `undefined`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `Number.isInteger(5.0)` return?",
+    answers: ["true", "false", "NaN", "TypeError"],
+    correct: "true",
+    explanation:
+      "All numbers share one type, and `5.0` is exactly the same value as `5`.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `0 || 'default'` evaluate to?",
+    answers: ["0", "'default'", "true", "false"],
+    correct: "'default'",
+    explanation: "`||` returns its first truthy operand, and `0` is falsy.",
+  },
+  {
+    level: "beginner",
+    prompt: "What does `'' && 'yes'` evaluate to?",
+    answers: ["''", "'yes'", "true", "false"],
+    correct: "''",
+    explanation:
+      "`&&` returns its first falsy operand without converting it to a Boolean.",
+  },
 
   // ---------------- intermediate ----------------
   {
@@ -548,6 +712,204 @@ export const QUESTIONS: readonly Question[] = [
     explanation:
       "`window`, `self`, and `global` exist only in some environments; `globalThis` works everywhere.",
   },
+  {
+    level: "intermediate",
+    prompt: "What does `0 ?? 'default'` evaluate to?",
+    answers: ["0", "'default'", "null", "undefined"],
+    correct: "0",
+    explanation:
+      "`??` falls back only on `null` or `undefined`, so unlike `||` it keeps falsy values such as `0`.",
+  },
+  {
+    level: "intermediate",
+    prompt: "If `const f = () => { value: 1 };`, what does `f()` return?",
+    answers: ["undefined", "{ value: 1 }", "1", "SyntaxError"],
+    correct: "undefined",
+    explanation:
+      "The braces are a function body with a label `value:`, not an object; write `() => ({ value: 1 })` to return one.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `Math.max()` return?",
+    answers: ["-Infinity", "Infinity", "0", "NaN"],
+    correct: "-Infinity",
+    explanation:
+      "`Math.max` starts from `-Infinity` and keeps any larger argument, so with none it returns `-Infinity`.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `Math.round(-2.5)` return?",
+    answers: ["-2", "-3", "-2.5", "2"],
+    correct: "-2",
+    explanation: "`Math.round` rounds halves up, towards positive infinity.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "What does `for (var i = 0; i < 3; i++) setTimeout(() => console.log(i));` print?",
+    answers: ["3 3 3", "0 1 2", "2 2 2", "0 0 0"],
+    correct: "3 3 3",
+    explanation:
+      "All three callbacks close over the one function-scoped `i`, which is `3` when they run; `let` would print `0 1 2`.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "In what order does `console.log(1); setTimeout(() => console.log(2)); Promise.resolve().then(() => console.log(3)); console.log(4);` print?",
+    answers: ["1 4 3 2", "1 2 3 4", "1 4 2 3", "1 3 4 2"],
+    correct: "1 4 3 2",
+    explanation:
+      "Synchronous code runs first; then promise callbacks (microtasks) run before timer callbacks.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "In strict mode, after `const o = { n: 1, f() { return this.n; } }; const g = o.f;`, what does `g()` do?",
+    answers: [
+      "Returns 1",
+      "Returns undefined",
+      "Throws a TypeError",
+      "Returns NaN",
+    ],
+    correct: "Throws a TypeError",
+    explanation:
+      "`this` depends on how a function is called: a plain call gives `this === undefined`, and `undefined.n` throws.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `typeof class {}` evaluate to?",
+    answers: ["'function'", "'class'", "'object'", "'undefined'"],
+    correct: "'function'",
+    explanation: "A class is a special kind of constructor function.",
+  },
+  {
+    level: "intermediate",
+    prompt: "If `function f(x = 1) { return x; }`, what does `f(null)` return?",
+    answers: ["null", "1", "undefined", "0"],
+    correct: "null",
+    explanation:
+      "A default applies only when the argument is missing or `undefined`; `null` is passed through.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What is `new Set([1, 1, 2]).size`?",
+    answers: ["2", "3", "1", "undefined"],
+    correct: "2",
+    explanation:
+      "A `Set` keeps one copy of each value, so the second `1` is ignored.",
+  },
+  {
+    level: "intermediate",
+    prompt: "After `const o = {}; o[1] = 'a'; o['1'] = 'b';`, what is `o[1]`?",
+    answers: ["'b'", "'a'", "undefined", "['a', 'b']"],
+    correct: "'b'",
+    explanation:
+      "Property keys are strings (or symbols), so the number `1` becomes `'1'` and both lines set the same property.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `Array.from({ length: 3 }, (_, i) => i * 2)` return?",
+    answers: [
+      "[0, 2, 4]",
+      "[2, 4, 6]",
+      "[ ]",
+      "[undefined, undefined, undefined]",
+    ],
+    correct: "[0, 2, 4]",
+    explanation:
+      "`Array.from` treats the object as array-like with three missing elements and maps each index through the callback.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `'a-b-c'.replace('-', '+')` return?",
+    answers: ["'a+b-c'", "'a+b+c'", "'a-b+c'", "'a-b-c'"],
+    correct: "'a+b-c'",
+    explanation:
+      "With a string pattern, `replace` changes only the first match; use `replaceAll` for every one.",
+  },
+  {
+    level: "intermediate",
+    prompt: "If `async function f() { return 1; }`, what does `f()` return?",
+    answers: [
+      "A promise that fulfils with 1",
+      "1",
+      "undefined",
+      "A promise that fulfils with undefined",
+    ],
+    correct: "A promise that fulfils with 1",
+    explanation:
+      "An `async` function always returns a promise, settled with whatever the body returns or throws.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "After `const o = Object.freeze({ a: { b: 1 } }); o.a.b = 2;`, what is `o.a.b`?",
+    answers: ["2", "1", "undefined", "TypeError"],
+    correct: "2",
+    explanation:
+      "`Object.freeze` is shallow: `o.a` can't be replaced, but the object it points to can still change.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `[].reduce((a, b) => a + b)` do?",
+    answers: [
+      "Throws a TypeError",
+      "Returns 0",
+      "Returns undefined",
+      "Returns NaN",
+    ],
+    correct: "Throws a TypeError",
+    explanation:
+      "Without an initial value, `reduce` starts from the first element, and an empty array has none.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `JSON.stringify({ a: undefined, b: 1 })` return?",
+    answers: [
+      `'{"b":1}'`,
+      `'{"a":undefined,"b":1}'`,
+      `'{"a":null,"b":1}'`,
+      "TypeError",
+    ],
+    correct: `'{"b":1}'`,
+    explanation:
+      "JSON has no `undefined`, so object properties holding it are left out.",
+  },
+  {
+    level: "intermediate",
+    prompt: "Which of these can be called on a line above its definition?",
+    answers: [
+      "A function declaration",
+      "An arrow function in a `const`",
+      "A function expression in a `let`",
+      "A class declaration",
+    ],
+    correct: "A function declaration",
+    explanation:
+      "Function declarations are hoisted together with their bodies; the others are in the temporal dead zone until their line runs.",
+  },
+  {
+    level: "intermediate",
+    prompt: "What does `[1, [2, [3, [4]]]].flat()` return?",
+    answers: [
+      "[1, 2, [3, [4]]]",
+      "[1, 2, 3, 4]",
+      "[1, [2, [3, [4]]]]",
+      "[1, 2, 3, [4]]",
+    ],
+    correct: "[1, 2, [3, [4]]]",
+    explanation:
+      "`flat` removes one level of nesting by default; pass `Infinity` to flatten completely.",
+  },
+  {
+    level: "intermediate",
+    prompt:
+      "In non-strict code, after `let s = 'cat'; s[0] = 'b';`, what is `s`?",
+    answers: ["'cat'", "'bat'", "'b'", "TypeError"],
+    correct: "'cat'",
+    explanation:
+      "Strings are immutable, so the assignment is silently ignored; strict mode throws a `TypeError` instead.",
+  },
 
   // ---------------- advanced ----------------
   {
@@ -681,5 +1043,190 @@ export const QUESTIONS: readonly Question[] = [
     correct: "`Object.create(Array)`",
     explanation:
       "`Object.create(Array)` makes a new object that inherits from the `Array` constructor and ignores `x` entirely.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `['1', '2', '3'].map(parseInt)` return?",
+    answers: [
+      "[1, NaN, NaN]",
+      "[1, 2, 3]",
+      "['1', '2', '3']",
+      "[NaN, NaN, NaN]",
+    ],
+    correct: "[1, NaN, NaN]",
+    explanation:
+      "`map` also passes the index, which `parseInt` takes as the radix: `parseInt('2', 1)` and `parseInt('3', 2)` are `NaN`.",
+  },
+  {
+    level: "advanced",
+    prompt: "If `function f(a, b = 2, c) {}`, what is `f.length`?",
+    answers: ["1", "3", "2", "0"],
+    correct: "1",
+    explanation:
+      "`length` counts only the parameters before the first one with a default value.",
+  },
+  {
+    level: "advanced",
+    prompt:
+      "If `function f() { try { return 1; } finally { return 2; } }`, what does `f()` return?",
+    answers: ["2", "1", "undefined", "SyntaxError"],
+    correct: "2",
+    explanation:
+      "`finally` always runs, and a `return` inside it replaces the pending return value.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `2 ** 53 === 2 ** 53 + 1` evaluate to?",
+    answers: ["true", "false", "NaN", "RangeError"],
+    correct: "true",
+    explanation:
+      "Above `Number.MAX_SAFE_INTEGER` (`2 ** 53 - 1`), not every integer can be represented, so `2 ** 53 + 1` rounds back down.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `1n + 1` evaluate to?",
+    answers: ["TypeError", "2n", "2", "'1n1'"],
+    correct: "TypeError",
+    explanation:
+      "Arithmetic never mixes BigInts and numbers implicitly; convert one side first, as in `1n + BigInt(1)`.",
+  },
+  {
+    level: "advanced",
+    prompt: "Which of these evaluates to `true`?",
+    answers: [
+      "Symbol.for('a') === Symbol.for('a')",
+      "Symbol('a') === Symbol('a')",
+      "NaN === NaN",
+      "[ ] === [ ]",
+    ],
+    correct: "Symbol.for('a') === Symbol.for('a')",
+    explanation:
+      "`Symbol.for` returns the one symbol registered under a key, while every `Symbol()` call creates a new one.",
+  },
+  {
+    level: "advanced",
+    prompt:
+      "What does `Object.keys({ [Symbol('s')]: 1, a: 2 }).length` return?",
+    answers: ["1", "2", "0", "TypeError"],
+    correct: "1",
+    explanation:
+      "`Object.keys` lists only string keys; use `Object.getOwnPropertySymbols` or `Reflect.ownKeys` for symbols.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `Object.keys({ b: 1, 2: 1, a: 1, 1: 1 })` return?",
+    answers: [
+      "['1', '2', 'b', 'a']",
+      "['b', '2', 'a', '1']",
+      "['1', '2', 'a', 'b']",
+      "['a', 'b', '1', '2']",
+    ],
+    correct: "['1', '2', 'b', 'a']",
+    explanation:
+      "Integer-like keys come first in ascending order, then string keys in the order they were added.",
+  },
+  {
+    level: "advanced",
+    prompt: "If `function* g() { yield 1; return 2; }`, what is `[...g()]`?",
+    answers: ["[1]", "[1, 2]", "[2]", "[ ]"],
+    correct: "[1]",
+    explanation:
+      "Iteration stops at the result with `done: true`, which is where the returned `2` sits, so spread never collects it.",
+  },
+  {
+    level: "advanced",
+    prompt: "Which `Proxy` handler trap intercepts the `in` operator?",
+    answers: ["has", "get", "ownKeys", "defineProperty"],
+    correct: "has",
+    explanation:
+      "`'x' in proxy` calls the `has` trap; `get` handles property reads, and `ownKeys` handles key listings.",
+  },
+  {
+    level: "advanced",
+    prompt: "Which of these can't be a `WeakMap` key?",
+    answers: [
+      "A string",
+      "An object",
+      "A function",
+      "A symbol from `Symbol()`",
+    ],
+    correct: "A string",
+    explanation:
+      "Weak keys must be values that can be garbage-collected: objects and unregistered symbols, but not primitives like strings.",
+  },
+  {
+    level: "advanced",
+    prompt: "What is `'ß'.toUpperCase().length`?",
+    answers: ["2", "1", "0", "undefined"],
+    correct: "2",
+    explanation:
+      "`toUpperCase` maps the German sharp s to the two letters `'SS'`.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `'\\u00e9' === 'e\\u0301'` evaluate to?",
+    answers: ["false", "true", "SyntaxError", "NaN"],
+    correct: "false",
+    explanation:
+      "Both display as é, but one is a single code point and the other is e plus a combining accent; `normalize()` makes them equal.",
+  },
+  {
+    level: "advanced",
+    prompt:
+      "After `const o = {}; Object.defineProperty(o, 'x', { value: 1 });`, what does `Object.keys(o)` return?",
+    answers: ["[ ]", "['x']", "['value']", "TypeError"],
+    correct: "[ ]",
+    explanation:
+      "Attributes you leave out default to `false`, so `x` is not enumerable, writable, or configurable.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `'toString' in Object.create(null)` evaluate to?",
+    answers: ["false", "true", "TypeError", "undefined"],
+    correct: "false",
+    explanation:
+      "The object has no prototype, so it inherits nothing, not even `toString` from `Object.prototype`.",
+  },
+  {
+    level: "advanced",
+    prompt:
+      "In what order does `async function f() { console.log(1); await null; console.log(2); } f(); console.log(3);` print?",
+    answers: ["1 3 2", "1 2 3", "3 1 2", "2 1 3"],
+    correct: "1 3 2",
+    explanation:
+      "An `async` function runs synchronously until its first `await`, then resumes in a microtask after the current code finishes.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `[] == ![]` evaluate to?",
+    answers: ["true", "false", "TypeError", "undefined"],
+    correct: "true",
+    explanation:
+      "`![]` is `false`, and `==` then turns `false` into `0` and `[]` into `''` and then `0`.",
+  },
+  {
+    level: "advanced",
+    prompt: "What does `[NaN].indexOf(NaN)` return?",
+    answers: ["-1", "0", "NaN", "TypeError"],
+    correct: "-1",
+    explanation:
+      "`indexOf` compares with `===`, which never matches `NaN`; `includes` uses SameValueZero and finds it.",
+  },
+  {
+    level: "advanced",
+    prompt:
+      "If `class C { #secret = 1; }`, what does `new C().#secret` produce outside the class?",
+    answers: ["SyntaxError", "1", "undefined", "TypeError"],
+    correct: "SyntaxError",
+    explanation:
+      "Private names are only valid inside the class body that declares them, so this fails before any code runs.",
+  },
+  {
+    level: "advanced",
+    prompt: "After `let n = 0; [, 1, , 2].forEach(() => n++);`, what is `n`?",
+    answers: ["2", "4", "3", "0"],
+    correct: "2",
+    explanation:
+      "Array methods like `forEach` skip holes in sparse arrays; a `for/of` loop would visit all four slots.",
   },
 ];
