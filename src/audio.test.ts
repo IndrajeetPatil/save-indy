@@ -34,6 +34,16 @@ describe(SoundEffects, () => {
     expect(created).toHaveBeenCalledOnce();
   });
 
+  test("builds the temple reverb once and shares it across effects", () => {
+    const reverbs = vi.spyOn(globalThis, "ConvolverNode");
+    const sound = new SoundEffects(false);
+
+    playAll(sound);
+    playAll(sound);
+
+    expect(reverbs).toHaveBeenCalledOnce();
+  });
+
   test("can be muted after playing", () => {
     const created = trackContexts();
     const sound = new SoundEffects(false);
