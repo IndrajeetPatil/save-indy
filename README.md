@@ -76,16 +76,16 @@ The game is a TypeScript single-page app built with [Vite+](https://viteplus.dev
 
 `vp run qa` runs the same gates as the [QA workflow](.github/workflows/qa.yml):
 
-| Gate                       | Tool                                                         |
-| -------------------------- | ------------------------------------------------------------ |
-| Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on      |
-| CSS lint                   | Biome                                                        |
-| Unit tests                 | Vitest in real Chromium, with coverage thresholds            |
-| Dead code and complexity   | Fallow                                                       |
-| Type coverage              | `type-coverage` at 100%                                      |
-| Dependency audit           | `pnpm audit` at moderate severity                            |
-| Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) on desktop and mobile |
-| Web quality                | Lighthouse CI                                                |
+| Gate                       | Tool                                                                                           |
+| -------------------------- | ---------------------------------------------------------------------------------------------- |
+| Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                        |
+| CSS lint                   | Biome                                                                                          |
+| Unit tests                 | Vitest in real Chromium, with coverage thresholds                                              |
+| Dead code and complexity   | Fallow                                                                                         |
+| Type coverage              | `type-coverage` at 100%                                                                        |
+| Dependency audit           | `pnpm audit` at moderate severity                                                              |
+| Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) in Chromium, desktop Safari (WebKit), and iPhone Safari |
+| Web quality                | Lighthouse CI                                                                                  |
 
 ### Adding a question
 
