@@ -13,8 +13,8 @@ drive the snake back and save Indy.
 ## How to play
 
 1. Pick a level: **Beginner**, **Intermediate**, or **Advanced**.
-2. Answer each multiple-choice question with a click, a tap, or the keys
-   <kbd>1</kbd>–<kbd>4</kbd>.
+2. Answer each multiple-choice question with a click, a tap, or, while the
+   question has focus, the keys <kbd>1</kbd>–<kbd>4</kbd>.
 3. Read the explanation, then press <kbd>Enter</kbd> for the next question.
 
 | Answer | Indy            | Snake   | Threat | Health |
@@ -85,7 +85,7 @@ The game is a TypeScript single-page app built with [Vite+](https://viteplus.dev
 | Type coverage              | `type-coverage` at 100%                                      |
 | Dependency audit           | `pnpm audit` at moderate severity                            |
 | Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) on desktop and mobile |
-| Web quality                | Lighthouse CI (in the QA workflow)                           |
+| Web quality                | Lighthouse CI                                                |
 
 ### Adding a question
 

@@ -82,6 +82,7 @@ export default defineConfig({
           "vp run fallow",
           "vp run type-coverage",
           "vp run test:e2e",
+          "vp run lighthouse",
         ],
         // Tests and registry audits need fresh results on every QA run.
         cache: false,

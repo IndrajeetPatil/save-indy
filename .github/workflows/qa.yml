@@ -73,7 +73,7 @@ jobs:
       - name: Lighthouse
         run: vp dlx @lhci/cli@0.15.1 autorun
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ github.token }}
+          LHCI_GITHUB_TOKEN: ${{ github.token }}
 
       - name: Upload test reports
         if: ${{ failure() }}
