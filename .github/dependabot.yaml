@@ -7,11 +7,12 @@ updates:
     schedule:
       interval: "weekly"
 
-  # Keep the lint tooling up-to-date
+  # Keep pnpm dependencies up-to-date
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
     groups:
-      lint:
-        patterns: ["*"]
+      dependencies:
+        patterns:
+          - "*"
