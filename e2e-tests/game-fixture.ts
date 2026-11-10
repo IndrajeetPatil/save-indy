@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import type { Page } from "@playwright/test";
+import type { Locator, Page } from "@playwright/test";
 
 import { QUESTIONS } from "../src/questions.ts";
 
@@ -71,4 +71,79 @@ async function playToEnd(page: Page, right: boolean): Promise<void> {
   }
 }
 
-export { answerQuestion, playToEnd, startGame };
+declare global {
+  // Set by `trackAudioContexts` before the page's scripts run.
+  var audioContexts: AudioContext[] | undefined;
+}
+
+/**
+ * Record every AudioContext the page creates, before its scripts run.
+ * @param page Playwright page.
+ */
+async function trackAudioContexts(page: Page): Promise<void> {
+  await page.addInitScript(() => {
+    const contexts: AudioContext[] = [];
+    globalThis.audioContexts = contexts;
+    globalThis.AudioContext = class extends AudioContext {
+      public constructor(options?: AudioContextOptions) {
+        super(options);
+        contexts.push(this);
+      }
+    };
+  });
+}
+
+/**
+ * @param page Playwright page set up with `trackAudioContexts`.
+ * @returns The state of every AudioContext the page created.
+ */
+async function audioStates(page: Page): Promise<string[]> {
+  return page.evaluate(() =>
+    (globalThis.audioContexts ?? []).map((context) => context.state),
+  );
+}
+
+/**
+ * @param url An absolute URL, or `null`.
+ * @returns The last path segment of the URL.
+ */
+function fileName(url: string | null): string {
+  return new URL(url ?? "about:blank").pathname.split("/").at(-1) ?? "";
+}
+
+/**
+ * Load a file the way a browser would.
+ * @param page Playwright page.
+ * @param path Site-relative path.
+ * @returns The response status and content type.
+ */
+async function fetchAsset(
+  page: Page,
+  path: string,
+): Promise<{ status: number | undefined; contentType: string | undefined }> {
+  const response = await page.goto(path);
+  return {
+    status: response?.status(),
+    contentType: response?.headers()["content-type"],
+  };
+}
+
+/**
+ * Tap on touch devices and click elsewhere, as a player would.
+ * @param target Element to activate.
+ * @param hasTouch Whether the browser emulates a touch screen.
+ */
+async function press(target: Locator, hasTouch: boolean): Promise<void> {
+  await (hasTouch ? target.tap() : target.click());
+}
+
+export {
+  answerQuestion,
+  audioStates,
+  fetchAsset,
+  fileName,
+  playToEnd,
+  press,
+  startGame,
+  trackAudioContexts,
+};
