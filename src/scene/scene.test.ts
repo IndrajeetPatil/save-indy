@@ -1,6 +1,11 @@
 import { describe, expect, test, vi } from "vite-plus/test";
 
-import { SCENE_HEIGHT, SCENE_WIDTH, paintBackground } from "./background.ts";
+import {
+  FLOOR_Y,
+  SCENE_HEIGHT,
+  SCENE_WIDTH,
+  paintBackground,
+} from "./background.ts";
 import { context2d } from "./pixels.ts";
 import { Scene } from "./scene.ts";
 import type { Cue } from "./scene.ts";
@@ -12,6 +17,13 @@ const makeScene = (reducedMotion = false) => {
 
 const countTransparent = (data: Uint8ClampedArray | readonly number[]) =>
   data.filter((value, index) => index % 4 === 3 && value < 255).length;
+
+// Pixels whose red, green, and blue all exceed 160 read as near-white.
+const countBright = (data: Uint8ClampedArray) =>
+  data.filter(
+    (_value, index) =>
+      index % 4 === 0 && Math.min(...data.slice(index, index + 3)) > 160,
+  ).length;
 
 /** Threat that each cue animates towards. */
 const THREAT_FOR: Record<Cue, number> = {
@@ -40,6 +52,17 @@ describe(paintBackground, () => {
     const background = paintBackground();
 
     expect(countTransparent(pixels(background))).toBe(0);
+  });
+
+  test("keeps bright clutter off the temple floor", () => {
+    const floor = context2d(paintBackground()).getImageData(
+      0,
+      FLOOR_Y,
+      SCENE_WIDTH,
+      SCENE_HEIGHT - FLOOR_Y,
+    ).data;
+
+    expect(countBright(floor)).toBe(0);
   });
 });
 
