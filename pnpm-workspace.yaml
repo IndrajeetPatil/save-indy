@@ -1,0 +1,24 @@
+allowBuilds:
+  fallow: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
+  vitest: 5.1.0
+  vite-plus: 1.5.0
+  "@vitest/browser-playwright": 5.1.0
+  "@vitest/coverage-v8": 5.1.0
+overrides:
+  vite@*: "catalog:"
+  vitest@*: "catalog:"
+  # type-coverage-core caps minimatch at v10; GHSA-g3hv-75wg-m249 is fixed in 11.0.1.
+  minimatch@<11.0.1: "^11.0.1"
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: "*"
+    vitest: "*"
+
+# Refuse to install under a Node or pnpm older than package.json's `engines`;
+# pnpm only warns otherwise.
+engineStrict: true
