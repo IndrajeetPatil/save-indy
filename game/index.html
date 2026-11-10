@@ -5,14 +5,18 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Save Indy using JavaScript!</title>
 
     <!-- link fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+    <!-- link favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/favicon_io/site.webmanifest">
 
     <!-- link local stylesheets -->
     <link rel="stylesheet" href="../styles/style.css">
@@ -25,58 +29,38 @@
         integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- link local JS scripts -->
-    <script src="../scripts/constants.js"></script>
-    <script src="../scripts/utilities-status.js"></script>
-
-    <script>
-        window.onload = function ()
-        {
-            "use strict";
-
-            let statusHTML = `<div id="threat-container" class="threat-container">
-                    <p><b>Threat level</b></p>
-                    <p class="${SNAKE_START_THREAT_LEVEL_CLASS}">${PLAYER_START_HEALTH}</p>
-                </div>
-
-                <div id="health-container" class="health-container">
-                    <p><b>Indy's health</b></p>
-                    <p class="${PLAYER_START_HEALTH_LEVEL_CLASS}">${SNAKE_START_THREAT}</p>
-                </div>`;
-
-            document.getElementById("status-container").innerHTML = statusHTML;
-        };
-    </script>
-
-    <title>Save Indy using JavaScript!</title>
-
 </head>
 
 <body>
 
-    <div id="all-container" class="all-container">
+    <main id="all-container" class="all-container">
 
-        <div id="game-container" class="game-container">
-
-        </div>
+        <div id="game-container" class="game-container"></div>
 
         <div id="feedback-container" class="feedback-container">
 
-            <div id="status-container" class="status-container">
+            <div id="status-container" class="status-container" aria-live="polite">
+                <div id="threat-container" class="threat-container">
+                    <p><b>Threat level</b></p>
+                    <p id="threat-value"></p>
+                </div>
 
+                <div id="health-container" class="health-container">
+                    <p><b>Indy's health</b></p>
+                    <p id="health-value"></p>
+                </div>
             </div>
 
-            <div id="question-container" class="question-container">
-
-            </div>
+            <div id="question-container" class="question-container" aria-live="polite"></div>
 
         </div>
 
-    </div>
-
+    </main>
 
     <!-- link local JS scripts -->
+    <script src="../scripts/constants.js"></script>
     <script src="../scripts/utilities-general.js"></script>
+    <script src="../scripts/utilities-status.js"></script>
     <script src="../scripts/questions-db.js"></script>
     <script src="../scripts/questions.js"></script>
     <script src="../scripts/feedback.js"></script>

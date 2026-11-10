@@ -5,7 +5,6 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- meta: general -->
     <meta name="description" content="A fun game built using JavaScript to check your knowledge of JavaScript itself!">
@@ -35,7 +34,7 @@
 
 <body>
 
-    <div class="intro-container">
+    <main class="intro-container">
 
         <div class="intro-text-container">
             <div class="intro-images-container">
@@ -48,20 +47,21 @@
             <p>Save Indiana Jones with your JavaScript knowledge.</p>
             <p>The more questions you answer correctly, the more he gets out of trouble.</p>
 
-            <div class="difficulty-level">
+            <form class="start-form" action="./game/index.html" method="get">
 
-                <p>Choose your proficiency level:</p>
+                <div class="difficulty-level">
+                    <label for="difficulty-level-options">Choose your proficiency level:</label>
 
-                <select class="difficulty-level-options" id="difficulty-level-options">
-                    <option value="undefined"></option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select>
+                    <select class="difficulty-level-options" id="difficulty-level-options" name="level">
+                        <option value="beginner" selected>Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
 
-            </div>
+                <button type="submit" class="start-btn">Start</button>
 
-            <button class='start-btn'><a href="./game/index.html">Start</a></button>
+            </form>
 
         </div>
 
@@ -78,11 +78,7 @@
             </p>
         </div>
 
-    </div>
-
-    <!-- link local JS scripts -->
-    <script src="./scripts/config.js"></script>
-    <script src="./scripts/difficulty.js"></script>
+    </main>
 
 </body>
 

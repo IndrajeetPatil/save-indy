@@ -1,3 +1,5 @@
+"use strict";
+
 class Snake {
   constructor() {
     this.x = SNAKE_START_X;
@@ -5,21 +7,13 @@ class Snake {
     this.width = SNAKE_START_LENGTH;
     this.height = SNAKE_THICKNESS;
     this.threat = SNAKE_START_THREAT;
-    this.image = "";
-    this.sound = "";
+    this.image = null;
+    this.sound = null;
   }
 
   preload() {
     this.image = loadImage("../assets/snake_px.png");
     this.sound = loadSound("../assets/snake_hissing_sound.mp3");
-  }
-
-  getX() {
-    return this.x;
-  }
-
-  getY() {
-    return this.y;
   }
 
   move() {

@@ -1,52 +1,46 @@
-const showStatus = () => {
-  "use strict";
-  const health = game.player.health;
-  const threat = game.snake.threat;
+"use strict";
 
-  const healthLevelClass = decideHealthLevelClass(health);
-  const threatLevelClass = decideThreatLevelClass(threat);
+const showStatus = () => renderStatus(game.snake.threat, game.player.health);
 
-  const statusHTML = `<div id="threat-container" class="threat-container">
-                    <p><b>Threat level</b></p>
-                    <p class="${threatLevelClass}">${threat}</p>
-                </div>
-
-                <div id="health-container" class="health-container">
-                    <p><b>Indy's health</b></p>
-                    <p class="${healthLevelClass}">${health}</p>
-                </div>`;
-
-  document.getElementById("status-container").innerHTML = statusHTML;
-};
-
+/**
+ * Replace the question with the end-of-game message and a link back to the home page.
+ * @param {string} message
+ * @return {void}
+ */
 const gameOver = (message) => {
-  "use strict";
-  const gameOverHTML = `<div class="game-over">
-                <h2>${message}</h2>
-                <button class='restart-btn'><a href="../index.html">Restart</a></button>
-            </div>`;
-  document.getElementById("question-container").innerHTML = gameOverHTML;
+  const container = document.createElement("div");
+  container.className = "game-over";
+
+  const heading = document.createElement("h2");
+  heading.textContent = message;
+
+  const restartLink = document.createElement("a");
+  restartLink.className = "button restart-btn";
+  restartLink.href = "../index.html";
+  restartLink.textContent = "Restart";
+
+  container.append(heading, restartLink);
+  document.getElementById("question-container").replaceChildren(container);
+  restartLink.focus();
 };
 
-const checkAnswer = (event) => {
-  "use strict";
+/**
+ * Score the selected answer, update the game, and move on to the next question or the end screen.
+ * @param {HTMLButtonElement} button The answer button that was clicked.
+ * @param {string} answer The answer shown on that button.
+ * @return {void}
+ */
+const showFeedbackAndNextQuestion = (button, answer) => {
+  // Browsers keep audio suspended until a user gesture; this click is one
+  userStartAudio();
 
-  const askedQuestion = document.getElementById("question-text").innerHTML;
-  const selectedAnswer = event.target.innerHTML;
-  const correctAnswer = questions.filter((item) => item.question === askedQuestion)[0].correctAnswer;
+  // Accept only one answer per question
+  document.querySelectorAll(".answer-btn").forEach((element) => {
+    element.disabled = true;
+  });
 
-  const truthValue = String(selectedAnswer) === String(correctAnswer);
-
-  return truthValue;
-};
-
-const showFeedbackAndNextQuestion = (event) => {
-  "use strict";
-  const isAnswerCorrect = checkAnswer(event);
-  const answerClass = isAnswerCorrect ? "correct-answer" : "incorrect-answer";
-
-  // TODO: Why no feedback is shown for the final round?
-  event.target.classList.add(answerClass);
+  const isAnswerCorrect = answer === currentQuestion.correctAnswer;
+  button.classList.add(isAnswerCorrect ? "correct-answer" : "incorrect-answer");
 
   if (isAnswerCorrect) {
     game.snake.retract();
@@ -58,17 +52,19 @@ const showFeedbackAndNextQuestion = (event) => {
 
   showStatus();
 
-  const isPlayerDead = game.player.isDead();
-  const isPlayerSafe = !game.snake.isThreateningPlayer();
-  const noQuestionsRemaining = availableQuestionsCopy.length === 0;
+  let endMessage = null;
+  if (!game.snake.isThreateningPlayer()) {
+    endMessage = messages.winPlayerSafe;
+  } else if (game.player.isDead()) {
+    endMessage = messages.losePlayerDead;
+  } else if (remainingQuestions.length === 0) {
+    endMessage = messages.loseNoQuestions;
+  }
 
-  if (isPlayerSafe) {
-    gameOver(messages.winPlayerSafe);
-  } else if (isPlayerDead) {
-    gameOver(messages.losePlayerDead);
-  } else if (noQuestionsRemaining) {
-    gameOver(messages.loseNoQuestions);
+  // Keep the answer feedback visible for a moment, including on the final round
+  if (endMessage) {
+    setTimeout(gameOver, FEEDBACK_DELAY, endMessage);
   } else {
-    setTimeout(displayQuestion, 1000, availableQuestions);
+    setTimeout(displayQuestion, FEEDBACK_DELAY);
   }
 };

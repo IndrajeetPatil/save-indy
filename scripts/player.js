@@ -1,9 +1,11 @@
+"use strict";
+
 class Player {
   constructor() {
     this.health = PLAYER_START_HEALTH;
-    this.image = "";
-    this.soundScream = "";
-    this.soundWhip = "";
+    this.image = null;
+    this.soundScream = null;
+    this.soundWhip = null;
   }
 
   preload() {
@@ -14,15 +16,13 @@ class Player {
 
   reduceHealth() {
     this.health -= PLAYER_HEALTH_CHANGE;
-    if (this.health <= 0) {
+    if (this.isDead()) {
       this.soundScream.play();
     }
   }
 
   increaseHealth() {
-    if (this.health < 100) {
-      this.health += PLAYER_HEALTH_CHANGE;
-    }
+    this.health = Math.min(this.health + PLAYER_HEALTH_CHANGE, PLAYER_MAX_HEALTH);
     this.soundWhip.play();
   }
 

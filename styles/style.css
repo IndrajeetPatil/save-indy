@@ -1,12 +1,13 @@
 body {
   font-family: "Press Start 2P", cursive;
-  margin: 0%;
+  margin: 0;
   background-color: #f7efe5;
   text-align: center;
 }
 
 button,
-select {
+select,
+.button {
   font-family: "Press Start 2P", cursive;
   text-align: center;
   display: inline-block;
@@ -16,10 +17,37 @@ select {
   background-color: lightgray;
   text-shadow: -1px -1px black, 1px 1px white;
   box-shadow: 0 0.2em gray;
+  color: black;
+  cursor: pointer;
 }
 
-button:hover {
+.button {
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+button:hover:enabled,
+.button:hover {
   transform: scale(1.05);
+}
+
+button:disabled {
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:hover:enabled,
+  .button:hover {
+    transform: none;
+  }
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1.1em;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 0 0.25em;
 }
 
 select {
@@ -66,9 +94,18 @@ select {
   font-size: 0.6rem;
 }
 
+.start-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .difficulty-level {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 25px;
 }
 
@@ -78,11 +115,19 @@ select {
   margin: 10px;
 }
 
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .answer-btn {
   width: 250px;
-  height: 50px;
+  min-height: 50px;
   font-size: 0.7rem;
+  line-height: 1.5;
   text-shadow: none;
+  overflow-wrap: anywhere;
 }
 
 .correct-answer,
@@ -130,6 +175,10 @@ select {
 
 .question-text {
   width: 80%;
+}
+
+.game-over h2 {
+  white-space: pre-line;
 }
 
 .status-container {

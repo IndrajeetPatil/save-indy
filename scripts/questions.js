@@ -1,63 +1,48 @@
+"use strict";
+
 /**
- * Shuffle an array in place.
- * @param {*} questions
- * @returns {Array} The shuffled array.
+ * Select the questions for the chosen difficulty level, in random order.
+ * @param {Array<object>} allQuestions
+ * @param {string} level
+ * @return {Array<object>}
  */
-function prepareQuestions(questions) {
-  "use strict";
-  if (questions.length === 0) {
-    throw new Error("No questions provided.");
+function prepareQuestions(allQuestions, level) {
+  const questionsForLevel = allQuestions.filter((item) => item.level === level);
+  if (questionsForLevel.length === 0) {
+    throw new Error(`No questions available for level "${level}".`);
   }
-
-  const selectedLevel = getCookie("level");
-
-  // Retain only questions with the specified level of difficulty
-  const questionsFiltered = questions.filter((item) => item.level === (selectedLevel ?? "beginner"));
-
-  // Show questions in random order each time
-  let questionsShuffled = [];
-  try {
-    questionsShuffled = shuffleArray(questionsFiltered);
-  } catch {
-    // If the user didn't select a level, show only beginner questions
-    // This can happen if the user somehow directly lands on the game or if the user manually deconstes the cookie
-    questionsShuffled = shuffleArray(questions.filter((item) => item.level === "beginner"));
-  }
-
-  const questionsHTMLArray = questionsShuffled.map((item) => {
-    // Show options in random order each time
-    const answersHTML = shuffleArray(item.answers).reduce(
-      (prev, cur) => prev + `<button type="button" class="answer-btn">${cur}</button><br>`,
-      ""
-    );
-
-    const questionButtonsHTML = `<h2 id="question-text" class="question-text">${item.question}</h2> <form> ${answersHTML} </form>`;
-
-    return questionButtonsHTML;
-  });
-
-  return questionsHTMLArray;
+  return shuffleArray(questionsForLevel);
 }
 
 /**
- * Display a question from the available questions.
- * @throws {Error} If no more questions are available.
+ * Display the next question, with its answers in random order.
  * @return {void}
  */
 function displayQuestion() {
-  "use strict";
-  if (availableQuestionsCopy.length === 0) {
-    throw new Error("No more questions remaining.");
-  }
+  currentQuestion = remainingQuestions.pop();
 
-  const html = availableQuestionsCopy.pop();
-  document.getElementById("question-container").innerHTML = html;
+  const questionText = document.createElement("h2");
+  questionText.id = "question-text";
+  questionText.className = "question-text";
+  setTextWithCode(questionText, currentQuestion.question);
 
-  const answerButtons = [...document.getElementsByClassName("answer-btn")];
-  answerButtons.forEach((element) => element.addEventListener("click", (event) => showFeedbackAndNextQuestion(event)));
+  const answerButtons = shuffleArray(currentQuestion.answers).map((answer) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "answer-btn";
+    setTextWithCode(button, answer);
+    button.addEventListener("click", () => showFeedbackAndNextQuestion(button, answer));
+    return button;
+  });
+
+  const answersContainer = document.createElement("div");
+  answersContainer.className = "answers";
+  answersContainer.append(...answerButtons);
+
+  document.getElementById("question-container").replaceChildren(questionText, answersContainer);
 }
 
 // questions are defined in scripts/questions-db.js
-const availableQuestions = prepareQuestions(questions);
-const availableQuestionsCopy = [...availableQuestions];
+const remainingQuestions = prepareQuestions(questions, getSelectedLevel());
+let currentQuestion = null;
 displayQuestion();

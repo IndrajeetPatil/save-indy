@@ -1,3 +1,5 @@
+"use strict";
+
 const threatLevelClasses = {
   low: "low-threat",
   medium: "medium-threat",
@@ -10,27 +12,30 @@ const healthLevelClasses = {
   high: "high-health",
 };
 
-let decideHealthLevelClass = (health) => {
-  "use strict";
-  if (health >= 0 && health <= 40) {
-    return healthLevelClasses.low;
-  } else if (health > 40 && health <= 70) {
-    return healthLevelClasses.medium;
-  } else {
-    return healthLevelClasses.high;
+/**
+ * Map a 0-100 value to the low/medium/high key used by the status classes.
+ * @param {number} value
+ * @return {"low" | "medium" | "high"}
+ */
+const decideLevel = (value) => {
+  if (value <= 40) {
+    return "low";
   }
+  return value <= 70 ? "medium" : "high";
 };
 
-let decideThreatLevelClass = (threat) => {
-  "use strict";
-  if (threat >= 0 && threat <= 40) {
-    return threatLevelClasses.low;
-  } else if (threat > 40 && threat <= 70) {
-    return threatLevelClasses.medium;
-  } else {
-    return threatLevelClasses.high;
-  }
-};
+/**
+ * Show the current threat and health values with their colour-coded classes.
+ * @param {number} threat
+ * @param {number} health
+ * @return {void}
+ */
+const renderStatus = (threat, health) => {
+  const threatValue = document.getElementById("threat-value");
+  const healthValue = document.getElementById("health-value");
 
-let PLAYER_START_HEALTH_LEVEL_CLASS = decideHealthLevelClass(PLAYER_START_HEALTH);
-let SNAKE_START_THREAT_LEVEL_CLASS = decideThreatLevelClass(SNAKE_START_THREAT);
+  threatValue.textContent = threat;
+  threatValue.className = threatLevelClasses[decideLevel(threat)];
+  healthValue.textContent = health;
+  healthValue.className = healthLevelClasses[decideLevel(health)];
+};

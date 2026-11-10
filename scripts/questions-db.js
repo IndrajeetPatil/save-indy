@@ -156,7 +156,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "What would `Boolean(() =&gt; {})` evaluate to?",
+    question: "What would `Boolean(() => {})` evaluate to?",
     answers: ["undefined", "true", "false", "NaN"],
     correctAnswer: "true",
     language: "javascript",
@@ -171,8 +171,8 @@ let questions = [
   },
   {
     question: "Which is not a valid syntax for a `for` loop?",
-    answers: ["for(i; i &lt; x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
-    correctAnswer: "for(i; i &lt; x.length; i++)",
+    answers: ["for(i; i < x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
+    correctAnswer: "for(i; i < x.length; i++)",
     language: "javascript",
     level: "beginner",
   },
@@ -233,7 +233,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "What will `3 &gt; 2 &gt; 1` evaluate to?",
+    question: "What will `3 > 2 > 1` evaluate to?",
     answers: ["true", "false", "SyntaxError", "TypeError"],
     correctAnswer: "false",
     language: "javascript",
