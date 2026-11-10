@@ -36,8 +36,9 @@ every missed question with its answer and explanation.
 
 - Pixel-art temple, explorer, and snake drawn in code, with animated torches,
   whip cracks, and strikes
-- Sound effects synthesised with the Web Audio API, with a mute toggle that is
-  remembered
+- Sound effects synthesised with the Web Audio API (a whip crack, a snake
+  hiss, and brass for the ending) in a reverberant temple, with a mute toggle
+  that is remembered
 - An explanation for every answer, and a review of missed questions
 - Icon-first controls (sound, source, issue reports) with accessible names
 - Keyboard play, screen-reader announcements, visible focus, and reduced
@@ -65,17 +66,17 @@ The game is a TypeScript single-page app built with [Vite+](https://viteplus.dev
 
 ### Project structure
 
-| Path                       | Contents                                                    |
-| -------------------------- | ----------------------------------------------------------- |
-| `index.html`               | Page markup: scene, stats, and the three screens            |
-| `src/questions.ts`         | The question bank, with an explanation for every answer     |
-| `src/game.ts`              | Pure game rules: scoring, outcomes, and question order      |
-| `src/app.ts`, `view.ts`    | The controller and the DOM rendering it drives              |
-| `src/scene/`               | Pixel art, sprites, and the animated canvas scene           |
-| `src/audio.ts`             | Synthesised sound effects                                   |
-| `e2e-tests/`               | Playwright gameplay tests and axe accessibility audits      |
-| `public/`                  | Icons, web manifest, social image, and the old-URL redirect |
-| `scripts/render-assets.ts` | Renders the PNG icons and social image from the game        |
+| Path                                    | Contents                                                    |
+| --------------------------------------- | ----------------------------------------------------------- |
+| `index.html`                            | Page markup: scene, stats, and the three screens            |
+| `src/questions.ts`                      | The question bank, with an explanation for every answer     |
+| `src/game.ts`                           | Pure game rules: scoring, outcomes, and question order      |
+| `src/app.ts`, `view.ts`                 | The controller and the DOM rendering it drives              |
+| `src/scene/`                            | Pixel art, sprites, and the animated canvas scene           |
+| `src/audio.ts`, `sounds.ts`, `mixer.ts` | Synthesised sound effects, their voices, and the reverb mix |
+| `e2e-tests/`                            | Playwright gameplay tests and axe accessibility audits      |
+| `public/`                               | Icons, web manifest, social image, and the old-URL redirect |
+| `scripts/render-assets.ts`              | Renders the PNG icons and social image from the game        |
 
 ### Quality gates
 

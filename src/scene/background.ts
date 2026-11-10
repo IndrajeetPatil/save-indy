@@ -181,16 +181,6 @@ function paintPedestal(context: Paint): void {
   context.drawImage(paintSprite(IDOL, PALETTE), x + 4, top - IDOL.length);
 }
 
-function paintSkull(context: Paint): void {
-  context.fillStyle = "#d9d0bd";
-  context.fillRect(28, 104, 5, 4);
-  context.fillRect(29, 108, 3, 1);
-  context.fillRect(35, 107, 6, 1);
-  context.fillStyle = COLOURS.outline;
-  context.fillRect(29, 105, 1, 1);
-  context.fillRect(31, 105, 1, 1);
-}
-
 /**
  * Paint the static temple once; each frame copies it and adds moving parts.
  * @returns A canvas holding the background.
@@ -211,7 +201,6 @@ function paintBackground(): HTMLCanvasElement {
   paintFloor(context, random);
   paintVines(context, random);
   paintPedestal(context);
-  paintSkull(context);
   return canvas;
 }
 
