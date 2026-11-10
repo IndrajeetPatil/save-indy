@@ -109,42 +109,16 @@
   <body>
     <header class="site-header">
       <h1 class="title">Save Indy!</h1>
-      <nav
-        class="toolbar"
-        aria-label="Links and settings"
+      <button
+        type="button"
+        class="icon-button"
+        id="mute-toggle"
+        aria-pressed="false"
+        aria-label="Mute sound"
+        title="Mute sound"
       >
-        <a
-          class="icon-button"
-          href="https://github.com/IndrajeetPatil/save-indy"
-          aria-label="Source code on GitHub"
-          title="Source code on GitHub"
-          ><span data-icon="github"></span
-        ></a>
-        <a
-          class="icon-button"
-          href="https://github.com/IndrajeetPatil/save-indy/issues"
-          aria-label="Report a wrong answer"
-          title="Report a wrong answer"
-          ><span data-icon="bug"></span
-        ></a>
-        <a
-          class="icon-button"
-          href="https://www.indrapatil.com/"
-          aria-label="Made by Indrajeet Patil"
-          title="Made by Indrajeet Patil"
-          ><span data-icon="person"></span
-        ></a>
-        <button
-          type="button"
-          class="icon-button"
-          id="mute-toggle"
-          aria-pressed="false"
-          aria-label="Mute sound"
-          title="Mute sound"
-        >
-          <span data-icon="soundOn"></span>
-        </button>
-      </nav>
+        <span data-icon="soundOn"></span>
+      </button>
     </header>
 
     <main class="layout">
@@ -349,6 +323,32 @@
     </main>
 
     <footer class="site-footer">
+      <nav
+        class="toolbar"
+        aria-label="Links"
+      >
+        <a
+          class="icon-button"
+          href="https://github.com/IndrajeetPatil/save-indy"
+          aria-label="Source code on GitHub"
+          title="Source code on GitHub"
+          ><span data-icon="github"></span
+        ></a>
+        <a
+          class="icon-button"
+          href="https://github.com/IndrajeetPatil/save-indy/issues"
+          aria-label="Report a wrong answer"
+          title="Report a wrong answer"
+          ><span data-icon="bug"></span
+        ></a>
+        <a
+          class="icon-button"
+          href="https://www.indrapatil.com/"
+          aria-label="Made by Indrajeet Patil"
+          title="Made by Indrajeet Patil"
+          ><span data-icon="person"></span
+        ></a>
+      </nav>
       <p>
         <span>Unofficial fan game for learning JavaScript</span> ·
         <span>No money made</span> · <span>Not affiliated with Lucasfilm</span>

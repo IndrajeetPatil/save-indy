@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 import {
   answerQuestion,
+  audioSessionType,
   audioStates,
   fetchAsset,
   fileName,
@@ -105,6 +106,23 @@ test("sound starts on the first tap or click, as mobile browsers require", async
   await press(firstAnswer, hasTouch);
 
   await expect.poll(async () => audioStates(page)).toStrictEqual(["running"]);
+});
+
+test("sound plays even when the iPhone's silent switch is on", async ({
+  page,
+  hasTouch,
+}) => {
+  await startGame(page);
+  // Only Apple's WebKit builds ship the Audio Session API; Linux WebKit and
+  // Chromium do not.
+  test.skip(
+    (await audioSessionType(page)) === null,
+    "This browser has no Audio Session API",
+  );
+
+  await press(page.locator("#answers button").first(), hasTouch);
+
+  expect(await audioSessionType(page)).toBe("playback");
 });
 
 test("the social card image exists at the advertised address", async ({

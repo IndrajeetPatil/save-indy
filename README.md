@@ -38,9 +38,11 @@ every missed question with its answer and explanation.
   whip cracks, and strikes
 - Sound effects synthesised with the Web Audio API (a whip crack, a snake
   hiss, and brass for the ending) in a reverberant temple, with a mute toggle
-  that is remembered
+  that is remembered; on iPhone the sound plays even with the silent switch on
 - An explanation for every answer, and a review of missed questions
 - Icon-first controls (sound, source, issue reports) with accessible names
+- A phone layout that pins the scene and meters above the quiz, so every
+  answer's effect stays in view; external links wait in the footer
 - Keyboard play, screen-reader announcements, visible focus, and reduced
   motion support
 - A static site with no runtime dependencies beyond a self-hosted font, served
