@@ -69,11 +69,11 @@ _Save Indy!_ is a TypeScript single-page app built with
 The unit tests check that every question is well-formed and that each level
 has enough questions to finish a round.
 
-| Level        | Pitch it at                                                                    |
-| ------------ | ------------------------------------------------------------------------------ |
-| Beginner     | Values, types, operators, truthiness, and everyday string and array methods    |
-| Intermediate | Scope, destructuring, optional chaining, iteration, `this`, and JSON           |
-| Advanced     | Hoisting details, Unicode strings, object conversion, copying, and strict mode |
+| Level        | Pitch it at                                                                 |
+| ------------ | --------------------------------------------------------------------------- |
+| Beginner     | Values, types, operators, truthiness, and everyday string and array methods |
+| Intermediate | Scope, closures, `this`, destructuring, iteration, promises, and JSON       |
+| Advanced     | Hoisting, Unicode, symbols, property order, proxies, and the event loop     |
 
 ## Deployment
 

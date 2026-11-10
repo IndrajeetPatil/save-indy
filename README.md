@@ -57,6 +57,9 @@ Most questions are inspired by:
 
 - Flanagan, D. (2020). _JavaScript: The Definitive Guide_ (7th Edition). O'Reilly.
 - Padolsey, J. (2020). _Clean Code in JavaScript_. Packt Publishing.
+- Haverbeke, M. (2024). [_Eloquent JavaScript_](https://eloquentjavascript.net/) (4th Edition). No Starch Press.
+- Simpson, K. [_You Don't Know JS Yet_](https://github.com/getify/You-Dont-Know-JS) (2nd Edition), especially _Get Started_ and _Scope & Closures_.
+- MDN Web Docs' [JavaScript reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference).
 - Brian Leroux's [WAT talk](https://www.youtube.com/watch?v=et8xNAc2ic8&t=1s).
 
 Any inaccuracies are mine; please
