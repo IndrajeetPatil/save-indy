@@ -93,7 +93,8 @@ const playToEnd = (choice: string): void => {
 };
 
 const press = (key: string, options: KeyboardEventInit = {}): void => {
-  document.dispatchEvent(
+  const target = document.activeElement ?? document.body;
+  target.dispatchEvent(
     new KeyboardEvent("keydown", { key, bubbles: true, ...options }),
   );
 };

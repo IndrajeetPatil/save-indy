@@ -398,6 +398,22 @@ code {
   background: var(--bad-surface);
 }
 
+/* The pixel font has no check or cross glyphs. */
+.answer.is-correct .answer-key,
+.answer.is-wrong .answer-key {
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.answer.is-correct .answer-key {
+  color: var(--good);
+}
+
+.answer.is-wrong .answer-key {
+  color: var(--bad);
+}
+
 .feedback {
   margin-top: 1.25rem;
   padding: 1rem;
@@ -418,6 +434,12 @@ code {
 
 .verdict[data-result="wrong"] {
   color: var(--bad);
+}
+
+.right-answer {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--good);
 }
 
 .explanation {

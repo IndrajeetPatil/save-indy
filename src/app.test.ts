@@ -96,10 +96,8 @@ describe("answering", () => {
     );
   });
 
-  test("number keys pick answers, but only while a question is shown", () => {
+  test("number keys pick answers while focus is in the question", () => {
     const { sound } = setup();
-
-    press("1");
     start();
     press("1", { ctrlKey: true });
     press("x");
@@ -109,6 +107,48 @@ describe("answering", () => {
     press("1");
 
     expect(sound.whip).toHaveBeenCalledOnce();
+  });
+
+  test("number keys do nothing while focus is elsewhere", () => {
+    const { sound } = setup();
+    press("1");
+    start();
+    byId("mute-toggle").focus();
+
+    press("1");
+
+    expect(sound.whip).not.toHaveBeenCalled();
+    expect(byId("feedback").hidden).toBe(true);
+  });
+
+  test("names the right answer after a miss, not just by colour", () => {
+    setup();
+    start();
+
+    clickAnswer("wrong 2");
+
+    expect({
+      reveal: byId("right-answer").textContent,
+      revealShown: byId("right-answer").hidden,
+      right: document.querySelector(".is-correct")?.textContent,
+      wrong: document.querySelector(".is-wrong")?.textContent,
+      announced: byId("announcer").textContent.includes("Right answer: right"),
+    }).toStrictEqual({
+      reveal: "Right answer: right",
+      revealShown: false,
+      right: "✓right (right answer)",
+      wrong: "✗wrong 2 (your answer)",
+      announced: true,
+    });
+  });
+
+  test("keeps the reveal hidden after a right answer", () => {
+    setup();
+    start();
+
+    clickAnswer("right");
+
+    expect(byId("right-answer").hidden).toBe(true);
   });
 
   test("moves on to the next question", () => {

@@ -16,7 +16,6 @@ import type { Cue } from "./scene/scene.ts";
 import {
   announce,
   findView,
-  isAsking,
   renderEnd,
   renderFeedback,
   renderLevels,
@@ -129,7 +128,9 @@ class App {
     view.mute.addEventListener("click", () => {
       this.#toggleMute();
     });
-    view.root.addEventListener("keydown", (event) => {
+    // Single-key shortcuts only work while focus is inside the question, so
+    // they never fire from other controls (WCAG 2.1.4).
+    view.screens.question.addEventListener("keydown", (event) => {
       this.#onKey(event);
     });
   }
@@ -168,9 +169,12 @@ class App {
     this.#stage.update(game.threat, cue);
     renderStats(this.#view, game.threat, game.health);
     renderFeedback(this.#view, game);
+    const { verdict, rightAnswer, explanation } = this.#view;
+    const reveal =
+      rightAnswer.hidden === true ? "" : ` ${rightAnswer.textContent}`;
     announce(
       this.#view,
-      `${this.#view.verdict.textContent} ${this.#view.explanation.textContent}`,
+      `${verdict.textContent}${reveal} ${explanation.textContent}`,
     );
     this.#view.next.focus();
   }
@@ -218,7 +222,7 @@ class App {
 
   #onKey(event: KeyboardEvent): void {
     const index = ANSWER_KEYS.indexOf(event.key);
-    if (index === -1 || !isPlainKey(event) || !isAsking(this.#view)) {
+    if (index === -1 || !isPlainKey(event)) {
       return;
     }
     [...this.#view.answers.querySelectorAll("button")][index]?.click();

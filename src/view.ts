@@ -44,6 +44,7 @@ interface View {
   readonly answers: HTMLOListElement;
   readonly feedback: HTMLElement;
   readonly verdict: HTMLElement;
+  readonly rightAnswer: HTMLElement;
   readonly explanation: HTMLElement;
   readonly next: HTMLButtonElement;
   readonly result: HTMLElement;
@@ -80,6 +81,7 @@ function findView(root: Document): View {
     answers: list("answers"),
     feedback: element("feedback"),
     verdict: element("verdict"),
+    rightAnswer: element("right-answer"),
     explanation: element("explanation"),
     next: button("next-button"),
     result: element("result"),
@@ -100,14 +102,6 @@ function showScreen(view: View, name: ScreenName): void {
   for (const [key, screen] of Object.entries(view.screens)) {
     screen.hidden = key !== name;
   }
-}
-
-/**
- * @param view The game view.
- * @returns Whether a question is on screen.
- */
-function isAsking(view: View): boolean {
-  return view.screens.question.hidden !== true;
 }
 
 /**
@@ -210,12 +204,32 @@ function renderQuestion(
   view.feedback.hidden = true;
 }
 
+/** Text and symbol that mark an answer without relying on colour. */
+const MARKS = {
+  correct: { symbol: "✓", label: " (right answer)" },
+  wrong: { symbol: "✗", label: " (your answer)" },
+} as const;
+
+function markAnswer(button: HTMLButtonElement, mark: keyof typeof MARKS) {
+  button.classList.add(mark === "correct" ? "is-correct" : "is-wrong");
+  const key = button.querySelector(".answer-key");
+  if (key !== null) {
+    key.textContent = MARKS[mark].symbol;
+  }
+  const label = make(button.ownerDocument, "span", "visually-hidden");
+  label.textContent = MARKS[mark].label;
+  button.append(label);
+}
+
 function markAnswers(view: View, correct: string, choice: string | null) {
   for (const button of view.answers.querySelectorAll("button")) {
     const shown = button.dataset["choice"];
     button.disabled = true;
-    button.classList.toggle("is-correct", shown === correct);
-    button.classList.toggle("is-wrong", shown === choice && shown !== correct);
+    if (shown === correct) {
+      markAnswer(button, "correct");
+    } else if (shown === choice) {
+      markAnswer(button, "wrong");
+    }
   }
 }
 
@@ -232,6 +246,8 @@ function renderFeedback(view: View, state: GameState): void {
     ? "Correct! Your whip cracks and the snake recoils."
     : "Wrong! The snake lunges at Indy.";
   view.verdict.dataset["result"] = isCorrect ? "correct" : "wrong";
+  setRichText(view.rightAnswer, `Right answer: ${question.correct}`);
+  view.rightAnswer.hidden = isCorrect;
   setRichText(view.explanation, question.explanation);
   view.next.textContent =
     outcome(state) === "playing" ? "Next question" : "See the result";
@@ -273,7 +289,6 @@ export type { ScreenName, View };
 export {
   announce,
   findView,
-  isAsking,
   renderEnd,
   renderFeedback,
   renderLevels,
