@@ -24,14 +24,14 @@ let questions = [
   },
   {
     question: "Which of the following is not a literal?",
-    answers: ["null", "true", "myVar", "-3.14"],
+    answers: ["null", "true", "myVar", "3.14"],
     correctAnswer: "myVar",
     language: "javascript",
     level: "beginner",
   },
   {
     question: "Which of the following is not a falsy value?",
-    answers: ["' '", "null", "undefined", "[ ]"],
+    answers: ["''", "null", "undefined", "[ ]"],
     correctAnswer: "[ ]",
     language: "javascript",
     level: "beginner",
@@ -52,7 +52,7 @@ let questions = [
   },
   {
     question: "Which of the following array methods doesn't create a new array?",
-    answers: ["filter", "sort", "map", "reduce"],
+    answers: ["filter", "sort", "map", "concat"],
     correctAnswer: "sort",
     language: "javascript",
     level: "beginner",
@@ -107,7 +107,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "Which of this is a valid RegExp datatype?",
+    question: "Which of these is a valid RegExp literal?",
     answers: ["/^x/", "\\^x\\", "/^x\\", "\\^x/"],
     correctAnswer: "/^x/",
     language: "javascript",
@@ -163,7 +163,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "What would `0 == '0' || 0 === '0'`, evaluate to?",
+    question: "What would `0 == '0' || 0 === '0'` evaluate to?",
     answers: ["undefined", "true", "false", "null"],
     correctAnswer: "true",
     language: "javascript",
@@ -171,13 +171,13 @@ let questions = [
   },
   {
     question: "Which is not a valid syntax for a `for` loop?",
-    answers: ["for(i; i < x.length; i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
-    correctAnswer: "for(i; i < x.length; i++)",
+    answers: ["for(let i = 0, i < x.length, i++)", "for(let i of x)", "for(const i of x)", "for(let i in x)"],
+    correctAnswer: "for(let i = 0, i < x.length, i++)",
     language: "javascript",
     level: "beginner",
   },
   {
-    question: "Which of the following will not return `ll`?",
+    question: "If `let x = 'hello';`, which of the following will not return `'ll'`?",
     answers: ["x.slice(2, 4);", "x.substring(2, 4);", "x[2] + x[3];", "x[2, 3];"],
     correctAnswer: "x[2, 3];",
     language: "javascript",
@@ -200,12 +200,12 @@ let questions = [
   {
     question: "Which of the following is not a valid identifier?",
     answers: ["a3", "_a3", "3a", "A3"],
-    correctAnswer: "_a3",
+    correctAnswer: "3a",
     language: "javascript",
     level: "beginner",
   },
   {
-    question: "If `let x; y = 0;`, what would `x.[y++]` evaluate to?",
+    question: "If `let x, y = 0;`, what would `x[y++]` evaluate to?",
     answers: ["TypeError", "null", "undefined", "NaN"],
     correctAnswer: "TypeError",
     language: "javascript",
@@ -226,7 +226,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "If `let x = -2; ++x;`, what will `console.log(x--);` evaluate to?",
+    question: "If `let x = -2; ++x;`, what will `console.log(x--);` print?",
     answers: ["-2", "-1", "-3", "0"],
     correctAnswer: "-1",
     language: "javascript",
@@ -273,7 +273,7 @@ let questions = [
     level: "beginner",
   },
   {
-    question: "Which statement won't make interpreter jump to a different part of program?",
+    question: "Which statement won't make the interpreter jump to a different part of the program?",
     answers: ["return;", "break;", "debugger;", "continue;"],
     correctAnswer: "debugger;",
     language: "javascript",
@@ -325,7 +325,7 @@ let questions = [
     level: "intermediate",
   },
   {
-    question: "If `let x; y = 0;`, what would `x?.[y++]` evaluate to?",
+    question: "If `let x, y = 0;`, what would `x?.[y++]` evaluate to?",
     answers: ["TypeError", "null", "undefined", "NaN"],
     correctAnswer: "undefined",
     language: "javascript",
@@ -389,8 +389,8 @@ let questions = [
   },
   {
     question: "Which of the following is not an iterable object?",
-    answers: ["string", "map", "generator", "set"],
-    correctAnswer: "generator",
+    answers: ["string", "map", "plain object", "set"],
+    correctAnswer: "plain object",
     language: "javascript",
     level: "intermediate",
   },
@@ -477,7 +477,7 @@ let questions = [
 
   {
     question: "What would be the value of `tan` after `let {sin, cos, ...tan} = Math;`?",
-    answers: ["function tan() { [native code] }", "{ }", "TypeError", "udefined"],
+    answers: ["function tan() { [native code] }", "{ }", "TypeError", "undefined"],
     correctAnswer: "{ }",
     language: "javascript",
     level: "advanced",
@@ -509,7 +509,7 @@ let questions = [
     level: "advanced",
   },
   {
-    question: "How many times will `for/of` loop iterate over '❤️❌🤖' string?",
+    question: "How many times will `for/of` loop iterate over the `'🐍❌🤖'` string?",
     answers: ["3", "5", "0", "2"],
     correctAnswer: "3",
     language: "javascript",
@@ -536,7 +536,7 @@ let questions = [
   },
   {
     question: "Which method won't create an array from an array-like object `x` (e.g. `arguments`)?",
-    answers: ["`[...x] `", "`Array.from(x)`", "`Array.prototype.slice(x)`", "`Object.create(Array)`"],
+    answers: ["`[...x]`", "`Array.from(x)`", "`Array.prototype.slice.call(x)`", "`Object.create(Array)`"],
     correctAnswer: "`Object.create(Array)`",
     language: "javascript",
     level: "advanced",
