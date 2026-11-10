@@ -109,14 +109,42 @@
   <body>
     <header class="site-header">
       <h1 class="title">Save Indy!</h1>
-      <button
-        type="button"
-        class="mute-toggle"
-        id="mute-toggle"
-        aria-pressed="false"
+      <nav
+        class="toolbar"
+        aria-label="Links and settings"
       >
-        Mute
-      </button>
+        <a
+          class="icon-button"
+          href="https://github.com/IndrajeetPatil/save-indy"
+          aria-label="Source code on GitHub"
+          title="Source code on GitHub"
+          ><span data-icon="github"></span
+        ></a>
+        <a
+          class="icon-button"
+          href="https://github.com/IndrajeetPatil/save-indy/issues"
+          aria-label="Report a wrong answer"
+          title="Report a wrong answer"
+          ><span data-icon="bug"></span
+        ></a>
+        <a
+          class="icon-button"
+          href="https://www.indrapatil.com/"
+          aria-label="Made by Indrajeet Patil"
+          title="Made by Indrajeet Patil"
+          ><span data-icon="person"></span
+        ></a>
+        <button
+          type="button"
+          class="icon-button"
+          id="mute-toggle"
+          aria-pressed="false"
+          aria-label="Mute sound"
+          title="Mute sound"
+        >
+          <span data-icon="soundOn"></span>
+        </button>
+      </nav>
     </header>
 
     <main class="layout">
@@ -134,10 +162,13 @@
         ></canvas>
         <div class="hud">
           <div class="stat">
-            <span
-              class="stat-label"
-              id="threat-label"
-              >Threat</span
+            <span class="stat-label"
+              ><span data-icon="alert"></span
+              ><span
+                class="visually-hidden"
+                id="threat-label"
+                >Threat</span
+              ></span
             >
             <div
               class="meter"
@@ -158,10 +189,13 @@
             >
           </div>
           <div class="stat">
-            <span
-              class="stat-label"
-              id="health-label"
-              >Indy's health</span
+            <span class="stat-label"
+              ><span data-icon="heart"></span
+              ><span
+                class="visually-hidden"
+                id="health-label"
+                >Indy's health</span
+              ></span
             >
             <div
               class="meter"
@@ -198,22 +232,14 @@
           id="start-screen"
         >
           <p class="lead">
-            A snake is closing in on Indy. Answer JavaScript questions to drive
-            it back before it strikes.
+            Answer JavaScript questions to save Indy from the snake.
           </p>
-          <ul class="rules">
-            <li>Each right answer cracks the whip: threat down, health up.</li>
-            <li>
-              Each wrong answer lets the snake lunge: threat up, health down.
-            </li>
-            <li>Win when the threat reaches 0; lose if Indy's health does.</li>
-          </ul>
           <form
             class="start-form"
             id="start-form"
           >
             <fieldset class="levels">
-              <legend>Choose your level</legend>
+              <legend>Level</legend>
               <div
                 class="level-options"
                 id="level-options"
@@ -223,7 +249,7 @@
               type="submit"
               class="button primary"
             >
-              Start the adventure
+              <span data-icon="play"></span>Start
             </button>
           </form>
         </div>
@@ -268,12 +294,11 @@
               class="button primary"
               id="next-button"
             >
-              Next question
+              <span id="next-label">Next</span><span data-icon="next"></span>
             </button>
           </div>
           <p class="hint">
-            Tip: while the question has focus, press 1–4 to answer, then Enter
-            to continue.
+            <kbd>1</kbd>–<kbd>4</kbd> answer · <kbd>Enter</kbd> next
           </p>
         </div>
 
@@ -297,14 +322,14 @@
               class="button primary"
               id="play-again"
             >
-              Play again
+              <span data-icon="retry"></span>Again
             </button>
             <button
               type="button"
               class="button"
               id="change-level"
             >
-              Change level
+              <span data-icon="levels"></span>Levels
             </button>
           </div>
           <section
@@ -313,7 +338,7 @@
             aria-labelledby="review-heading"
             hidden
           >
-            <h3 id="review-heading">Questions to revisit</h3>
+            <h3 id="review-heading">Revisit</h3>
             <ol
               class="review-list"
               id="review-list"
@@ -324,18 +349,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>
-        A fan-made game to test your JavaScript knowledge. I make no money from
-        it. Please don't sue me, George Lucas!
-      </p>
-      <p>
-        Created by
-        <a href="https://www.indrapatil.com/">Indrajeet Patil</a> ·
-        <a href="https://github.com/IndrajeetPatil/save-indy">Source code</a> ·
-        <a href="https://github.com/IndrajeetPatil/save-indy/issues"
-          >Report a wrong answer</a
-        >
-      </p>
+      <p>Fan-made and non-commercial. Please don't sue me, George Lucas!</p>
     </footer>
   </body>
 </html>

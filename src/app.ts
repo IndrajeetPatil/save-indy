@@ -1,6 +1,7 @@
 import type { SoundEffects } from "./audio.ts";
 import { START_STAT } from "./config.ts";
 import type { Level } from "./config.ts";
+import { renderEnd } from "./end-view.ts";
 import {
   answer,
   createGame,
@@ -10,13 +11,13 @@ import {
 } from "./game.ts";
 import type { GameState } from "./game.ts";
 import { renderStats } from "./hud.ts";
+import { fillIcons } from "./icons.ts";
 import { QUESTIONS } from "./questions.ts";
 import type { Question } from "./questions.ts";
 import type { Cue } from "./scene/scene.ts";
 import {
   announce,
   findView,
-  renderEnd,
   renderFeedback,
   renderLevels,
   renderMute,
@@ -98,6 +99,7 @@ class App {
 
   public constructor(options: AppOptions) {
     this.#options = options;
+    fillIcons(options.root);
     this.#view = findView(options.root);
     this.#stage = options.stage;
     this.#sound = options.sound;

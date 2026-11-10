@@ -2,32 +2,18 @@ import { LEVELS } from "./config.ts";
 import type { Level } from "./config.ts";
 import { byId, make } from "./dom.ts";
 import { currentRound, outcome } from "./game.ts";
-import type { GameState, Outcome } from "./game.ts";
+import type { GameState } from "./game.ts";
 import type { Stat } from "./hud.ts";
-import type { Question } from "./questions.ts";
+import { iconText, makeIcon } from "./icons.ts";
 import { setRichText } from "./text.ts";
 
 type ScreenName = "start" | "question" | "end";
 
-const LEVEL_DETAILS: Record<Level, { name: string; topics: string }> = {
-  beginner: {
-    name: "Beginner",
-    topics: "Types, coercion, and everyday syntax",
-  },
-  intermediate: {
-    name: "Intermediate",
-    topics: "Operators, scope, and iteration",
-  },
-  advanced: { name: "Advanced", topics: "Edge cases and language internals" },
+const LEVEL_NAMES: Record<Level, string> = {
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
 };
-
-const RESULTS: Record<Exclude<Outcome, "playing">, string> = {
-  won: "You saved Indy!",
-  lost: "The snake got Indy!",
-  "out-of-questions": "Out of questions! Indy is still trapped.",
-};
-
-const PERCENT = 100;
 
 /** Every element the game updates, looked up once. */
 interface View {
@@ -47,6 +33,7 @@ interface View {
   readonly rightAnswer: HTMLElement;
   readonly explanation: HTMLElement;
   readonly next: HTMLButtonElement;
+  readonly nextLabel: HTMLElement;
   readonly result: HTMLElement;
   readonly summary: HTMLElement;
   readonly playAgain: HTMLButtonElement;
@@ -84,6 +71,7 @@ function findView(root: Document): View {
     rightAnswer: element("right-answer"),
     explanation: element("explanation"),
     next: button("next-button"),
+    nextLabel: element("next-label"),
     result: element("result"),
     summary: element("summary"),
     playAgain: button("play-again"),
@@ -114,11 +102,15 @@ function announce(view: View, message: string): void {
 }
 
 /**
+ * Show the speaker icon that matches the sound setting.
  * @param view The game view.
  * @param muted Whether sound is off.
  */
 function renderMute(view: View, muted: boolean): void {
   view.mute.setAttribute("aria-pressed", String(muted));
+  view.mute.replaceChildren(
+    makeIcon(view.root, muted ? "soundOff" : "soundOn"),
+  );
 }
 
 function levelCard(view: View, level: Level, count: number) {
@@ -128,10 +120,10 @@ function levelCard(view: View, level: Level, count: number) {
   input.name = "level";
   input.value = level;
   const name = make(view.root, "span", "level-name");
-  name.textContent = LEVEL_DETAILS[level].name;
-  const topics = make(view.root, "span", "level-topics");
-  topics.textContent = `${LEVEL_DETAILS[level].topics} · ${count} questions`;
-  label.append(input, name, topics);
+  name.textContent = LEVEL_NAMES[level];
+  const total = make(view.root, "span", "level-count");
+  total.textContent = `${count} questions`;
+  label.append(input, name, total);
   return { label, input };
 }
 
@@ -189,7 +181,14 @@ function renderQuestion(
   onAnswer: (choice: string) => void,
 ): void {
   const { question, answers } = currentRound(state);
-  view.progress.textContent = `${LEVEL_DETAILS[state.level].name} · Question ${state.index + 1} · ${state.correct} correct`;
+  view.progress.replaceChildren(
+    `${LEVEL_NAMES[state.level]} · Q${state.index + 1} · `,
+    ...iconText(view.root, {
+      icon: "check",
+      text: String(state.correct),
+      hidden: "correct: ",
+    }),
+  );
   setRichText(view.question, question.prompt);
   const items = answers.map((choice, index) => {
     const item = make(view.root, "li", "answer-item");
@@ -204,18 +203,17 @@ function renderQuestion(
   view.feedback.hidden = true;
 }
 
-/** Text and symbol that mark an answer without relying on colour. */
+/** Icon and spoken text that mark an answer without relying on colour. */
 const MARKS = {
-  correct: { symbol: "✓", label: " (right answer)" },
-  wrong: { symbol: "✗", label: " (your answer)" },
+  correct: { icon: "check", label: " (right answer)" },
+  wrong: { icon: "cross", label: " (your answer)" },
 } as const;
 
 function markAnswer(button: HTMLButtonElement, mark: keyof typeof MARKS) {
   button.classList.add(mark === "correct" ? "is-correct" : "is-wrong");
-  const key = button.querySelector(".answer-key");
-  if (key !== null) {
-    key.textContent = MARKS[mark].symbol;
-  }
+  button
+    .querySelector(".answer-key")
+    ?.replaceChildren(makeIcon(button.ownerDocument, MARKS[mark].icon));
   const label = make(button.ownerDocument, "span", "visually-hidden");
   label.textContent = MARKS[mark].label;
   button.append(label);
@@ -242,54 +240,32 @@ function renderFeedback(view: View, state: GameState): void {
   const { question } = currentRound(state);
   const isCorrect = state.choice === question.correct;
   markAnswers(view, question.correct, state.choice);
-  view.verdict.textContent = isCorrect
-    ? "Correct! Your whip cracks and the snake recoils."
-    : "Wrong! The snake lunges at Indy.";
+  view.verdict.replaceChildren(
+    ...iconText(view.root, {
+      icon: isCorrect ? "check" : "cross",
+      text: isCorrect ? "Correct!" : "Wrong!",
+    }),
+  );
   view.verdict.dataset["result"] = isCorrect ? "correct" : "wrong";
-  setRichText(view.rightAnswer, `Right answer: ${question.correct}`);
+  view.rightAnswer.replaceChildren(
+    ...iconText(view.root, {
+      icon: "check",
+      text: question.correct,
+      hidden: "Right answer: ",
+    }),
+  );
   view.rightAnswer.hidden = isCorrect;
   setRichText(view.explanation, question.explanation);
-  view.next.textContent =
-    outcome(state) === "playing" ? "Next question" : "See the result";
+  view.nextLabel.textContent =
+    outcome(state) === "playing" ? "Next" : "Results";
   view.feedback.hidden = false;
 }
 
-function reviewItem(root: Document, question: Question): HTMLLIElement {
-  const item = make(root, "li", "review-item");
-  const prompt = make(root, "p", "review-question");
-  setRichText(prompt, question.prompt);
-  const answer = make(root, "p", "review-answer");
-  setRichText(answer, `Answer: ${question.correct}`);
-  const explanation = make(root, "p", "review-explanation");
-  setRichText(explanation, question.explanation);
-  item.append(prompt, answer, explanation);
-  return item;
-}
-
-/**
- * Show how the round ended, the score, and the questions to revisit.
- * @param view The game view.
- * @param state Final game state.
- */
-function renderEnd(view: View, state: GameState): void {
-  const result = outcome(state);
-  const answered = state.index + 1;
-  const percent = Math.round((state.correct / answered) * PERCENT);
-  const levelName = LEVEL_DETAILS[state.level].name.toLowerCase();
-  view.result.textContent = result === "playing" ? "" : RESULTS[result];
-  view.result.dataset["result"] = result;
-  view.summary.textContent = `You answered ${state.correct} of ${answered} ${levelName} questions correctly (${percent}%).`;
-  view.reviewList.replaceChildren(
-    ...state.missed.map((question) => reviewItem(view.root, question)),
-  );
-  view.review.hidden = state.missed.length === 0;
-}
-
 export type { ScreenName, View };
+export { LEVEL_NAMES };
 export {
   announce,
   findView,
-  renderEnd,
   renderFeedback,
   renderLevels,
   renderMute,
