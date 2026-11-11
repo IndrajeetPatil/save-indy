@@ -16,6 +16,10 @@
       content="Indrajeet Patil"
     />
     <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large"
+    />
+    <meta
       name="theme-color"
       content="#17110d"
     />
@@ -33,6 +37,14 @@
       content="website"
     />
     <meta
+      property="og:site_name"
+      content="Indrajeet Patil"
+    />
+    <meta
+      property="og:locale"
+      content="en_GB"
+    />
+    <meta
       property="og:title"
       content="Save Indy! A JavaScript quiz adventure"
     />
@@ -47,6 +59,10 @@
     <meta
       property="og:image"
       content="https://www.indrapatil.com/save-indy/og-image.png"
+    />
+    <meta
+      property="og:image:type"
+      content="image/png"
     />
     <meta
       property="og:image:width"
@@ -100,6 +116,87 @@
       rel="manifest"
       href="./site.webmanifest"
     />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="./sitemap.xml"
+    />
+    <!-- A plain-text summary for AI assistants (https://llmstxt.org/). -->
+    <link
+      rel="describedby"
+      type="text/markdown"
+      href="./llms.txt"
+    />
+    <!-- Structured data for search engines and AI assistants. JSON-LD is a
+         data block, not a script, so the Content Security Policy allows it. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "@id": "https://www.indrapatil.com/save-indy/#game",
+        "name": "Save Indy! A JavaScript quiz adventure",
+        "alternateName": "Save Indy",
+        "url": "https://www.indrapatil.com/save-indy/",
+        "description": "A free retro browser game that tests your JavaScript knowledge: answer multiple-choice questions at three levels to drive the snake back and save Indy, with an explanation for every answer.",
+        "image": "https://www.indrapatil.com/save-indy/og-image.png",
+        "genre": ["Quiz", "Educational"],
+        "gamePlatform": "Web browser",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "about": {
+          "@type": "ComputerLanguage",
+          "name": "JavaScript"
+        },
+        "educationalUse": "Self-assessment",
+        "teaches": "JavaScript: type coercion, scope and closures, objects, strings and other language features",
+        "featureList": [
+          "Beginner, Intermediate and Advanced levels of JavaScript questions",
+          "An explanation for every answer and a review of missed questions",
+          "Pixel-art scene and synthesised sound effects",
+          "Keyboard play, screen-reader announcements and reduced-motion support"
+        ],
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "codeRepository": "https://github.com/IndrajeetPatil/save-indy",
+        "author": {
+          "@type": "Person",
+          "@id": "https://www.indrapatil.com/#person",
+          "name": "Indrajeet Patil",
+          "url": "https://www.indrapatil.com/"
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Indrajeet Patil",
+          "url": "https://www.indrapatil.com/"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indrajeet Patil",
+            "item": "https://www.indrapatil.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Save Indy!",
+            "item": "https://www.indrapatil.com/save-indy/"
+          }
+        ]
+      }
+    </script>
     <script
       type="module"
       src="./src/main.ts"
@@ -208,6 +305,14 @@
           <p class="lead">
             Answer JavaScript questions to save Indy from the snake.
           </p>
+          <noscript>
+            <p class="lead">
+              Save Indy! is a free retro browser game that tests your JavaScript
+              knowledge at three levels, Beginner, Intermediate and Advanced,
+              with an explanation for every answer. It needs JavaScript: please
+              turn it on to play.
+            </p>
+          </noscript>
           <form
             class="start-form"
             id="start-form"
