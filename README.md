@@ -44,6 +44,13 @@ every missed question with its answer and explanation.
 - Keyboard play, screen-reader announcements, visible focus, and reduced
   motion support
 
+## Privacy
+
+The game keeps only your mute setting, in your browser. Visits are counted
+with Google Analytics, as on every page of
+[indrapatil.com](https://www.indrapatil.com/privacy/); your answers are never
+sent anywhere.
+
 ## Contributing
 
 Found a wrong answer or have a question to add? Please

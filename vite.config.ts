@@ -30,16 +30,22 @@ const LINT_PLUGINS = [
 
 const TEST_FILES = ["**/*.test.ts", "**/*.fixture.ts"];
 
-// The production page loads only same-origin, hashed assets, so a strict
-// policy costs nothing. It is added at build time because the dev server
-// injects inline styles and an HMR client.
+// Google Analytics hosts, from Google's CSP guide for Analytics without Ads
+// features: https://developers.google.com/tag-platform/security/guides/csp
+const GOOGLE_TAG = "https://www.googletagmanager.com";
+const GOOGLE_ANALYTICS = "https://*.google-analytics.com";
+const GOOGLE = "https://*.google.com";
+
+// The production page loads only same-origin, hashed assets plus the Google
+// Analytics tag, so a strict policy costs nothing. It is added at build time
+// because the dev server injects inline styles and an HMR client.
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  "script-src 'self'",
+  `script-src 'self' ${GOOGLE_TAG}`,
   "style-src 'self'",
-  "img-src 'self' data:",
+  `img-src 'self' data: ${GOOGLE_TAG} ${GOOGLE_ANALYTICS}`,
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${GOOGLE_TAG} ${GOOGLE_ANALYTICS} ${GOOGLE}`,
   "media-src 'self'",
   "object-src 'none'",
   "base-uri 'none'",
