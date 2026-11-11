@@ -5,8 +5,10 @@ sticker logo.
 
 ## Generating the logo
 
-The sticker artwork is `data.png`, the game's own pixel-art temple scene,
-cropped from `public/og-image.png`. To regenerate the logo:
+The sticker artwork is `data.svg`, a pixel-for-pixel composition of the
+game's own sprites from `src/scene/art.ts`: the snake, the explorer and the
+golden idol on its pedestal, standing on a strip of temple floor. To
+regenerate the logo:
 
 1. **Install R dependencies**:
 
