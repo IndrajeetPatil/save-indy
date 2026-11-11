@@ -24,8 +24,7 @@ sticker(
     h_color = "#6B5039",
     filename = "docs/images/logo.png",
     h_fill = "white",
-    url = "https://www.indrapatil.com/save-indy/",
-    u_x = 0.95,
+    url = "indrapatil.com/save-indy",
     u_size = 8,
     u_color = "grey",
     dpi = 600
