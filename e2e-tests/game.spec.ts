@@ -73,7 +73,7 @@ test("the mute setting survives a reload", async ({ page }) => {
   await expect(mute).toHaveAttribute("aria-pressed", "true");
 });
 
-test("the production page enforces a strict Content Security Policy", async ({
+test("the production page enforces a strict Content Security Policy that allows only the analytics tag beyond its own origin", async ({
   page,
 }) => {
   await page.goto("/");
@@ -82,7 +82,10 @@ test("the production page enforces a strict Content Security Policy", async ({
     .locator("meta[http-equiv='Content-Security-Policy']")
     .getAttribute("content");
 
-  expect(policy).toContain("script-src 'self'");
+  expect(policy).toContain(
+    "script-src 'self' https://www.googletagmanager.com;",
+  );
+  expect(policy).not.toContain("unsafe-inline");
   expect(policy).toContain("object-src 'none'");
 });
 
