@@ -20,4 +20,4 @@ This is a static web game that runs entirely in the browser: there are no accoun
 
 - [Source code and issue tracker](https://github.com/IndrajeetPatil/save-indy): Report a wrong answer or suggest a question.
 - [Author](https://www.indrapatil.com/about/): Indrajeet Patil, who made the game.
-- [Privacy](https://www.indrapatil.com/privacy/): Privacy notice for indrapatil.com, which counts visits with Google Analytics.
+- [Privacy](https://www.indrapatil.com/save-indy/privacy/): What the game does with your data, non-commercial status, and disclaimer.

@@ -152,12 +152,27 @@ code {
   letter-spacing: 0.02em;
 }
 
+.title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title-link:hover {
+  filter: brightness(1.1);
+}
+
+.header-play {
+  text-decoration: none;
+}
+
 .site-footer {
-  display: grid;
-  justify-items: center;
-  gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
   margin-top: auto;
-  padding: 1.5rem var(--gutter) 1.25rem;
+  padding: 1.25rem var(--gutter);
   color: var(--muted);
   font-size: 0.8rem;
   text-align: center;
@@ -169,7 +184,7 @@ code {
 }
 
 .site-footer p {
-  margin: 0.25rem 0;
+  margin: 0;
 }
 
 /* Layout */
@@ -580,6 +595,68 @@ kbd {
 
 .review-explanation {
   color: var(--muted);
+}
+
+/* Privacy page */
+
+.privacy-layout {
+  width: min(100%, 54rem);
+  margin: 0 auto;
+  padding: 1rem var(--gutter) 2rem;
+}
+
+.privacy-card {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background: var(--surface);
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.privacy-heading {
+  margin: 0 0 0.75rem;
+  font-family: var(--pixel-font);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.4;
+}
+
+.privacy-sections {
+  margin-top: 1.75rem;
+  border-top: 2px solid var(--border);
+}
+
+.privacy-section {
+  padding: 1.5rem 0;
+  border-bottom: 2px solid var(--surface-raised);
+}
+
+.privacy-section:last-child {
+  border-bottom: none;
+}
+
+.privacy-section h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--pixel-font);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1.4;
+}
+
+.privacy-section p {
+  margin: 0.5rem 0 0;
+  color: var(--text);
+}
+
+.privacy-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.privacy-actions .button {
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

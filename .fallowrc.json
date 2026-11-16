@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/fallow/schema.json",
-  "entry": ["src/main.ts", "scripts/render-assets.ts"],
+  "entry": ["src/main.ts", "src/privacy.ts", "scripts/render-assets.ts"],
   "ignorePatterns": ["**/*.css"],
   "rules": {
     "unused-files": "error",

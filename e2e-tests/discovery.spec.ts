@@ -32,7 +32,25 @@ test("serves the sitemap and llms.txt", async ({ page }) => {
   const llmsText = await llms?.text();
 
   expect(sitemapText).toContain(`<loc>${CANONICAL}</loc>`);
+  expect(sitemapText).toContain(`<loc>${CANONICAL}privacy/</loc>`);
   expect(llmsText).toMatch(/^# Save Indy!/u);
+  expect(llmsText).toContain(`${CANONICAL}privacy/`);
+});
+
+test("serves the privacy and legal notice page", async ({ page }) => {
+  await page.goto("/privacy/");
+
+  await expect(
+    page.getByRole("heading", { name: "Privacy & Legal Notice" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Play", exact: true }),
+  ).toBeVisible();
+
+  // The footer link on the home page navigates to privacy.
+  await page.goto("/");
+  await page.getByRole("link", { name: "Privacy" }).click();
+  await expect(page).toHaveURL(/\/privacy\/$/u);
 });
 
 test("ships a noindex 404 page that links back to the game", async ({
