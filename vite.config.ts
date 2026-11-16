@@ -119,6 +119,12 @@ export default defineConfig({
   build: {
     // The font ships as WOFF2 only; inlining it would defeat caching.
     assetsInlineLimit: 0,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        privacy: "privacy/index.html",
+      },
+    },
   },
   run: {
     tasks: {
@@ -172,7 +178,12 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       include: ["src/**/*.ts"],
-      exclude: ["src/**/*.test.ts", "src/**/*.fixture.ts", "src/main.ts"],
+      exclude: [
+        "src/**/*.test.ts",
+        "src/**/*.fixture.ts",
+        "src/main.ts",
+        "src/privacy.ts",
+      ],
       reportsDirectory: "coverage",
       reporter: ["text", "html", "lcov"],
       thresholds: {

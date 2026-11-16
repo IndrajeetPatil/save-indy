@@ -47,9 +47,9 @@ every missed question with its answer and explanation.
 ## Privacy
 
 The game keeps only your mute setting, in your browser. Visits are counted
-with Google Analytics, as on every page of
-[indrapatil.com](https://www.indrapatil.com/privacy/); your answers are never
-sent anywhere.
+with Google Analytics, as on every page of indrapatil.com; your answers are
+never sent anywhere. See the [privacy and legal notice](https://www.indrapatil.com/save-indy/privacy/)
+for details.
 
 ## Contributing
 

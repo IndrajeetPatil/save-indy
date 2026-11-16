@@ -47,6 +47,9 @@ const STATES: Record<string, (page: Page) => Promise<void>> = {
     await startGame(page);
     await playToEnd(page, false);
   },
+  "privacy page": async (page) => {
+    await page.goto("/privacy/");
+  },
 };
 
 const LAYOUTS = {

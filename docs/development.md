@@ -33,12 +33,13 @@ _Save Indy!_ is a TypeScript single-page app built with
 | Path                                    | Contents                                                                               |
 | --------------------------------------- | -------------------------------------------------------------------------------------- |
 | `index.html`                            | Page markup: scene, stats, and the three screens                                       |
+| `privacy/index.html`                    | Privacy and legal notice page                                                          |
 | `src/questions.ts`                      | The question bank, with an explanation for every answer                                |
 | `src/game.ts`                           | Pure game rules: scoring, outcomes, and question order                                 |
 | `src/app.ts`, `view.ts`                 | The controller and the DOM rendering it drives                                         |
 | `src/scene/`                            | Pixel art, sprites, and the animated canvas scene                                      |
 | `src/audio.ts`, `sounds.ts`, `mixer.ts` | Synthesised sound effects, their voices, and the reverb mix                            |
-| `src/analytics.ts`                      | Google Analytics, skipped on localhost                                                 |
+| `src/analytics.ts`, `privacy.ts`        | Google Analytics and the privacy page entry point                                      |
 | `e2e-tests/`                            | Playwright gameplay tests and axe accessibility audits                                 |
 | `public/`                               | Icons, manifest, social image, sitemap, `llms.txt`, 404 page, and the old-URL redirect |
 | `scripts/render-assets.ts`              | Renders the PNG icons and social image from the game                                   |
