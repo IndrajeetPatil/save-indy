@@ -27,10 +27,8 @@ jobs:
           node-version-file: .node-version
           cache-toolchain: true
           cache: true
-          run-install: false
-
-      - name: Install dependencies
-        run: vp install --frozen-lockfile -- --loglevel=warn
+          run-install: |
+            args: [--frozen-lockfile, --, --loglevel=warn]
 
       - name: Build
         run: vp build
