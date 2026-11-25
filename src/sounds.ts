@@ -1,7 +1,6 @@
 import { NOISE_SECONDS } from "./mixer.ts";
 import type { Mixer } from "./mixer.ts";
 
-const ATTACK_SECONDS = 0.005;
 const SILENT_GAIN = 0.0001;
 
 /** The whoosh lasts as long as the drawn whip takes to reach the snake. */
@@ -104,18 +103,20 @@ interface Envelope {
   readonly start: number;
   readonly peak: number;
   readonly end: number;
-  readonly attack?: number;
+  readonly attack: number;
 }
 
 /**
  * Shape a gain into a quick attack and an exponential decay.
  * @param gain Parameter to automate.
- * @param envelope Start time, peak level, end time, and optional attack.
+ * @param envelope Start time, peak level, end time, and attack.
  */
 function applyEnvelope(gain: AudioParam, envelope: Envelope): void {
-  const attack = envelope.attack ?? ATTACK_SECONDS;
   gain.setValueAtTime(SILENT_GAIN, envelope.start);
-  gain.exponentialRampToValueAtTime(envelope.peak, envelope.start + attack);
+  gain.exponentialRampToValueAtTime(
+    envelope.peak,
+    envelope.start + envelope.attack,
+  );
   gain.exponentialRampToValueAtTime(SILENT_GAIN, envelope.end);
 }
 

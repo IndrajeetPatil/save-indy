@@ -50,8 +50,8 @@ type IconName = keyof typeof ICON_PATHS;
 const SVG_NS = "http://www.w3.org/2000/svg";
 const VIEW_BOX = "0 0 16 16";
 
-const isIconName = (value: string): value is IconName =>
-  Object.hasOwn(ICON_PATHS, value);
+const isIconName = (value: string | undefined): value is IconName =>
+  value !== undefined && Object.hasOwn(ICON_PATHS, value);
 
 /**
  * Build a decorative inline SVG icon; the control around it carries the name.
@@ -93,7 +93,7 @@ function iconMarkup(name: string): string | undefined {
  */
 function fillIcons(root: Document): void {
   for (const slot of root.querySelectorAll<HTMLElement>("[data-icon]")) {
-    const name = slot.dataset["icon"] ?? "";
+    const name = slot.dataset["icon"];
     if (isIconName(name)) {
       slot.replaceWith(makeIcon(root, name));
     }
