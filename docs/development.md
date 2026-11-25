@@ -55,7 +55,7 @@ _Save Indy!_ is a TypeScript single-page app built with
 | -------------------------- | ---------------------------------------------------------------------------------------------- |
 | Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                        |
 | Git hooks                  | prek: file hygiene, gitleaks, rumdl, typos, and Conventional Commit messages                   |
-| CSS lint                   | Biome                                                                                          |
+| CSS code quality           | `@projectwallace/css-code-quality`: performance ≥ 90, maintainability ≥ 80, complexity ≥ 90    |
 | Unit tests                 | Vitest in real Chromium, with 100% statement, branch, function, and line coverage              |
 | Dead code and complexity   | Fallow                                                                                         |
 | Type coverage              | `type-coverage` at 100%                                                                        |

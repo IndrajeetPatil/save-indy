@@ -196,12 +196,12 @@ importers:
       '@axe-core/playwright':
         specifier: ^4.14.0
         version: 4.14.0(playwright-core@1.65.0)
-      '@biomejs/biome':
-        specifier: ^2.6.6
-        version: 2.6.6
       '@playwright/test':
         specifier: ^1.65.0
         version: 1.65.0
+      '@projectwallace/css-code-quality':
+        specifier: ^3.1.5
+        version: 3.1.5
       '@types/node':
         specifier: ^26.6.6
         version: 26.6.6
@@ -269,75 +269,6 @@ packages:
   '@bcoe/v8-coverage@1.0.2':
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
-
-  '@biomejs/biome@2.6.6':
-    resolution: {integrity: sha512-NCgVJRyrU1+hsW1ILNaRqNAb9fRL4n49bwyef+wjVJQ488/bXbp0BfnNqTTExkiNQT3ugkgYKR1vK8NxsjlNSQ==}
-    engines: {node: '>=14.21.3'}
-    hasBin: true
-
-  '@biomejs/cli-android-arm64@2.6.6':
-    resolution: {integrity: sha512-bicnqNNxEX7pjkDQaptYvPRIWDfgXJLl/Ok7iZjC+F1AhfReor3FSS7SgPYnOvUy/jf++5U/KYN4T8OKH5rrNA==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [android]
-
-  '@biomejs/cli-android-x64@2.6.6':
-    resolution: {integrity: sha512-N443kDSElF4kDMKjarsL+ymj/ewLA5R9VAdawA7fJ7pwgN3JVDZp0K+xhKBglH8EwsKi2+K8xC6WxXSkgziFfw==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [android]
-
-  '@biomejs/cli-darwin-arm64@2.6.6':
-    resolution: {integrity: sha512-/vSAqWx3by3p8w5ew+HVJDgguuaTK3U6Fb5gk/oDUH21iWOopm3gOlhT6tZfy5mTaM5R4CVc3uFWkxBtEDrKyw==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@biomejs/cli-darwin-x64@2.6.6':
-    resolution: {integrity: sha512-lLdOAJKbrAoDs+3GvTyVmMW345D9IhrIE3GgoL2eeHwO1boN4VhrSlALtFYsP0p+Jy4udUp4bTguij0qjKrH8w==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@biomejs/cli-linux-arm64-musl@2.6.6':
-    resolution: {integrity: sha512-rw2Vsoi/WZGDyRjMXx9KZH9zsHe79LIzkdWHkLqsIkeKZm6qiGxtiIApxn7cmJSoEPaSvHaH5pRj1FhTcyL/XA==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
-  '@biomejs/cli-linux-arm64@2.6.6':
-    resolution: {integrity: sha512-UzJdUCg9dbEGpZOuZRyehEPrnwKjx9z4Um7sWLG5x6txu7UjeWdJZuBXVGlyAdD39w2Hx0nZeK1jKC4NFUTCNQ==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-
-  '@biomejs/cli-linux-x64-musl@2.6.6':
-    resolution: {integrity: sha512-DiKejs+GnFbOVQsBnukUpiB+T13tqUDFGwwjsTq51vatAsaflzFzVD0BOgjVUGRrqKgE0K0Xf+wNtkcmdN2chw==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
-  '@biomejs/cli-linux-x64@2.6.6':
-    resolution: {integrity: sha512-l8/aPXc1cz8VpUyd4hb5Pm5zx+X3voQBks4aLYbp5pC8KSchuHyvqDfY5xax39qCHomI/2xn6NKEot+zebG38g==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
-  '@biomejs/cli-win32-arm64@2.6.6':
-    resolution: {integrity: sha512-DjVXwQAQeHrO1JEZAEus54k40Tnh4glyU3VFLcDBKwoz0xnxCEnqw6TCMXoujcQMQynWd3AY8bLrbR1o0XNqow==}
-    engines: {node: '>=14.21.3'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@biomejs/cli-win32-x64@2.6.6':
-    resolution: {integrity: sha512-B7KMG26A4I9lAuxwBGMmiVcjMGAeJRoz+pzFt9brRvOAsIrgOu8ptJld5rUWui6tM1uiJwxeJhhDPuAiZtxXdw==}
-    engines: {node: '>=14.21.3'}
-    cpu: [x64]
-    os: [win32]
 
   '@blazediff/core@1.10.0':
     resolution: {integrity: sha512-AOQff0zgR7cGsZL+4E7hVkmujoPUpm0J9xzWGWZj5wCjd3gmxESXAPfKyuzs93VdpQNFhHlBhfOjrcZ+XTERtQ==}
@@ -690,6 +621,18 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@projectwallace/css-analyzer@9.9.9':
+    resolution: {integrity: sha512-pUgHk23C4FrZjyRmkzHzNq7mgZ7l8jc8M44XsNqOH/1EwPzupqD5BKK8ED5Dj1jzP2IyYsAJwZqgyrONH1MUFw==}
+    engines: {node: '>=18.0.0', pnpm: '>=11.0.0'}
+
+  '@projectwallace/css-code-quality@3.1.5':
+    resolution: {integrity: sha512-ST6bMvtw28FNeXgwsALkGF4T2lwgrpg7zLEt6K95y5ytHlTeQdM5sZpEw5ugtpaS1aodMPau8oyVTXvVHRWzHw==}
+    engines: {node: '>=16.0.0', pnpm: '>=11.16.0'}
+
+  '@projectwallace/css-parser@0.20.0':
+    resolution: {integrity: sha512-DACi18aYryfiiEs/orFYB+1aE9uPkq8DmwwOkrKZydbwqPnP0hUl+0xESnIfbld2p2zF23ufJNfBZyV3HQD0/g==}
+    engines: {pnpm: '>=11.0.0'}
 
   '@testing-library/dom@10.4.2':
     resolution: {integrity: sha512-yzr2S9HyAIdhz2/6qHgbs665Q7PKVcDF05vsOlHPxG1mo36gKVesdYVeDLnXgfjJ03CrKRk08knc6+E/9m8v2Q==}
@@ -1531,10 +1474,12 @@ packages:
   yuku-core@0.19.0:
     resolution: {integrity: sha512-kYK9e1XdfirNhkipzW0wmMcSWcVF/CWnuugodfVYRCUwvoBefweL9HzB96OiKEhsx78V5WbUxbJqlizMX869Qg==}
     engines: {node: '>=14.18.0'}
+    deprecated: 'Yuku is now one package with one core. Use "yuku" instead: https://yuku.fyi/javascript/. Existing installs keep working but get no more fixes.'
 
   yuku-parser@0.19.0:
     resolution: {integrity: sha512-XrBh9ZiQK5mJVRxZBAvD6LwRyAYrK3MFtH3+onyuxFL5hFD44EC3QOmIC1FjTj6H2MMwq46/NAI+NZxLZPZgxg==}
     engines: {node: '>=14.18.0'}
+    deprecated: 'Yuku is now one package with one core. Use "yuku" instead: https://yuku.fyi/javascript/. Existing installs keep working but get no more fixes.'
 
 snapshots:
 
@@ -1565,49 +1510,6 @@ snapshots:
       '@babel/helper-validator-identifier': 7.29.7
 
   '@bcoe/v8-coverage@1.0.2': {}
-
-  '@biomejs/biome@2.6.6':
-    optionalDependencies:
-      '@biomejs/cli-android-arm64': 2.6.6
-      '@biomejs/cli-android-x64': 2.6.6
-      '@biomejs/cli-darwin-arm64': 2.6.6
-      '@biomejs/cli-darwin-x64': 2.6.6
-      '@biomejs/cli-linux-arm64': 2.6.6
-      '@biomejs/cli-linux-arm64-musl': 2.6.6
-      '@biomejs/cli-linux-x64': 2.6.6
-      '@biomejs/cli-linux-x64-musl': 2.6.6
-      '@biomejs/cli-win32-arm64': 2.6.6
-      '@biomejs/cli-win32-x64': 2.6.6
-
-  '@biomejs/cli-android-arm64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-android-x64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-darwin-arm64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-darwin-x64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-linux-arm64-musl@2.6.6':
-    optional: true
-
-  '@biomejs/cli-linux-arm64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-linux-x64-musl@2.6.6':
-    optional: true
-
-  '@biomejs/cli-linux-x64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-win32-arm64@2.6.6':
-    optional: true
-
-  '@biomejs/cli-win32-x64@2.6.6':
-    optional: true
 
   '@blazediff/core@1.10.0': {}
 
@@ -1791,6 +1693,16 @@ snapshots:
       playwright: 1.65.0
 
   '@polka/url@1.0.0-next.29': {}
+
+  '@projectwallace/css-analyzer@9.9.9':
+    dependencies:
+      '@projectwallace/css-parser': 0.20.0
+
+  '@projectwallace/css-code-quality@3.1.5':
+    dependencies:
+      '@projectwallace/css-analyzer': 9.9.9
+
+  '@projectwallace/css-parser@0.20.0': {}
 
   '@testing-library/dom@10.4.2':
     dependencies:

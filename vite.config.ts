@@ -135,7 +135,7 @@ export default defineConfig({
         command: [
           "vp run check --fix",
           "prek run --all-files",
-          "vp run lint:css",
+          "vp run css-quality",
           "vp test --coverage",
           "vp pm audit -- --audit-level=moderate",
           "vp run fallow",
