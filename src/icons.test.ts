@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vite-plus/test";
 
-import { fillIcons, iconText, makeIcon } from "./icons.ts";
+import { fillIcons, iconMarkup, iconText, makeIcon } from "./icons.ts";
 
 describe(makeIcon, () => {
   test("draws a decorative SVG that assistive technology skips", () => {
@@ -25,6 +25,21 @@ describe(fillIcons, () => {
 
     expect(document.body.querySelectorAll("svg.icon")).toHaveLength(1);
     expect(document.body.contains(unknown)).toBe(true);
+  });
+});
+
+describe(iconMarkup, () => {
+  test("renders the same decorative SVG as markup for the build", () => {
+    const markup = String(iconMarkup("bug"));
+
+    const parsed = new DOMParser().parseFromString(markup, "text/html").body
+      .firstElementChild;
+
+    expect(parsed?.isEqualNode(makeIcon(document, "bug"))).toBe(true);
+  });
+
+  test("leaves unknown icon names to the caller", () => {
+    expect(iconMarkup("dragon")).toBeUndefined();
   });
 });
 

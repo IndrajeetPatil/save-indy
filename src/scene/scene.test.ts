@@ -47,6 +47,15 @@ const pixels = (canvas: HTMLCanvasElement) =>
   canvas.getContext("2d")?.getImageData(0, 0, canvas.width, canvas.height)
     .data ?? [];
 
+describe(context2d, () => {
+  test("fails loudly when the browser has no 2D canvas", () => {
+    const canvas = document.createElement("canvas");
+    vi.spyOn(canvas, "getContext").mockReturnValue(null);
+
+    expect(() => context2d(canvas)).toThrow("Canvas 2D is unavailable.");
+  });
+});
+
 describe(paintBackground, () => {
   test("is fully opaque, so no earlier frame can show through", () => {
     const background = paintBackground();

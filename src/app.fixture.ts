@@ -58,7 +58,8 @@ interface Fixture {
   readonly onMuteChange: Mock<(muted: boolean) => void>;
 }
 
-const setup = (): Fixture => {
+// Pass `null` to leave the bank out and play with the real questions.
+const setup = (bank: readonly Question[] | null = BANK): Fixture => {
   const parsed = new DOMParser().parseFromString(page, "text/html");
   document.body.replaceChildren(...parsed.body.childNodes);
   const stage = { update: vi.fn<(threat: number, cue: string) => void>() };
@@ -75,7 +76,7 @@ const setup = (): Fixture => {
     stage,
     sound,
     onMuteChange,
-    bank: BANK,
+    ...(bank === null ? {} : { bank }),
     random: inOrder,
   });
   return { stage, sound, onMuteChange };
