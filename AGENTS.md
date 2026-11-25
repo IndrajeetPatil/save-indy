@@ -25,6 +25,14 @@ Run `vp run qa` for implementation changes. Never lower a threshold or disable
 a check to get green. A lint rule may be switched off only with a comment
 saying why, as in `vite.config.ts`.
 
+## Learn from mistakes
+
+When a check fails, a reviewer raises a finding, or you notice a mistake in
+your own work, fix it, then ask what led you to it. If `AGENTS.md` or a doc
+under `docs/` gave missing, ambiguous, or wrong guidance, correct that
+guidance in the same pull request, stating the general rule rather than the
+incident. Never weaken a quality gate instead.
+
 ## Pull requests
 
 Follow these rules without relying on any instructions outside this
