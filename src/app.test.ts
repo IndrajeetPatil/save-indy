@@ -9,6 +9,8 @@ import {
   setup,
   start,
 } from "./app.fixture.ts";
+import { LEVELS } from "./config.ts";
+import { QUESTIONS } from "./questions.ts";
 
 beforeEach(() => {
   document.body.replaceChildren();
@@ -28,6 +30,44 @@ describe("start screen", () => {
       expect.stringContaining("3 questions"),
     ]);
     expect(byId("start-screen").hidden).toBe(false);
+  });
+
+  test("plays the real question bank unless given another", () => {
+    setup(null);
+
+    const counts = [...document.querySelectorAll(".level-count")].map(
+      (count) => count.textContent,
+    );
+
+    expect(counts).toStrictEqual(
+      LEVELS.map(
+        (level) =>
+          `${QUESTIONS.filter((question) => question.level === level).length} questions`,
+      ),
+    );
+  });
+
+  test("keeps the current level when none is picked", () => {
+    setup();
+    for (const input of document.querySelectorAll<HTMLInputElement>(
+      "input[name='level']",
+    )) {
+      input.checked = false;
+    }
+
+    start();
+
+    expect(byId("progress").textContent).toContain("Beginner");
+  });
+
+  test("ignores the continue button before a game starts", () => {
+    const { stage } = setup();
+    stage.update.mockClear();
+
+    continueGame();
+
+    expect(byId("start-screen").hidden).toBe(false);
+    expect(stage.update).not.toHaveBeenCalled();
   });
 
   test("starts the chosen level and focuses the question", () => {

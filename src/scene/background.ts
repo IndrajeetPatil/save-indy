@@ -35,7 +35,16 @@ function paintBrick(context: Paint, at: Point, stone: string): void {
 }
 
 function pickStone(random: () => number): string {
-  return STONES[Math.floor(random() * STONES.length)] ?? STONES[0];
+  const index = Math.floor(random() * STONES.length);
+  // Select by position so the result is always a stone, with no unreachable
+  // fallback for an index the generator's [0, 1) range never produces.
+  let chosen: string = STONES[0];
+  for (const [at, stone] of STONES.entries()) {
+    if (at === index) {
+      chosen = stone;
+    }
+  }
+  return chosen;
 }
 
 function paintWall(context: Paint, random: () => number): void {

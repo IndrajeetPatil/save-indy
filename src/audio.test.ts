@@ -41,6 +41,30 @@ describe(SoundEffects, () => {
     expect(created).toHaveBeenCalledOnce();
   });
 
+  test("resumes a context the browser suspended or interrupted", () => {
+    vi.spyOn(BaseAudioContext.prototype, "state", "get").mockReturnValue(
+      "suspended",
+    );
+    const resume = vi.spyOn(AudioContext.prototype, "resume");
+    const sound = new SoundEffects(false);
+
+    sound.whip();
+
+    expect(resume).toHaveBeenCalledOnce();
+  });
+
+  test("leaves a running context alone", () => {
+    vi.spyOn(BaseAudioContext.prototype, "state", "get").mockReturnValue(
+      "running",
+    );
+    const resume = vi.spyOn(AudioContext.prototype, "resume");
+    const sound = new SoundEffects(false);
+
+    sound.whip();
+
+    expect(resume).not.toHaveBeenCalled();
+  });
+
   test("builds the temple reverb once and shares it across effects", () => {
     const reverbs = vi.spyOn(globalThis, "ConvolverNode");
     const sound = new SoundEffects(false);

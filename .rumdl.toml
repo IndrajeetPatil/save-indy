@@ -1,0 +1,16 @@
+# rumdl (Markdown linter) configuration. Run: prek run rumdl-check --all-files
+
+[global]
+# Prose is written in long, unwrapped lines so editing a sentence does not
+# reflow the paragraph.
+disable = ["MD013"]
+exclude = ["node_modules"]
+
+[MD026]
+# The game's name, "Save Indy!", ends with an exclamation mark.
+punctuation = ".,;:"
+
+[MD033]
+# The README floats the hex sticker right at a fixed width and shows keys
+# with <kbd>, which Markdown syntax cannot express.
+allowed-elements = ["img", "kbd"]

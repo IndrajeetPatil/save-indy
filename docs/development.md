@@ -19,6 +19,7 @@ _Save Indy!_ is a TypeScript single-page app built with
 | Task                                 | Command                            |
 | ------------------------------------ | ---------------------------------- |
 | Install dependencies                 | `vp install`                       |
+| Install the Git hooks                | `prek install`                     |
 | Start the dev server with hot reload | `vp dev`                           |
 | Run every check, as CI does          | `vp run qa`                        |
 | Format, lint, and type-check         | `vp check`                         |
@@ -53,8 +54,9 @@ _Save Indy!_ is a TypeScript single-page app built with
 | Gate                       | Tool                                                                                           |
 | -------------------------- | ---------------------------------------------------------------------------------------------- |
 | Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                        |
+| Git hooks                  | prek: file hygiene, gitleaks, rumdl, typos, and Conventional Commit messages                   |
 | CSS lint                   | Biome                                                                                          |
-| Unit tests                 | Vitest in real Chromium, with coverage thresholds                                              |
+| Unit tests                 | Vitest in real Chromium, with 100% statement, branch, function, and line coverage              |
 | Dead code and complexity   | Fallow                                                                                         |
 | Type coverage              | `type-coverage` at 100%                                                                        |
 | Dependency audit           | `pnpm audit` at moderate severity                                                              |

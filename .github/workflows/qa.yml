@@ -29,6 +29,8 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # The secret scan reads the full history.
+          fetch-depth: 0
           persist-credentials: false
 
       # Vite+ provisions Node from .node-version and pnpm from packageManager.
@@ -47,6 +49,22 @@ jobs:
       # The same gates as `vp run qa`, as separate steps with readable logs.
       - name: Format, lint, and types
         run: vp check --deny-warnings
+
+      # The Vite+ hook runs in the step above, and gitleaks scans the full
+      # history in the step below rather than the (empty) staged diff.
+      - name: Git hooks
+        uses: j178/prek-action@7b101f8338a08d2bd6fdb3625e4e7692428763a3 # v3.1.1
+        with:
+          prek-version: latest-known
+          extra-args: --all-files --stage pre-commit
+        env:
+          SKIP: vite-plus,gitleaks
+
+      - name: Secret scan (gitleaks, full history)
+        run: >-
+          docker run --rm -v "$PWD":/repo -w /repo
+          zricethezav/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f
+          git --log-opts="--all" --redact --no-banner --log-level=warn .
 
       - name: CSS lint
         run: vp run lint:css

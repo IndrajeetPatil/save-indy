@@ -67,7 +67,7 @@ function countByLevel(bank: readonly Question[]): Record<Level, number> {
  * @param state Game state right after an answer.
  * @returns The animation and sound that the answer deserves.
  */
-function cueFor(state: GameState): Cue {
+function cueFor(state: GameState): Exclude<Cue, "reset"> {
   const result = outcome(state);
   if (result === "won" || result === "lost") {
     return result;
@@ -155,16 +155,13 @@ class App {
 
   #ask(game: GameState): void {
     renderQuestion(this.#view, game, (choice) => {
-      this.#choose(choice);
+      this.#choose(game, choice);
     });
     this.#view.question.focus();
   }
 
-  #choose(choice: string): void {
-    if (this.#game === null) {
-      return;
-    }
-    const game = answer(this.#game, choice);
+  #choose(asked: GameState, choice: string): void {
+    const game = answer(asked, choice);
     this.#game = game;
     const cue = cueFor(game);
     this.#playSound(cue);
@@ -196,7 +193,7 @@ class App {
     this.#view.result.focus();
   }
 
-  #playSound(cue: Cue): void {
+  #playSound(cue: Exclude<Cue, "reset">): void {
     const effects: Record<Exclude<Cue, "reset">, () => void> = {
       correct: () => {
         this.#sound.whip();
@@ -211,9 +208,7 @@ class App {
         this.#sound.lose();
       },
     };
-    if (cue !== "reset") {
-      effects[cue]();
-    }
+    effects[cue]();
   }
 
   #toggleMute(): void {

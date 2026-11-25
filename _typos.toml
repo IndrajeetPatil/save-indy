@@ -1,0 +1,3 @@
+[default.extend-words]
+# Packt Publishing, cited in the README.
+Packt = "Packt"

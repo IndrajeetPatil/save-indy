@@ -134,6 +134,7 @@ export default defineConfig({
       qa: {
         command: [
           "vp run check --fix",
+          "prek run --all-files",
           "vp run lint:css",
           "vp test --coverage",
           "vp pm audit -- --audit-level=moderate",
@@ -187,10 +188,10 @@ export default defineConfig({
       reportsDirectory: "coverage",
       reporter: ["text", "html", "lcov"],
       thresholds: {
-        statements: 90,
-        branches: 80,
-        functions: 90,
-        lines: 90,
+        statements: 100,
+        branches: 100,
+        functions: 100,
+        lines: 100,
       },
     },
     // Undo `vi.spyOn` and `vi.stubGlobal` before each test so spies and stubs

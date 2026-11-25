@@ -7,7 +7,9 @@ import { setRichText } from "./text.ts";
 import { LEVEL_NAMES } from "./view.ts";
 import type { View } from "./view.ts";
 
-const RESULTS: Record<Exclude<Outcome, "playing">, string> = {
+// The end screen only shows once a game is over, so "playing" never displays.
+const RESULTS: Record<Outcome, string> = {
+  playing: "",
   won: "You saved Indy!",
   lost: "The snake got Indy!",
   "out-of-questions": "Out of questions! Indy is still trapped.",
@@ -42,7 +44,7 @@ function renderEnd(view: View, state: GameState): void {
   const result = outcome(state);
   const answered = state.index + 1;
   const percent = Math.round((state.correct / answered) * PERCENT);
-  view.result.textContent = result === "playing" ? "" : RESULTS[result];
+  view.result.textContent = RESULTS[result];
   view.result.dataset["result"] = result;
   view.summary.textContent = `${LEVEL_NAMES[state.level]}: ${state.correct}/${answered} correct (${percent}%)`;
   view.reviewList.replaceChildren(
