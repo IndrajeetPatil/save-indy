@@ -50,16 +50,6 @@ jobs:
       - name: Format, lint, and types
         run: vp check --deny-warnings
 
-      # The Vite+ hook runs in the step above, and gitleaks scans the full
-      # history in the step below rather than the (empty) staged diff.
-      - name: Git hooks
-        uses: j178/prek-action@7b101f8338a08d2bd6fdb3625e4e7692428763a3 # v3.1.1
-        with:
-          prek-version: latest-known
-          extra-args: --all-files --stage pre-commit
-        env:
-          SKIP: vite-plus,gitleaks
-
       - name: Secret scan (gitleaks, full history)
         run: >-
           docker run --rm -v "$PWD":/repo -w /repo
