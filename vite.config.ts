@@ -129,7 +129,10 @@ export default defineConfig({
   run: {
     tasks: {
       // Fixing source files must always execute, even with `vp run --cache`.
-      check: { command: "vp check --deny-warnings", cache: false },
+      check: {
+        command: "vp check --deny-warnings --continue-on-error",
+        cache: false,
+      },
       build: { command: "vp build" },
       qa: {
         command: [

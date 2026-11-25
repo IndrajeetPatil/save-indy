@@ -48,7 +48,7 @@ jobs:
 
       # The same gates as `vp run qa`, as separate steps with readable logs.
       - name: Format, lint, and types
-        run: vp check --deny-warnings
+        run: vp check --deny-warnings --continue-on-error
 
       - name: Secret scan (gitleaks, full history)
         run: >-

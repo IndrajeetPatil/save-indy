@@ -73,6 +73,6 @@ repo = "local"
 id = "vite-plus"
 name = "Vite+ format, lint, and types"
 language = "system"
-entry = "vp check --deny-warnings"
+entry = "vp check --deny-warnings --continue-on-error"
 files = "\\.([cm]?[jt]sx?|json|css|html|md|ya?ml|toml)$"
 pass_filenames = false
