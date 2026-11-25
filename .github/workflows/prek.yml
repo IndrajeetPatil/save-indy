@@ -43,7 +43,8 @@ jobs:
           run-install: |
             args: [--frozen-lockfile]
 
-      # A hook that rewrites a file fails the step.
+      # A hook that rewrites a file fails the step. No GitHub token is passed:
+      # hooks here run project code such as vite.config.ts.
       - name: Run prek hooks
         uses: j178/prek-action@7b101f8338a08d2bd6fdb3625e4e7692428763a3 # v3.1.1
         with:
@@ -51,6 +52,3 @@ jobs:
           # download stays checksum-verified and moves with the action pin.
           prek-version: latest-known
           extra-args: --all-files --stage pre-commit
-        env:
-          # Read-only token for hooks that call gh, such as actions.lock checks.
-          GH_TOKEN: ${{ github.token }}
