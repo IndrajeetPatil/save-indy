@@ -157,7 +157,7 @@ export default defineConfig({
         cache: false,
       },
       lighthouse: {
-        command: "vp dlx @lhci/cli@0.15.1 autorun",
+        command: "vp dlx @lhci/cli@0.16.1 autorun",
         dependsOn: ["build"],
         cache: false,
       },

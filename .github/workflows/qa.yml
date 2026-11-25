@@ -78,7 +78,7 @@ jobs:
         run: vp exec playwright test
 
       - name: Lighthouse
-        run: vp dlx @lhci/cli@0.15.1 autorun
+        run: vp dlx @lhci/cli@0.16.1 autorun
         env:
           LHCI_GITHUB_TOKEN: ${{ github.token }}
 

@@ -51,17 +51,17 @@ _Save Indy!_ is a TypeScript single-page app built with
 
 `vp run qa` runs the same gates as the [QA workflow](../.github/workflows/qa.yml):
 
-| Gate                       | Tool                                                                                           |
-| -------------------------- | ---------------------------------------------------------------------------------------------- |
-| Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                        |
-| Git hooks                  | prek: file hygiene, gitleaks, rumdl, typos, and Conventional Commit messages                   |
-| CSS code quality           | `@projectwallace/css-code-quality`: performance ≥ 90, maintainability ≥ 80, complexity ≥ 90    |
-| Unit tests                 | Vitest in real Chromium, with 100% statement, branch, function, and line coverage              |
-| Dead code and complexity   | Fallow                                                                                         |
-| Type coverage              | `type-coverage` at 100%                                                                        |
-| Dependency audit           | `pnpm audit` at moderate severity                                                              |
-| Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) in Chromium, desktop Safari (WebKit), and iPhone Safari |
-| Web quality                | Lighthouse CI                                                                                  |
+| Gate                       | Tool                                                                                                                                                                 |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Formatting, lint, types    | Oxfmt and type-aware Oxlint with every rule category on                                                                                                              |
+| Git hooks                  | prek: file hygiene, gitleaks, rumdl, typos, and Conventional Commit messages                                                                                         |
+| CSS code quality           | `@projectwallace/css-code-quality`: performance ≥ 90, maintainability ≥ 80, complexity ≥ 90                                                                          |
+| Unit tests                 | Vitest in real Chromium, with 100% statement, branch, function, and line coverage                                                                                    |
+| Dead code and complexity   | Fallow                                                                                                                                                               |
+| Type coverage              | `type-coverage` at 100%                                                                                                                                              |
+| Dependency audit           | `pnpm audit` at moderate severity                                                                                                                                    |
+| Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) in Chromium, desktop Safari (WebKit), and iPhone Safari                                                                       |
+| Web quality                | Lighthouse CI, median of five mobile runs: accessibility, best practices, SEO, and agentic browsing at 100; performance ≥ 90; LCP ≤ 3 s, CLS ≤ 0.1, and TBT ≤ 200 ms |
 
 ## Adding a question
 
