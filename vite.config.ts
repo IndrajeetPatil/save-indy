@@ -134,6 +134,7 @@ export default defineConfig({
       qa: {
         command: [
           "vp run check --fix",
+          "prek run --all-files",
           "vp run lint:css",
           "vp test --coverage",
           "vp pm audit -- --audit-level=moderate",
