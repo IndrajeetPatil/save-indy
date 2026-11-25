@@ -1,10 +1,5 @@
 name: prek
 
-# Runs the repository's prek hooks on every pull request, after installing
-# Vite+ and the locked dependencies. Copied as .github/workflows/prek.yml,
-# identical in every non-template web-app repository. The hook config alone
-# decides what runs, so a hook that should never run is left out of the
-# config, not skipped here.
 on:
   pull_request:
     branches: [main]
@@ -12,43 +7,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   prek:
-    name: prek hooks
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-
-    steps:
-      - name: Restrict to IndrajeetPatil repositories
-        if: github.repository_owner != 'IndrajeetPatil'
-        run: |
-          echo "::error::This workflow is private and only available to repositories under IndrajeetPatil."
-          exit 1
-
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      # Hooks such as `vp check` need the locked project dependencies.
-      - name: Install Vite+ and dependencies
-        uses: voidzero-dev/setup-vp@cab1ab9eaff52d4857875f4f2c016e36af8f2c76 # v1.22.0
-        with:
-          node-version-file: .node-version
-          cache: true
-          cache-toolchain: true
-          run-install: |
-            args: [--frozen-lockfile]
-
-      # A hook that rewrites a file fails the step. No GitHub token is passed:
-      # hooks here run project code such as vite.config.ts.
-      - name: Run prek hooks
-        uses: j178/prek-action@7b101f8338a08d2bd6fdb3625e4e7692428763a3 # v3.1.1
-        with:
-          # Newest prek in this action revision's SHA256 table, so every
-          # download stays checksum-verified and moves with the action pin.
-          prek-version: latest-known
-          extra-args: --all-files --stage pre-commit
+    uses: IndrajeetPatil/workflows/.github/workflows/prek-web-app.yml@main
