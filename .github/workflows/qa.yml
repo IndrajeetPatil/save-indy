@@ -21,10 +21,6 @@ env:
 jobs:
   qa:
     runs-on: ubuntu-latest
-    # Lighthouse CI posts its results as commit statuses.
-    permissions:
-      contents: read
-      statuses: write
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -46,7 +42,7 @@ jobs:
       - name: Install Playwright browsers
         run: vp exec playwright install --with-deps chromium webkit
 
-      # The same gates as `vp run qa`, as separate steps with readable logs.
+      # The non-Lighthouse gates from `vp run qa`, with readable step logs.
       - name: Format, lint, and types
         run: vp check --deny-warnings --continue-on-error
 
@@ -76,11 +72,6 @@ jobs:
 
       - name: End-to-end and accessibility tests
         run: vp exec playwright test
-
-      - name: Lighthouse
-        run: vp dlx @lhci/cli@0.16.1 autorun
-        env:
-          LHCI_GITHUB_TOKEN: ${{ github.token }}
 
       - name: Upload test reports
         if: ${{ failure() }}

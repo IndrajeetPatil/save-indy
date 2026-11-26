@@ -21,6 +21,13 @@ deployed to GitHub Pages. Start with the [README](README.md) and the
 
 ## Checks
 
+Keep Lighthouse in a self-contained `lighthouse.yml` workflow named
+`Lighthouse`. Exclude privacy pages, use native LHCI assertion output for
+coloured measurements, and retain report artifacts after failures. Cache
+setup dependencies and the toolchain, but always collect fresh measurements.
+Do not introduce a shared action, reusable Lighthouse workflow, or custom
+reporter.
+
 Run `vp run qa` for implementation changes. Never lower a threshold or disable
 a check to get green. A lint rule may be switched off only with a comment
 saying why, as in `vite.config.ts`.
