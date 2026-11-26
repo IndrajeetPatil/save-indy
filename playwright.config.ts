@@ -34,7 +34,7 @@ export default defineConfig({
   ],
   // Exercise the production build, including its Content Security Policy.
   webServer: {
-    command: `vp build && vp preview --host 127.0.0.1 --port ${PORT} --strictPort`,
+    command: `vp build --logLevel warn && vp preview --host 127.0.0.1 --port ${PORT} --strictPort`,
     url: BASE_URL,
     reuseExistingServer: !isCI,
   },

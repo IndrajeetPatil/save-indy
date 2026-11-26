@@ -67,7 +67,7 @@ jobs:
         run: vp run type-coverage
 
       - name: Build
-        run: vp build
+        run: vp build --logLevel warn
 
       - name: Upload test reports
         if: ${{ failure() }}

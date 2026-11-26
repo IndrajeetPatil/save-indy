@@ -133,7 +133,7 @@ export default defineConfig({
         command: "vp check --deny-warnings --continue-on-error",
         cache: false,
       },
-      build: { command: "vp build" },
+      build: { command: "vp build --logLevel warn" },
       qa: {
         command: [
           "vp run check --fix",
