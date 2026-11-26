@@ -49,7 +49,8 @@ _Save Indy!_ is a TypeScript single-page app built with
 
 ## Quality gates
 
-`vp run qa` runs the same gates as the [QA workflow](../.github/workflows/qa.yml):
+`vp run qa` runs the same gates as the [QA workflow](../.github/workflows/qa.yml)
+and the separate [Lighthouse workflow](../.github/workflows/lighthouse.yml):
 
 | Gate                       | Tool                                                                                                                                                                 |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -62,6 +63,14 @@ _Save Indy!_ is a TypeScript single-page app built with
 | Dependency audit           | `pnpm audit` at moderate severity                                                                                                                                    |
 | Gameplay and accessibility | Playwright with axe-core (WCAG 2.2 AA) in Chromium, desktop Safari (WebKit), and iPhone Safari                                                                       |
 | Web quality                | Lighthouse CI, median of five mobile runs: accessibility, best practices, SEO, and agentic browsing at 100; performance ≥ 90; LCP ≤ 3 s, CLS ≤ 0.1, and TBT ≤ 200 ms |
+
+The self-contained `Lighthouse` workflow runs on every pull request and manual
+dispatch, with read-only token permissions. It audits only the main page,
+using the routes and budgets in `.lighthouserc.json`. Native assertion logs
+show actual values, limits, and samples in colour; HTML and JSON reports are
+retained as `lighthouse-reports` artifacts for 14 days, including after
+failures. Setup dependencies and the exact Node/Vite+ toolchain are cached;
+Lighthouse measurements always run afresh. No status token is needed.
 
 ## Adding a question
 
