@@ -179,6 +179,9 @@ export default defineConfig({
       headless: true,
       instances: [{ browser: "chromium" }],
     },
+    // Run test files sequentially in the browser page so concurrent iframe
+    // initializations cannot contend for resources or time out in CI.
+    fileParallelism: false,
     include: ["src/**/*.test.ts"],
     coverage: {
       provider: "v8",
