@@ -25,6 +25,7 @@ Keep Lighthouse in a self-contained `lighthouse.yml` workflow named
 `Lighthouse`. Exclude privacy pages, use native LHCI assertion output for
 coloured measurements, and retain report artifacts after failures. Cache
 setup dependencies and the toolchain, but always collect fresh measurements.
+Use `vp build --logLevel warn` for the Lighthouse build.
 Do not introduce a shared action, reusable Lighthouse workflow, or custom
 reporter.
 

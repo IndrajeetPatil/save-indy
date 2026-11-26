@@ -161,8 +161,7 @@ export default defineConfig({
       },
       lighthouse: {
         command:
-          "vp dlx --silent @lhci/cli@0.16.1 collect && vp dlx --silent @lhci/cli@0.16.1 assert",
-        dependsOn: ["build"],
+          "vp build --logLevel warn && vp dlx --silent @lhci/cli@0.16.1 collect && vp dlx --silent @lhci/cli@0.16.1 assert",
         cache: false,
       },
     },
