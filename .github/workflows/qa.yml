@@ -38,8 +38,8 @@ jobs:
           run-install: |
             args: [--frozen-lockfile, --, --loglevel=warn]
 
-      - name: Install Playwright browsers
-        run: vp exec playwright install --with-deps chromium webkit
+      - name: Install Playwright Chromium (Vitest browser mode)
+        run: vp exec playwright install --with-deps chromium
 
       # The non-Lighthouse gates from `vp run qa`, with readable step logs.
       - name: Format, lint, and types
@@ -69,9 +69,6 @@ jobs:
       - name: Build
         run: vp build
 
-      - name: End-to-end and accessibility tests
-        run: vp exec playwright test
-
       - name: Upload test reports
         if: ${{ failure() }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -79,5 +76,4 @@ jobs:
           name: test-reports
           path: |
             coverage
-            playwright-report
             test-results

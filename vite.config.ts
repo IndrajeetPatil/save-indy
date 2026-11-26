@@ -151,7 +151,6 @@ export default defineConfig({
       },
       "test:e2e": {
         command: "playwright test",
-        dependsOn: ["build"],
         cache: false,
       },
       preview: {
