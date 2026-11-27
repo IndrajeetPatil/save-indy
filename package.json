@@ -12,6 +12,7 @@
   },
   "type": "module",
   "scripts": {
+    "file-naming": "ls-lint",
     "fallow": "fallow doctor --quiet && fallow --fail-on-issues --quiet",
     "type-coverage": "type-coverage --strict --at-least 100",
     "render-assets": "node scripts/render-assets.ts",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@ls-lint/ls-lint": "2.3.2",
     "@playwright/test": "^1.65.0",
     "@projectwallace/css-code-quality": "^3.1.5",
     "@types/node": "^26.6.6",

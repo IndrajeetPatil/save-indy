@@ -15,5 +15,3 @@ concurrency:
 jobs:
   frontend-qa:
     uses: IndrajeetPatil/workflows/.github/workflows/frontend-qa.yaml@main
-    with:
-      install-chromium: true
