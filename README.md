@@ -1,6 +1,6 @@
 # Save Indy! <img src="docs/images/logo.png" align="right" width="240" alt="save-indy hex sticker" />
 
-[![QA](https://github.com/IndrajeetPatil/save-indy/actions/workflows/qa.yml/badge.svg)](https://github.com/IndrajeetPatil/save-indy/actions/workflows/qa.yml)
+[![QA](https://github.com/IndrajeetPatil/save-indy/actions/workflows/frontend-qa.yml/badge.svg)](https://github.com/IndrajeetPatil/save-indy/actions/workflows/frontend-qa.yml)
 [![Deploy](https://github.com/IndrajeetPatil/save-indy/actions/workflows/deploy.yml/badge.svg)](https://github.com/IndrajeetPatil/save-indy/actions/workflows/deploy.yml)
 
 A retro browser game that tests your JavaScript knowledge: answer correctly to
