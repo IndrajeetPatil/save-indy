@@ -73,6 +73,18 @@ args = ["--strict", "--verbose"]
 [[repos]]
 repo = "local"
 
+# Managed environments install only these tools, not the app's dependencies.
+# Keep additional_dependencies aligned with pnpm-lock.yaml.
+[[repos.hooks]]
+id = "ls-lint"
+name = "file naming (pinned ls-lint)"
+language = "node"
+language_version = ">=22"
+additional_dependencies = ["@ls-lint/ls-lint@2.3.2"]
+entry = "node --run file-naming"
+pass_filenames = false
+always_run = true
+
 # Type-aware linting resolves the app's own dependencies, so this hook runs
 # against the locked node_modules from `vp install`.
 [[repos.hooks]]

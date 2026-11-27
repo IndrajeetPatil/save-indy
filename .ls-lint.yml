@@ -1,0 +1,32 @@
+# Directory overrides replace all inherited rules; keep each layer explicit.
+ls:
+  .dir: kebab-case | regex:\.(claude|fallow|github|lighthouseci|rumdl_cache|vitest)
+  .*: kebab-case
+  .md: kebab-case | regex:(README|AGENTS|CLAUDE|LICENSE|CODE_OF_CONDUCT)
+  .toml: kebab-case | regex:_typos
+  .ts: kebab-case
+  .test.ts: kebab-case
+  .fixture.ts: kebab-case
+  .config.ts: kebab-case
+  .html: kebab-case
+  .css: kebab-case
+  .png: kebab-case
+  .mp3: kebab-case
+  .ogg: kebab-case
+  .wav: kebab-case
+  .json: kebab-case | regex:tsconfig
+
+ignore:
+  - .git
+  - .agents/skills
+  - node_modules
+  - .cache
+  - .ruff_cache
+  - .rumdl_cache
+  - .fallow
+  - .lighthouseci
+  - dist
+  - coverage
+  - playwright-report
+  - test-results
+  - LICENSE
