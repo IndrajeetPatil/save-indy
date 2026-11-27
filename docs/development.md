@@ -49,7 +49,7 @@ _Save Indy!_ is a TypeScript single-page app built with
 
 ## Quality gates
 
-`vp run qa` runs the same gates as the [QA workflow](../.github/workflows/qa.yml)
+`vp run qa` runs the same gates as the [QA workflow](../.github/workflows/frontend-qa.yml)
 and the separate [Lighthouse workflow](../.github/workflows/lighthouse.yml):
 
 | Gate                       | Tool                                                                                                                                                                 |

@@ -1,4 +1,4 @@
-name: QA
+name: Frontend QA
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  group: frontend-qa-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
 # Force colour in non-TTY Actions logs.
@@ -18,8 +18,8 @@ env:
   CLICOLOR_FORCE: "1"
 
 jobs:
-  qa:
-    name: QA
+  frontend-qa:
+    name: Frontend QA
     runs-on: ubuntu-latest
 
     steps:

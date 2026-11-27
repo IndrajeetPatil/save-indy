@@ -36,7 +36,7 @@ id = "check-added-large-files"
 repo = "https://github.com/gitleaks/gitleaks"
 rev = "83d9cd684c87d95d656c1458ef04895a7f1cbd8e" # frozen: v8.30.1
 
-# Scans the staged diff; qa.yml scans the full history.
+# Scans the staged diff; frontend-qa.yml scans the full history.
 [[repos.hooks]]
 id = "gitleaks"
 
